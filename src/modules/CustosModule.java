@@ -2,9 +2,8 @@ package modules;
 
 import hochberger.utilities.application.Lifecycle;
 
-import javax.swing.JComponent;
-
 public interface CustosModule extends Lifecycle {
+	public CustosModuleWidget getWidget();
 
-	JComponent getWidget();
+	public void updateWidget();
 }

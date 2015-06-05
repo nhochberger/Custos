@@ -925,3 +925,619 @@ java.lang.NullPointerException
 2015-06-05 11:39:24,034 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
 2015-06-05 11:39:25,018 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
 2015-06-05 11:39:26,000 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:14,330 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:15,095 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:16,079 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:17,061 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:18,045 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:19,028 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:20,012 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:21,104 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:22,090 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:23,073 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:24,056 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:25,039 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:26,023 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:27,006 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:03:28,099 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:04:45,426 FATAL (main): Error while starting application. Shutting down.
+java.lang.NullPointerException
+	at modules.clock.ClockComponent.repaint(ClockComponent.java:50)
+	at javax.swing.JComponent.setFont(Unknown Source)
+	at javax.swing.LookAndFeel.installColorsAndFont(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installDefaults(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installUI(Unknown Source)
+	at javax.swing.JComponent.setUI(Unknown Source)
+	at javax.swing.JPanel.setUI(Unknown Source)
+	at javax.swing.JPanel.updateUI(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at modules.clock.ClockComponent.<init>(ClockComponent.java:27)
+	at modules.clock.Clock.<init>(Clock.java:24)
+	at controller.CustosApplication.main(CustosApplication.java:24)
+2015-06-05 12:06:27,908 FATAL (main): Error while starting application. Shutting down.
+java.lang.NullPointerException
+	at modules.clock.ClockComponent.repaint(ClockComponent.java:52)
+	at javax.swing.JComponent.setFont(Unknown Source)
+	at javax.swing.LookAndFeel.installColorsAndFont(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installDefaults(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installUI(Unknown Source)
+	at javax.swing.JComponent.setUI(Unknown Source)
+	at javax.swing.JPanel.setUI(Unknown Source)
+	at javax.swing.JPanel.updateUI(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at modules.clock.ClockComponent.<init>(ClockComponent.java:27)
+	at modules.clock.Clock.<init>(Clock.java:24)
+	at controller.CustosApplication.main(CustosApplication.java:24)
+2015-06-05 12:06:59,567 FATAL (main): Error while starting application. Shutting down.
+java.lang.NullPointerException
+	at modules.clock.ClockComponent.repaint(ClockComponent.java:52)
+	at javax.swing.JComponent.setFont(Unknown Source)
+	at javax.swing.LookAndFeel.installColorsAndFont(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installDefaults(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installUI(Unknown Source)
+	at javax.swing.JComponent.setUI(Unknown Source)
+	at javax.swing.JPanel.setUI(Unknown Source)
+	at javax.swing.JPanel.updateUI(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at modules.clock.ClockComponent.<init>(ClockComponent.java:27)
+	at modules.clock.Clock.<init>(Clock.java:24)
+	at controller.CustosApplication.main(CustosApplication.java:24)
+2015-06-05 12:07:50,136 FATAL (main): Error while starting application. Shutting down.
+java.lang.NullPointerException
+	at modules.clock.ClockComponent.repaint(ClockComponent.java:52)
+	at javax.swing.JComponent.setFont(Unknown Source)
+	at javax.swing.LookAndFeel.installColorsAndFont(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installDefaults(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installUI(Unknown Source)
+	at javax.swing.JComponent.setUI(Unknown Source)
+	at javax.swing.JPanel.setUI(Unknown Source)
+	at javax.swing.JPanel.updateUI(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at modules.clock.ClockComponent.<init>(ClockComponent.java:27)
+	at modules.clock.Clock.<init>(Clock.java:24)
+	at controller.CustosApplication.main(CustosApplication.java:24)
+2015-06-05 12:08:16,661 FATAL (main): Error while starting application. Shutting down.
+java.lang.NullPointerException
+	at modules.clock.ClockComponent.repaint(ClockComponent.java:53)
+	at javax.swing.JComponent.setFont(Unknown Source)
+	at javax.swing.LookAndFeel.installColorsAndFont(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installDefaults(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installUI(Unknown Source)
+	at javax.swing.JComponent.setUI(Unknown Source)
+	at javax.swing.JPanel.setUI(Unknown Source)
+	at javax.swing.JPanel.updateUI(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at modules.clock.ClockComponent.<init>(ClockComponent.java:27)
+	at modules.clock.Clock.<init>(Clock.java:24)
+	at controller.CustosApplication.main(CustosApplication.java:24)
+2015-06-05 12:09:10,809 FATAL (main): Error while starting application. Shutting down.
+java.lang.NullPointerException
+	at modules.clock.ClockComponent.repaint(ClockComponent.java:53)
+	at javax.swing.JComponent.setFont(Unknown Source)
+	at javax.swing.LookAndFeel.installColorsAndFont(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installDefaults(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installUI(Unknown Source)
+	at javax.swing.JComponent.setUI(Unknown Source)
+	at javax.swing.JPanel.setUI(Unknown Source)
+	at javax.swing.JPanel.updateUI(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at modules.clock.ClockComponent.<init>(ClockComponent.java:27)
+	at modules.clock.Clock.<init>(Clock.java:24)
+	at controller.CustosApplication.main(CustosApplication.java:24)
+2015-06-05 12:09:54,672 FATAL (main): Error while starting application. Shutting down.
+java.lang.NullPointerException
+	at modules.clock.ClockComponent.repaint(ClockComponent.java:53)
+	at javax.swing.JComponent.setFont(Unknown Source)
+	at javax.swing.LookAndFeel.installColorsAndFont(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installDefaults(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installUI(Unknown Source)
+	at javax.swing.JComponent.setUI(Unknown Source)
+	at javax.swing.JPanel.setUI(Unknown Source)
+	at javax.swing.JPanel.updateUI(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at modules.clock.ClockComponent.<init>(ClockComponent.java:27)
+	at modules.clock.Clock.<init>(Clock.java:24)
+	at controller.CustosApplication.main(CustosApplication.java:24)
+2015-06-05 12:10:39,626 FATAL (main): Error while starting application. Shutting down.
+java.lang.NullPointerException
+	at modules.clock.ClockComponent.repaint(ClockComponent.java:53)
+	at javax.swing.JComponent.setFont(Unknown Source)
+	at javax.swing.LookAndFeel.installColorsAndFont(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installDefaults(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installUI(Unknown Source)
+	at javax.swing.JComponent.setUI(Unknown Source)
+	at javax.swing.JPanel.setUI(Unknown Source)
+	at javax.swing.JPanel.updateUI(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at modules.clock.ClockComponent.<init>(ClockComponent.java:27)
+	at modules.clock.Clock.<init>(Clock.java:24)
+	at controller.CustosApplication.main(CustosApplication.java:24)
+2015-06-05 12:13:35,647 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:13:36,084 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:13:37,067 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:13:38,050 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:13:39,036 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:17:25,783 FATAL (main): Error while starting application. Shutting down.
+java.lang.NullPointerException
+	at modules.clock.ClockComponent.repaint(ClockComponent.java:50)
+	at javax.swing.JComponent.setFont(Unknown Source)
+	at javax.swing.LookAndFeel.installColorsAndFont(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installDefaults(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installUI(Unknown Source)
+	at javax.swing.JComponent.setUI(Unknown Source)
+	at javax.swing.JPanel.setUI(Unknown Source)
+	at javax.swing.JPanel.updateUI(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at modules.clock.ClockComponent.<init>(ClockComponent.java:27)
+	at modules.clock.Clock.<init>(Clock.java:24)
+	at controller.CustosApplication.main(CustosApplication.java:24)
+2015-06-05 12:18:39,945 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:18:40,054 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:18:41,037 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:18:42,021 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:18:43,004 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:18:44,099 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:18:45,083 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:18:46,065 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:18:47,049 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:21:29,892 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:21:30,002 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:21:31,094 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:21:32,077 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:21:33,060 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:19,139 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:20,013 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:21,106 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:22,090 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:23,077 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:24,061 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:25,044 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:26,028 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:27,011 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:28,104 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:29,087 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:30,070 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:31,054 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:32,037 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:33,021 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:34,003 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 12:22:35,096 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:34,017 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:35,048 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:36,031 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:37,014 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:38,107 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:39,091 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:40,074 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:41,058 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:42,040 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:43,024 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:44,007 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:45,100 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:46,084 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:47,067 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:48,052 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:49,037 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:50,021 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:51,004 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:52,097 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:53,081 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:54,064 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:55,047 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:56,030 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:57,014 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:58,106 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:47:59,090 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:00,073 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:01,056 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:02,039 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:03,023 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:04,006 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:05,099 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:06,083 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:07,065 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:08,049 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:09,032 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:10,016 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:11,108 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 16:48:12,092 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:04:13,756 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:04:14,099 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:04:15,084 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:04:16,067 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:04:17,050 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:04:18,033 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:04:19,017 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:05:31,187 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:05:32,061 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:05:33,045 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:05:34,027 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:05:35,011 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:07:11,579 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:07:12,016 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:07:13,109 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:07:14,092 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:07:15,077 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:07:16,061 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:47:31,886 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:47:32,104 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:47:32,183 INFO (main): Starting application
+2015-06-05 17:47:33,088 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:47:34,071 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:47:35,055 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:54:27,582 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:54:27,925 INFO (main): Starting application
+2015-06-05 17:54:28,019 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:54:29,002 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:54:30,095 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:54:31,079 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 17:56:51,034 FATAL (main): Error while starting application. Shutting down.
+java.lang.NullPointerException
+	at modules.clock.ClockComponent.repaint(ClockComponent.java:50)
+	at javax.swing.JComponent.setFont(Unknown Source)
+	at javax.swing.LookAndFeel.installColorsAndFont(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installDefaults(Unknown Source)
+	at javax.swing.plaf.basic.BasicPanelUI.installUI(Unknown Source)
+	at javax.swing.JComponent.setUI(Unknown Source)
+	at javax.swing.JPanel.setUI(Unknown Source)
+	at javax.swing.JPanel.updateUI(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at javax.swing.JPanel.<init>(Unknown Source)
+	at modules.clock.ClockComponent.<init>(ClockComponent.java:27)
+	at modules.clock.Clock.<init>(Clock.java:24)
+	at controller.CustosApplication.<init>(CustosApplication.java:44)
+	at controller.CustosApplication.main(CustosApplication.java:29)
+2015-06-05 19:52:04,767 INFO (main): Starting application
+2015-06-05 19:52:04,767 INFO (main): Heartbeat started.
+2015-06-05 19:52:04,782 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:05,002 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:06,094 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:07,077 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:08,060 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:09,044 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:10,027 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:11,011 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:12,103 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:13,086 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:14,069 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:15,053 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:16,036 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:17,020 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:18,003 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:19,096 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:20,079 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:21,064 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:22,049 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:23,032 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:24,018 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:25,000 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:26,093 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:27,077 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:28,060 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:29,044 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:30,027 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:31,010 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:32,102 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:33,086 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:34,069 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:35,053 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:36,036 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:37,019 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:38,002 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:39,095 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:40,079 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:41,062 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:42,046 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:43,028 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:44,012 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:45,104 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:46,088 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:47,071 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:48,055 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:49,037 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:50,021 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:51,004 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:52,097 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:53,081 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:54,066 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:55,049 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:56,032 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:57,016 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:58,108 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:52:59,092 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:00,076 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:01,059 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:02,042 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:03,026 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:04,009 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:05,102 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:06,086 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:07,068 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:08,052 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:09,035 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:10,019 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:11,002 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:12,095 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:13,078 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:14,061 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:15,045 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:16,028 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:17,012 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:18,104 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:19,087 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:20,070 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:21,054 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:22,037 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:23,021 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:24,003 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:25,098 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:26,082 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:27,065 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:28,049 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:29,032 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:30,015 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:31,107 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:32,091 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:33,074 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:34,058 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:35,041 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:36,024 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:37,007 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:38,100 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:39,085 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:40,068 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:41,052 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:42,034 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:43,018 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:44,001 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:45,094 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:46,078 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:47,061 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:48,044 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:49,027 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:50,011 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:51,103 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:52,087 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:53,070 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:54,053 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:55,037 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:56,021 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:57,004 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:58,097 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:53:59,081 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:00,064 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:01,047 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:02,030 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:03,014 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:04,106 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:05,090 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:06,073 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:07,057 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:08,039 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:09,023 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:10,006 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:11,099 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:12,083 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:13,066 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:14,049 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:15,032 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:16,016 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:17,108 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:18,094 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:19,077 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:20,060 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:21,043 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:22,027 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:23,010 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:24,103 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:25,089 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:26,071 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:27,055 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:28,038 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:29,022 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:30,005 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:31,098 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:32,081 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:33,064 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:34,048 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:35,031 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:36,017 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:37,109 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:38,092 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:39,075 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:40,059 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:41,042 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:42,026 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:43,008 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:44,101 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:54:45,085 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:56:51,165 INFO (main): Starting application
+2015-06-05 19:56:51,165 INFO (main): Heartbeat started.
+2015-06-05 19:56:51,181 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:56:52,055 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:56:53,038 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:56:54,021 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:56:55,005 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:57:40,458 INFO (main): Starting application
+2015-06-05 19:57:40,458 INFO (main): Heartbeat started.
+2015-06-05 19:57:40,473 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:57:41,019 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:57:42,003 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:57:43,095 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:57:44,079 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:57:45,062 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:57:46,046 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:57:47,028 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:59:37,728 INFO (main): Starting application
+2015-06-05 19:59:37,728 INFO (main): Heartbeat started.
+2015-06-05 19:59:37,728 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:59:38,055 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:59:39,040 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:59:40,023 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:59:41,008 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:59:42,100 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:59:43,085 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 19:59:44,068 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:00:54,476 INFO (main): Starting application
+2015-06-05 20:00:54,491 INFO (main): Heartbeat started.
+2015-06-05 20:00:54,491 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:00:55,037 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:00:56,022 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:00:57,005 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:00:58,100 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:00:59,085 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:01:00,068 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:01:01,052 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:02:10,233 INFO (main): Starting application
+2015-06-05 20:02:10,233 INFO (main): Heartbeat started.
+2015-06-05 20:02:10,249 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:02:11,013 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:02:12,107 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:02:13,092 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:02:14,075 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:02:15,060 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:33,447 INFO (main): Starting application
+2015-06-05 20:03:33,447 INFO (main): Heartbeat started.
+2015-06-05 20:03:33,447 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:34,009 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:35,102 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:36,086 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:37,068 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:38,054 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:39,037 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:40,023 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:41,006 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:42,099 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:43,082 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:44,065 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:45,049 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:46,032 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:47,016 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:48,108 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:49,091 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:50,074 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:51,058 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 20:03:52,041 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:02:54,065 INFO (main): Starting application
+2015-06-05 21:02:54,081 INFO (main): Heartbeat started.
+2015-06-05 21:02:54,081 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:02:55,065 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:02:56,047 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:02:57,031 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:02:58,014 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:02:59,107 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:00,091 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:01,074 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:02,057 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:03,040 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:04,024 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:05,007 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:06,100 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:07,084 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:08,066 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:09,050 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:10,033 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:11,017 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:12,000 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 21:03:13,093 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:19,956 INFO (main): Starting application
+2015-06-05 23:43:19,956 INFO (main): Heartbeat started.
+2015-06-05 23:43:19,956 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:20,065 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:21,050 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:22,033 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:23,016 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:24,108 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:25,092 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:26,075 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:27,059 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:28,042 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:29,027 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:30,012 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:31,105 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:32,089 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:43:33,072 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:44:15,472 INFO (main): Starting application
+2015-06-05 23:44:15,472 INFO (main): Heartbeat started.
+2015-06-05 23:44:15,488 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:44:16,034 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:44:17,018 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:44:18,000 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:44:19,093 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:44:56,262 INFO (main): Starting application
+2015-06-05 23:44:56,262 INFO (main): Heartbeat started.
+2015-06-05 23:44:56,262 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:44:57,026 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:44:58,010 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:44:59,102 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:45:00,089 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:45:01,071 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:45:02,055 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:45:03,038 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:46:11,928 INFO (main): Starting application
+2015-06-05 23:46:11,928 INFO (main): Heartbeat started.
+2015-06-05 23:46:11,944 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:46:12,053 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:46:13,036 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:46:14,020 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:46:15,002 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:46:16,095 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:12,108 INFO (main): Starting application
+2015-06-05 23:47:12,108 INFO (main): Heartbeat started.
+2015-06-05 23:47:12,108 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:13,091 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:14,075 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:15,058 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:16,042 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:17,024 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:18,008 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:19,102 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:20,086 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:21,069 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:22,053 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:23,035 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:24,019 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:25,002 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:26,095 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:27,079 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:49,160 INFO (main): Starting application
+2015-06-05 23:47:49,160 INFO (main): Heartbeat started.
+2015-06-05 23:47:49,160 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:50,034 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:51,019 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:52,002 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:53,095 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:54,079 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:55,062 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:56,046 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:57,028 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:58,012 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:47:59,104 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:00,088 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:01,071 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:02,055 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:03,037 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:04,022 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:05,005 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:06,098 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:07,082 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:08,065 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:09,048 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:10,031 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:11,015 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:12,107 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:13,091 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:14,074 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:15,057 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:16,040 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:17,024 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 23:48:18,007 DEBUG (ClockThread): Received DateTimeEvent. Repainting.

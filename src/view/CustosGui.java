@@ -1,16 +1,19 @@
 package view;
 
+import hochberger.utilities.eventbus.EventReceiver;
 import hochberger.utilities.gui.ApplicationGui;
 
 import java.util.LinkedList;
 
 import modules.CustosModule;
+import controller.HeartbeatEvent;
 
-public class CustosGui implements ApplicationGui {
+public class CustosGui implements ApplicationGui, EventReceiver<HeartbeatEvent> {
 
 	private final String applicationTitle;
 	private final LinkedList<CustosModule> modules;
 	private final ColorProvider colorProvider;
+	private CustosMainFrame mainFrame;
 
 	public CustosGui(final String applicationTitle, final ColorProvider colorProvider) {
 		super();
@@ -21,11 +24,11 @@ public class CustosGui implements ApplicationGui {
 
 	@Override
 	public void activate() {
-		CustosMainFrame mainFrame = new CustosMainFrame(this.applicationTitle, this.colorProvider);
+		this.mainFrame = new CustosMainFrame(this.applicationTitle, this.colorProvider);
 		for (CustosModule module : this.modules) {
-			mainFrame.addModuleToView(module);
+			this.mainFrame.addModuleToView(module);
 		}
-		mainFrame.show();
+		this.mainFrame.show();
 	}
 
 	@Override
@@ -38,4 +41,11 @@ public class CustosGui implements ApplicationGui {
 		this.modules.add(module);
 	}
 
+	@Override
+	public void receive(final HeartbeatEvent event) {
+		if (null == this.mainFrame) {
+			return;
+		}
+		this.mainFrame.update();
+	}
 }

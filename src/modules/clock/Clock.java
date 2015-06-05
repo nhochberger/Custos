@@ -2,11 +2,7 @@ package modules.clock;
 
 import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.threading.ThreadRunner;
-
-import java.awt.Dimension;
-
-import javax.swing.JComponent;
-
+import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
 
 import org.joda.time.DateTime;
@@ -16,15 +12,13 @@ import edt.EDT;
 
 public class Clock extends VisibleCustosModule {
 
-	private final ClockComponent clockComponent;
+	private final ClockWidget widget;
 
 	public Clock(final BasicSession session, final ColorProvider colorProvider) {
 		super(session, colorProvider);
 		EDT.never();
-		this.clockComponent = new ClockComponent(logger(), colorProvider());
-		this.clockComponent.setPreferredSize(new Dimension(200, 200));
-		this.clockComponent.setSize(this.clockComponent.getPreferredSize());
-		session().getEventBus().register(this.clockComponent, DateTimeEvent.class);
+		this.widget = new ClockWidget(logger(), colorProvider());
+		session().getEventBus().register(this.widget, DateTimeEvent.class);
 	}
 
 	@Override
@@ -52,7 +46,7 @@ public class Clock extends VisibleCustosModule {
 
 			@Override
 			public void run() {
-				Clock.this.clockComponent.build();
+				Clock.this.widget.build();
 			}
 		});
 
@@ -65,8 +59,12 @@ public class Clock extends VisibleCustosModule {
 	}
 
 	@Override
-	public JComponent getWidget() {
-		return this.clockComponent;
+	public CustosModuleWidget getWidget() {
+		return this.widget;
 	}
 
+	@Override
+	public void updateWidget() {
+		getWidget().updateWidget();
+	}
 }
