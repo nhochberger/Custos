@@ -1,6 +1,6 @@
 package view;
 
-import hochberger.utilities.gui.EDTSafeFrame;
+import hochberger.utilities.gui.UndecoratedEDTSafeFrame;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -10,7 +10,7 @@ import javax.swing.JComponent;
 import modules.CustosModule;
 import net.miginfocom.swing.MigLayout;
 
-public class CustosMainFrame extends EDTSafeFrame {
+public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 
 	private final List<CustosModule> widgets;
 	private final ColorProvider colorProvider;
