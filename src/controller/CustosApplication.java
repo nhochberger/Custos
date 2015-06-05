@@ -7,7 +7,7 @@ import hochberger.utilities.eventbus.SimpleEventBus;
 import modules.clock.Clock;
 import view.ColorProvider;
 import view.CustosGui;
-import view.SimpleColorProvider;
+import view.DayTimeAwareColorProvider;
 
 public class CustosApplication extends BasicLoggedApplication {
 
@@ -17,7 +17,7 @@ public class CustosApplication extends BasicLoggedApplication {
 			ApplicationProperties applicationProperties = new ApplicationProperties();
 			BasicSession session = new BasicSession(applicationProperties, new SimpleEventBus(), getLogger());
 
-			ColorProvider colorProvider = new SimpleColorProvider();
+			ColorProvider colorProvider = new DayTimeAwareColorProvider(session);
 
 			CustosGui gui = new CustosGui(applicationProperties.title(), colorProvider);
 
