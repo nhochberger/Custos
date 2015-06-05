@@ -44,14 +44,6 @@ public class ClockComponent extends JPanel implements EventReceiver<DateTimeEven
 		add(this.timeLabel);
 	}
 
-	// @Override
-	// protected void paintComponent(final Graphics g) {
-	// Graphics2D graphics = (Graphics2D) g.create();
-	// graphics.drawString(this.formatter.print(this.time), 10, 10);
-	// graphics.dispose();
-	// super.paintComponent(g);
-	// }
-
 	@Override
 	public void receive(final DateTimeEvent event) {
 		this.time = event.getTime();

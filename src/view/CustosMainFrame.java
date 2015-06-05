@@ -28,7 +28,6 @@ public class CustosMainFrame extends EDTSafeFrame {
 		useLayoutManager(new MigLayout("", "", "25[]:[]:[]:[]25"));
 		frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
 		frame().setAlwaysOnTop(true);
-		// getContentPane().setBackground(Color.DARK_GRAY);
 		for (CustosModule module : this.widgets) {
 			JComponent widget = module.getWidget();
 			add(widget);

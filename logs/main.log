@@ -867,3 +867,10 @@ java.lang.NullPointerException
 2015-06-05 11:18:13,124 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
 2015-06-05 11:18:14,106 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
 2015-06-05 11:18:15,090 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 11:22:23,988 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 11:22:24,097 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 11:22:25,073 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 11:22:26,056 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 11:22:27,039 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 11:22:28,022 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
+2015-06-05 11:22:29,006 DEBUG (ClockThread): Received DateTimeEvent. Repainting.
