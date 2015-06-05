@@ -10,18 +10,20 @@ public class CustosGui implements ApplicationGui {
 
 	private final String applicationTitle;
 	private final LinkedList<CustosModule> modules;
+	private final ColorProvider colorProvider;
 
-	public CustosGui(final String applicationTitle) {
+	public CustosGui(final String applicationTitle, final ColorProvider colorProvider) {
 		super();
 		this.applicationTitle = applicationTitle;
+		this.colorProvider = colorProvider;
 		this.modules = new LinkedList<>();
 	}
 
 	@Override
 	public void activate() {
-		CustosMainFrame mainFrame = new CustosMainFrame(this.applicationTitle);
+		CustosMainFrame mainFrame = new CustosMainFrame(this.applicationTitle, this.colorProvider);
 		for (CustosModule module : this.modules) {
-			mainFrame.add(module.getWidget());
+			mainFrame.addModuleToView(module);
 		}
 		mainFrame.show();
 	}

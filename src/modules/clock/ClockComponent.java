@@ -1,10 +1,8 @@
 package modules.clock;
 
 import hochberger.utilities.eventbus.EventReceiver;
+import hochberger.utilities.gui.EnhancedLabel;
 import hochberger.utilities.text.CommonDateTimeFormatters;
-
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
@@ -12,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 
+import view.ColorProvider;
 import edt.EDT;
 
 public class ClockComponent extends JPanel implements EventReceiver<DateTimeEvent> {
@@ -20,30 +19,48 @@ public class ClockComponent extends JPanel implements EventReceiver<DateTimeEven
 	private DateTime time;
 	private final Logger logger;
 	private final DateTimeFormatter formatter;
+	private EnhancedLabel timeLabel;
+	private final boolean isBuilt;
+	private final ColorProvider colorProvider;
 
-	public ClockComponent(final Logger logger) {
+	public ClockComponent(final Logger logger, final ColorProvider colorProvider) {
 		super(true);
 		this.logger = logger;
+		this.colorProvider = colorProvider;
 		this.time = DateTime.now();
 		this.formatter = CommonDateTimeFormatters.hourMinuteSecond();
+		this.isBuilt = false;
 	}
 
-	@Override
-	protected void paintComponent(final Graphics g) {
-		Graphics2D graphics = (Graphics2D) g.create();
-		graphics.drawString(this.formatter.print(this.time), 10, 10);
-		graphics.dispose();
-		super.paintComponent(g);
+	public void build() {
+		if (this.isBuilt) {
+			return;
+		}
+		setBackground(this.colorProvider.backgroundColor());
+		this.timeLabel = new EnhancedLabel(this.formatter.print(this.time));
+		this.timeLabel.setFont(this.timeLabel.getFont().deriveFont(75f));
+		this.timeLabel.setForeground(this.colorProvider.foregroundColor());
+		this.timeLabel.setRightShadow(2, 2, this.colorProvider.shadowColor());
+		add(this.timeLabel);
 	}
+
+	// @Override
+	// protected void paintComponent(final Graphics g) {
+	// Graphics2D graphics = (Graphics2D) g.create();
+	// graphics.drawString(this.formatter.print(this.time), 10, 10);
+	// graphics.dispose();
+	// super.paintComponent(g);
+	// }
 
 	@Override
 	public void receive(final DateTimeEvent event) {
 		this.time = event.getTime();
-		this.logger.info("Received DateTimeEvent. Repainting.");
+		this.logger.debug("Received DateTimeEvent. Repainting.");
 		EDT.perform(new Runnable() {
 
 			@Override
 			public void run() {
+				ClockComponent.this.timeLabel.setText(ClockComponent.this.formatter.print(ClockComponent.this.time));
 				repaint();
 			}
 		});

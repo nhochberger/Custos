@@ -1,25 +1,29 @@
 package modules.clock;
 
 import hochberger.utilities.application.session.BasicSession;
-import hochberger.utilities.application.session.SessionBasedObject;
 import hochberger.utilities.threading.ThreadRunner;
+
+import java.awt.Dimension;
 
 import javax.swing.JComponent;
 
-import modules.CustosModule;
+import modules.VisibleCustosModule;
 
 import org.joda.time.DateTime;
 
+import view.ColorProvider;
 import edt.EDT;
 
-public class Clock extends SessionBasedObject implements CustosModule {
+public class Clock extends VisibleCustosModule {
 
 	private final ClockComponent clockComponent;
 
-	public Clock(final BasicSession session) {
-		super(session);
+	public Clock(final BasicSession session, final ColorProvider colorProvider) {
+		super(session, colorProvider);
 		EDT.never();
-		this.clockComponent = new ClockComponent(logger());
+		this.clockComponent = new ClockComponent(logger(), colorProvider());
+		this.clockComponent.setPreferredSize(new Dimension(200, 200));
+		this.clockComponent.setSize(this.clockComponent.getPreferredSize());
 		session().getEventBus().register(this.clockComponent, DateTimeEvent.class);
 	}
 
@@ -37,13 +41,20 @@ public class Clock extends SessionBasedObject implements CustosModule {
 						session().getEventBus().publish(new DateTimeEvent(time));
 					}
 					try {
-						Thread.sleep(250);
+						Thread.sleep(100);
 					} catch (InterruptedException e) {
 						logger().error(e);
 					}
 				}
 			}
 		}, "ClockThread");
+		EDT.perform(new Runnable() {
+
+			@Override
+			public void run() {
+				Clock.this.clockComponent.build();
+			}
+		});
 
 	}
 
@@ -55,8 +66,7 @@ public class Clock extends SessionBasedObject implements CustosModule {
 
 	@Override
 	public JComponent getWidget() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.clockComponent;
 	}
 
 }

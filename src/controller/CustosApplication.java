@@ -5,7 +5,9 @@ import hochberger.utilities.application.BasicLoggedApplication;
 import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.eventbus.SimpleEventBus;
 import modules.clock.Clock;
+import view.ColorProvider;
 import view.CustosGui;
+import view.SimpleColorProvider;
 
 public class CustosApplication extends BasicLoggedApplication {
 
@@ -14,9 +16,12 @@ public class CustosApplication extends BasicLoggedApplication {
 		try {
 			ApplicationProperties applicationProperties = new ApplicationProperties();
 			BasicSession session = new BasicSession(applicationProperties, new SimpleEventBus(), getLogger());
-			CustosGui gui = new CustosGui(applicationProperties.title());
 
-			Clock clock = new Clock(session);
+			ColorProvider colorProvider = new SimpleColorProvider();
+
+			CustosGui gui = new CustosGui(applicationProperties.title(), colorProvider);
+
+			Clock clock = new Clock(session, colorProvider);
 
 			clock.start();
 			gui.addModule(clock);

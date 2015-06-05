@@ -1,39 +1,42 @@
 package view;
 
-import hochberger.utilities.gui.UndecoratedEDTSafeFrame;
+import hochberger.utilities.gui.EDTSafeFrame;
 
-import java.awt.Color;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.swing.JComponent;
 
+import modules.CustosModule;
 import net.miginfocom.swing.MigLayout;
 
-public class CustosMainFrame extends UndecoratedEDTSafeFrame {
+public class CustosMainFrame extends EDTSafeFrame {
 
-	private final List<JComponent> widgets;
+	private final List<CustosModule> widgets;
+	private final ColorProvider colorProvider;
 
-	public CustosMainFrame(final String title) {
+	public CustosMainFrame(final String title, final ColorProvider colorProvider) {
 		super(title);
+		this.colorProvider = colorProvider;
 		this.widgets = new CopyOnWriteArrayList<>();
 	}
 
 	@Override
-	protected synchronized void buildUI() {
+	protected void buildUI() {
 		exitOnClose();
 		center();
-		useLayoutManager(new MigLayout());
+		useLayoutManager(new MigLayout("", "", "25[]:[]:[]:[]25"));
+		frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
 		frame().setAlwaysOnTop(true);
-		getContentPane().setBackground(Color.DARK_GRAY);
-		for (JComponent widget : this.widgets) {
+		// getContentPane().setBackground(Color.DARK_GRAY);
+		for (CustosModule module : this.widgets) {
+			JComponent widget = module.getWidget();
 			add(widget);
 		}
 		maximize();
 	}
 
-	@Override
-	public synchronized void add(final JComponent component) {
-		this.widgets.add(component);
+	public void addModuleToView(final CustosModule module) {
+		this.widgets.add(module);
 	}
 }
