@@ -1,13 +1,10 @@
 package modules.clock;
 
 import hochberger.utilities.application.session.BasicSession;
-import hochberger.utilities.threading.ThreadRunner;
 import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
-
-import org.joda.time.DateTime;
-
 import view.ColorProvider;
+import controller.HeartbeatEvent;
 import edt.EDT;
 
 public class Clock extends VisibleCustosModule {
@@ -17,31 +14,12 @@ public class Clock extends VisibleCustosModule {
 	public Clock(final BasicSession session, final ColorProvider colorProvider) {
 		super(session, colorProvider);
 		EDT.never();
-		this.widget = new ClockWidget(logger(), colorProvider());
-		session().getEventBus().register(this.widget, DateTimeEvent.class);
+		this.widget = new ClockWidget(colorProvider());
+		session().getEventBus().register(this.widget, HeartbeatEvent.class);
 	}
 
 	@Override
 	public void start() {
-		ThreadRunner.startThread(new Runnable() {
-
-			@Override
-			public void run() {
-				int lastSecond = 0;
-				while (true) {
-					DateTime time = DateTime.now();
-					if (time.getSecondOfMinute() != lastSecond) {
-						lastSecond = time.getSecondOfMinute();
-						session().getEventBus().publish(new DateTimeEvent(time));
-					}
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						logger().error(e);
-					}
-				}
-			}
-		}, "ClockThread");
 		EDT.perform(new Runnable() {
 
 			@Override

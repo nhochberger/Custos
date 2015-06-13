@@ -10,17 +10,16 @@ import javax.swing.JPanel;
 import modules.CustosModuleWidget;
 import net.miginfocom.swing.MigLayout;
 
-import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 
 import view.ColorProvider;
+import controller.HeartbeatEvent;
 import edt.EDT;
 
-public class ClockWidget implements CustosModuleWidget, EventReceiver<DateTimeEvent> {
+public class ClockWidget implements CustosModuleWidget, EventReceiver<HeartbeatEvent> {
 
 	private DateTime time;
-	private final Logger logger;
 	private final DateTimeFormatter timeFormatter;
 	private final DateTimeFormatter dateFormatter;
 	private EnhancedLabel dateLabel;
@@ -29,9 +28,8 @@ public class ClockWidget implements CustosModuleWidget, EventReceiver<DateTimeEv
 	private boolean isBuilt;
 	private final ColorProvider colorProvider;
 
-	public ClockWidget(final Logger logger, final ColorProvider colorProvider) {
+	public ClockWidget(final ColorProvider colorProvider) {
 		super();
-		this.logger = logger;
 		this.colorProvider = colorProvider;
 		this.time = DateTime.now();
 		this.timeFormatter = CommonDateTimeFormatters.hourMinuteSecond();
@@ -59,14 +57,13 @@ public class ClockWidget implements CustosModuleWidget, EventReceiver<DateTimeEv
 	}
 
 	@Override
-	public void receive(final DateTimeEvent event) {
-		this.time = event.getTime();
-		this.logger.debug("Received DateTimeEvent. Repainting.");
+	public void receive(final HeartbeatEvent event) {
+		this.time = event.getHeartbeatTime();
 		EDT.perform(new Runnable() {
 
 			@Override
 			public void run() {
-				ClockWidget.this.timeLabel.setText(ClockWidget.this.timeFormatter.print(ClockWidget.this.time));
+				updateWidget();
 			}
 		});
 	}
@@ -74,9 +71,11 @@ public class ClockWidget implements CustosModuleWidget, EventReceiver<DateTimeEv
 	@Override
 	public void updateWidget() {
 		this.panel.setBackground(this.colorProvider.backgroundColor());
+		this.timeLabel.setText(this.timeFormatter.print(this.time));
 		this.timeLabel.setBackground(this.colorProvider.backgroundColor());
 		this.timeLabel.setForeground(this.colorProvider.foregroundColor());
 		this.timeLabel.setRightShadow(2, 2, this.colorProvider.shadowColor());
+		this.dateLabel.setText(this.dateFormatter.print(this.time));
 		this.dateLabel.setBackground(this.colorProvider.backgroundColor());
 		this.dateLabel.setForeground(this.colorProvider.foregroundColor());
 		this.dateLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
