@@ -34,7 +34,7 @@ public class DayTimeAwareColorProvider extends SessionBasedObject implements Col
 		if (isDayTime()) {
 			return Color.LIGHT_GRAY;
 		}
-		return Color.DARK_GRAY;
+		return Color.DARK_GRAY.darker();
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class DayTimeAwareColorProvider extends SessionBasedObject implements Col
 	}
 
 	protected boolean isDayTime() {
-		DateTime time = DateTime.now();
+		final DateTime time = DateTime.now();
 		return 7 <= time.hourOfDay().get() && time.hourOfDay().get() < 22;
 	}
 
