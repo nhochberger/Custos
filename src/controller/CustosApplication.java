@@ -5,11 +5,14 @@ import hochberger.utilities.application.BasicLoggedApplication;
 import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.eventbus.SimpleEventBus;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
 import modules.CustosModule;
 import modules.clock.Clock;
+import modules.weather.ForecastJsonRequest;
+import modules.weather.Weather;
 import view.ColorProvider;
 import view.CustosGui;
 import view.DayTimeAwareColorProvider;
@@ -25,10 +28,10 @@ public class CustosApplication extends BasicLoggedApplication {
 	public static void main(final String... args) {
 		setUpLoggingServices(CustosApplication.class);
 		try {
-			ApplicationProperties applicationProperties = new ApplicationProperties();
-			CustosApplication application = new CustosApplication(applicationProperties);
+			final ApplicationProperties applicationProperties = new ApplicationProperties();
+			final CustosApplication application = new CustosApplication(applicationProperties);
 			application.start();
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			getLogger().fatal("Error while starting application. Shutting down.", e);
 		}
 	}
@@ -43,8 +46,16 @@ public class CustosApplication extends BasicLoggedApplication {
 
 		this.modules = new LinkedList<>();
 		this.modules.add(new Clock(this.session, this.colorProvider));
-		for (CustosModule custosModule : this.modules) {
+		this.modules.add(new Weather(this.session, this.colorProvider));
+		for (final CustosModule custosModule : this.modules) {
 			this.gui.addModule(custosModule);
+		}
+
+		try {
+			System.out.println(new ForecastJsonRequest().performRequest("Neubiberg", "de"));
+		} catch (final IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -52,7 +63,7 @@ public class CustosApplication extends BasicLoggedApplication {
 	public void start() {
 		super.start();
 		this.heartbeat.start();
-		for (CustosModule custosModule : this.modules) {
+		for (final CustosModule custosModule : this.modules) {
 			custosModule.start();
 		}
 		this.gui.activate();

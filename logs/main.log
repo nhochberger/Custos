@@ -1579,3 +1579,263 @@ java.lang.NullPointerException
 2015-06-13 23:24:29,173 INFO (main): Heartbeat started.
 2015-06-13 23:26:26,577 INFO (main): Starting application
 2015-06-13 23:26:26,578 INFO (main): Heartbeat started.
+2015-06-14 20:19:05,376 INFO (main): Starting application
+2015-06-14 20:19:05,386 INFO (main): Heartbeat started.
+2015-06-14 22:34:01,940 INFO (main): Starting application
+2015-06-14 22:34:01,941 INFO (main): Heartbeat started.
+2015-06-14 22:34:32,000 INFO (main): Starting application
+2015-06-14 22:34:32,001 INFO (main): Heartbeat started.
+2015-06-14 22:34:42,902 INFO (main): Starting application
+2015-06-14 22:34:42,903 INFO (main): Heartbeat started.
+2015-06-14 22:34:59,404 INFO (main): Starting application
+2015-06-14 22:34:59,404 INFO (main): Heartbeat started.
+2015-06-14 23:12:07,238 INFO (main): Starting application
+2015-06-14 23:12:07,239 INFO (main): Heartbeat started.
+2015-06-14 23:12:36,517 INFO (main): Starting application
+2015-06-14 23:12:36,518 INFO (main): Heartbeat started.
+2015-06-14 23:13:01,873 INFO (main): Starting application
+2015-06-14 23:13:01,874 INFO (main): Heartbeat started.
+2015-06-14 23:20:40,992 INFO (main): Starting application
+2015-06-14 23:20:40,993 INFO (main): Heartbeat started.
+2015-06-14 23:20:55,982 INFO (main): Starting application
+2015-06-14 23:20:55,983 INFO (main): Heartbeat started.
+2015-06-14 23:21:31,464 INFO (main): Starting application
+2015-06-14 23:21:31,465 INFO (main): Heartbeat started.
+2015-06-14 23:24:22,420 INFO (main): Starting application
+2015-06-14 23:24:22,420 INFO (main): Heartbeat started.
+2015-06-14 23:25:11,422 INFO (main): Starting application
+2015-06-14 23:25:11,423 INFO (main): Heartbeat started.
+2015-06-14 23:26:07,981 INFO (main): Starting application
+2015-06-14 23:26:07,982 INFO (main): Heartbeat started.
+2015-06-14 23:26:15,295 INFO (main): Starting application
+2015-06-14 23:26:15,296 INFO (main): Heartbeat started.
+2015-06-14 23:28:55,481 INFO (main): Starting application
+2015-06-14 23:28:55,481 INFO (main): Heartbeat started.
+2015-06-30 11:48:23,853 INFO (main): Starting application
+2015-06-30 11:48:23,863 INFO (main): Heartbeat started.
+2015-07-07 13:42:24,346 INFO (main): Starting application
+2015-07-07 13:42:24,364 INFO (main): Heartbeat started.
+2015-07-07 13:44:38,868 INFO (main): Starting application
+2015-07-07 13:44:38,869 INFO (main): Heartbeat started.
+2015-07-07 13:46:30,023 INFO (main): Starting application
+2015-07-07 13:46:30,024 INFO (main): Heartbeat started.
+2015-07-07 13:47:42,095 INFO (main): Starting application
+2015-07-07 13:47:42,095 INFO (main): Heartbeat started.
+2015-07-07 13:48:34,932 INFO (main): Starting application
+2015-07-07 13:48:34,933 INFO (main): Heartbeat started.
+2015-07-07 13:50:05,762 INFO (main): Starting application
+2015-07-07 13:50:05,763 INFO (main): Heartbeat started.
+2015-07-07 13:50:37,231 INFO (main): Starting application
+2015-07-07 13:50:37,231 INFO (main): Heartbeat started.
+2015-07-07 14:01:01,871 FATAL (main): Error while starting application. Shutting down.
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: JsonReader is closed
+	at com.google.gson.Gson.fromJson(Gson.java:822)
+	at modules.weather.ForecastJsonRequest.performRequest(ForecastJsonRequest.java:41)
+	at controller.CustosApplication.<init>(CustosApplication.java:55)
+	at controller.CustosApplication.main(CustosApplication.java:32)
+Caused by: java.lang.IllegalStateException: JsonReader is closed
+	at com.google.gson.stream.JsonReader.doPeek(JsonReader.java:550)
+	at com.google.gson.stream.JsonReader.peek(JsonReader.java:429)
+	at com.google.gson.Gson.fromJson(Gson.java:806)
+	... 3 more
+2015-07-07 14:22:09,751 FATAL (main): Error while starting application. Shutting down.
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 183 path $.list[0].temp
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:200)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:81)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:60)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	at com.google.gson.Gson.fromJson(Gson.java:810)
+	at com.google.gson.Gson.fromJson(Gson.java:775)
+	at com.google.gson.Gson.fromJson(Gson.java:724)
+	at com.google.gson.Gson.fromJson(Gson.java:696)
+	at modules.weather.ForecastJsonRequest.performRequest(ForecastJsonRequest.java:36)
+	at controller.CustosApplication.<init>(CustosApplication.java:55)
+	at controller.CustosApplication.main(CustosApplication.java:32)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 183 path $.list[0].temp
+	at com.google.gson.stream.JsonReader.beginArray(JsonReader.java:350)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:79)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:60)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	... 12 more
+2015-07-07 14:23:44,561 INFO (main): Starting application
+2015-07-07 14:23:44,562 INFO (main): Heartbeat started.
+2015-07-07 14:24:01,165 FATAL (main): Error while starting application. Shutting down.
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 183 path $.list[0].temp
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:200)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:81)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:60)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	at com.google.gson.Gson.fromJson(Gson.java:810)
+	at com.google.gson.Gson.fromJson(Gson.java:775)
+	at com.google.gson.Gson.fromJson(Gson.java:724)
+	at com.google.gson.Gson.fromJson(Gson.java:696)
+	at modules.weather.ForecastJsonRequest.performRequest(ForecastJsonRequest.java:36)
+	at controller.CustosApplication.<init>(CustosApplication.java:55)
+	at controller.CustosApplication.main(CustosApplication.java:32)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 183 path $.list[0].temp
+	at com.google.gson.stream.JsonReader.beginArray(JsonReader.java:350)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:79)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:60)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	... 12 more
+2015-07-07 14:25:32,678 FATAL (main): Error while starting application. Shutting down.
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 184 path $.list[0].temp.
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:200)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:186)
+	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:81)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:60)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	at com.google.gson.Gson.fromJson(Gson.java:810)
+	at com.google.gson.Gson.fromJson(Gson.java:775)
+	at com.google.gson.Gson.fromJson(Gson.java:724)
+	at com.google.gson.Gson.fromJson(Gson.java:696)
+	at modules.weather.ForecastJsonRequest.performRequest(ForecastJsonRequest.java:36)
+	at controller.CustosApplication.<init>(CustosApplication.java:55)
+	at controller.CustosApplication.main(CustosApplication.java:32)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 184 path $.list[0].temp.
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:387)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:189)
+	... 17 more
+2015-07-07 14:26:16,405 FATAL (main): Error while starting application. Shutting down.
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was BEGIN_ARRAY at line 1 column 301 path $.list[0].weather
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:200)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:81)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:60)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	at com.google.gson.Gson.fromJson(Gson.java:810)
+	at com.google.gson.Gson.fromJson(Gson.java:775)
+	at com.google.gson.Gson.fromJson(Gson.java:724)
+	at com.google.gson.Gson.fromJson(Gson.java:696)
+	at modules.weather.ForecastJsonRequest.performRequest(ForecastJsonRequest.java:36)
+	at controller.CustosApplication.<init>(CustosApplication.java:55)
+	at controller.CustosApplication.main(CustosApplication.java:32)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was BEGIN_ARRAY at line 1 column 301 path $.list[0].weather
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:387)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:189)
+	... 14 more
+2015-07-07 14:27:32,382 INFO (main): Starting application
+2015-07-07 14:27:32,382 INFO (main): Heartbeat started.
+2015-07-07 14:27:41,651 INFO (main): Starting application
+2015-07-07 14:27:41,652 INFO (main): Heartbeat started.
+2015-07-07 14:27:51,419 INFO (main): Starting application
+2015-07-07 14:27:51,420 INFO (main): Heartbeat started.
+2015-07-07 14:29:01,022 FATAL (main): Error while starting application. Shutting down.
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 302 path $.list[0].weather[0]
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:200)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:81)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:60)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	at com.google.gson.Gson.fromJson(Gson.java:810)
+	at com.google.gson.Gson.fromJson(Gson.java:775)
+	at com.google.gson.Gson.fromJson(Gson.java:724)
+	at com.google.gson.Gson.fromJson(Gson.java:696)
+	at modules.weather.ForecastJsonRequest.performRequest(ForecastJsonRequest.java:36)
+	at controller.CustosApplication.<init>(CustosApplication.java:55)
+	at controller.CustosApplication.main(CustosApplication.java:32)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 302 path $.list[0].weather[0]
+	at com.google.gson.stream.JsonReader.beginArray(JsonReader.java:350)
+	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:172)
+	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	... 12 more
+2015-07-07 14:31:27,073 FATAL (main): Error while starting application. Shutting down.
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 302 path $.list[0].weather[0]
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:200)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:81)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:60)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	at com.google.gson.Gson.fromJson(Gson.java:810)
+	at com.google.gson.Gson.fromJson(Gson.java:775)
+	at com.google.gson.Gson.fromJson(Gson.java:724)
+	at com.google.gson.Gson.fromJson(Gson.java:696)
+	at modules.weather.ForecastJsonRequest.performRequest(ForecastJsonRequest.java:36)
+	at controller.CustosApplication.<init>(CustosApplication.java:55)
+	at controller.CustosApplication.main(CustosApplication.java:32)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 302 path $.list[0].weather[0]
+	at com.google.gson.stream.JsonReader.beginArray(JsonReader.java:350)
+	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:172)
+	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	... 12 more
+2015-07-07 14:32:01,440 FATAL (main): Error while starting application. Shutting down.
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was BEGIN_ARRAY at line 1 column 301 path $.list[0].weather
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:200)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:81)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:60)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	at com.google.gson.Gson.fromJson(Gson.java:810)
+	at com.google.gson.Gson.fromJson(Gson.java:775)
+	at com.google.gson.Gson.fromJson(Gson.java:724)
+	at com.google.gson.Gson.fromJson(Gson.java:696)
+	at modules.weather.ForecastJsonRequest.performRequest(ForecastJsonRequest.java:36)
+	at controller.CustosApplication.<init>(CustosApplication.java:55)
+	at controller.CustosApplication.main(CustosApplication.java:32)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was BEGIN_ARRAY at line 1 column 301 path $.list[0].weather
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:387)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:189)
+	... 14 more
+2015-07-07 14:32:42,743 INFO (main): Starting application
+2015-07-07 14:32:42,744 INFO (main): Heartbeat started.
+2015-07-07 14:33:12,208 INFO (main): Starting application
+2015-07-07 14:33:12,209 INFO (main): Heartbeat started.
+2015-07-07 14:34:20,038 INFO (main): Starting application
+2015-07-07 14:34:20,039 INFO (main): Heartbeat started.
+2015-07-07 14:35:38,669 FATAL (main): Error while starting application. Shutting down.
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was NUMBER at line 1 column 174 path $.list[0].dt
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:200)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:40)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:81)
+	at com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:60)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:103)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:196)
+	at com.google.gson.Gson.fromJson(Gson.java:810)
+	at com.google.gson.Gson.fromJson(Gson.java:775)
+	at com.google.gson.Gson.fromJson(Gson.java:724)
+	at com.google.gson.Gson.fromJson(Gson.java:696)
+	at modules.weather.ForecastJsonRequest.performRequest(ForecastJsonRequest.java:36)
+	at controller.CustosApplication.<init>(CustosApplication.java:55)
+	at controller.CustosApplication.main(CustosApplication.java:32)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was NUMBER at line 1 column 174 path $.list[0].dt
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:387)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:189)
+	... 14 more
+2015-07-07 14:36:09,787 INFO (main): Starting application
+2015-07-07 14:36:09,788 INFO (main): Heartbeat started.
+2015-07-07 14:36:37,087 INFO (main): Starting application
+2015-07-07 14:36:37,088 INFO (main): Heartbeat started.
+2015-07-07 14:38:33,058 INFO (main): Starting application
+2015-07-07 14:38:33,059 INFO (main): Heartbeat started.
+2015-07-07 14:38:50,383 INFO (main): Starting application
+2015-07-07 14:38:50,384 INFO (main): Heartbeat started.
+2015-07-07 14:40:09,241 INFO (main): Starting application
+2015-07-07 14:40:09,241 INFO (main): Heartbeat started.
+2015-07-07 14:40:56,799 INFO (main): Starting application
+2015-07-07 14:40:56,799 INFO (main): Heartbeat started.

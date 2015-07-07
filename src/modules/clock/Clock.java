@@ -13,7 +13,6 @@ public class Clock extends VisibleCustosModule {
 
 	public Clock(final BasicSession session, final ColorProvider colorProvider) {
 		super(session, colorProvider);
-		EDT.never();
 		this.widget = new ClockWidget(colorProvider());
 		session().getEventBus().register(this.widget, HeartbeatEvent.class);
 	}
