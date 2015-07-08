@@ -5,13 +5,11 @@ import hochberger.utilities.application.BasicLoggedApplication;
 import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.eventbus.SimpleEventBus;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
 import modules.CustosModule;
 import modules.clock.Clock;
-import modules.weather.ForecastJsonRequest;
 import modules.weather.Weather;
 import view.ColorProvider;
 import view.CustosGui;
@@ -49,13 +47,6 @@ public class CustosApplication extends BasicLoggedApplication {
 		this.modules.add(new Weather(this.session, this.colorProvider));
 		for (final CustosModule custosModule : this.modules) {
 			this.gui.addModule(custosModule);
-		}
-
-		try {
-			System.out.println(new ForecastJsonRequest().performRequest("Neubiberg", "de"));
-		} catch (final IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 

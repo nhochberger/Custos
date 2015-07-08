@@ -3,7 +3,7 @@ package modules.weather;
 import java.util.List;
 import java.util.Map;
 
-public class JsonWeatherResult {
+public class WeatherData {
 	private City city;
 	private List<Forecast> list;
 
@@ -101,6 +101,13 @@ public class JsonWeatherResult {
 			this.humidity = humidity;
 		}
 
+		/**
+		 * Note that you have to multiply this value with 1000 in order to
+		 * receive proper DateTimes as Java expects timestamps to be presented
+		 * in miliseconds
+		 *
+		 * @return dt from json result
+		 */
 		public long getDt() {
 			return this.dt;
 		}

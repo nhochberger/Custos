@@ -7,11 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-import org.joda.time.DateTime;
-
 import sun.net.www.protocol.http.HttpURLConnection;
-
-import com.google.gson.Gson;
 
 public class ForecastJsonRequest extends OpenWeatherMapApiRequest {
 
@@ -35,11 +31,7 @@ public class ForecastJsonRequest extends OpenWeatherMapApiRequest {
 			response.append(inputLine);
 		}
 		Closer.close(in);
-		final JsonWeatherResult weatherResult = new Gson().fromJson(response.toString(), JsonWeatherResult.class);
-
-		System.err.println(weatherResult.getCity().getName());
-		System.err.println(weatherResult.getList().get(0).getTemp().get("day"));
-		System.err.println(new DateTime(weatherResult.getList().get(0).getDt() * 1000));
+		connection.disconnect();
 		return response.toString();
 	}
 

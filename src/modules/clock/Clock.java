@@ -14,7 +14,6 @@ public class Clock extends VisibleCustosModule {
 	public Clock(final BasicSession session, final ColorProvider colorProvider) {
 		super(session, colorProvider);
 		this.widget = new ClockWidget(colorProvider());
-		session().getEventBus().register(this.widget, HeartbeatEvent.class);
 	}
 
 	@Override
@@ -26,7 +25,6 @@ public class Clock extends VisibleCustosModule {
 				Clock.this.widget.build();
 			}
 		});
-
 	}
 
 	@Override
@@ -43,5 +41,11 @@ public class Clock extends VisibleCustosModule {
 	@Override
 	public void updateWidget() {
 		getWidget().updateWidget();
+	}
+
+	@Override
+	public void receive(final HeartbeatEvent event) {
+		// TODO Auto-generated method stub
+
 	}
 }

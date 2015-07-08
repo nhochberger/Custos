@@ -1,6 +1,5 @@
 package modules.clock;
 
-import hochberger.utilities.eventbus.EventReceiver;
 import hochberger.utilities.gui.EnhancedLabel;
 import hochberger.utilities.text.CommonDateTimeFormatters;
 
@@ -14,10 +13,8 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 
 import view.ColorProvider;
-import controller.HeartbeatEvent;
-import edt.EDT;
 
-public class ClockWidget implements CustosModuleWidget, EventReceiver<HeartbeatEvent> {
+public class ClockWidget implements CustosModuleWidget {
 
 	private DateTime time;
 	private final DateTimeFormatter timeFormatter;
@@ -37,6 +34,7 @@ public class ClockWidget implements CustosModuleWidget, EventReceiver<HeartbeatE
 		this.isBuilt = false;
 	}
 
+	@Override
 	public void build() {
 		if (this.isBuilt) {
 			return;
@@ -57,19 +55,8 @@ public class ClockWidget implements CustosModuleWidget, EventReceiver<HeartbeatE
 	}
 
 	@Override
-	public void receive(final HeartbeatEvent event) {
-		this.time = event.getHeartbeatTime();
-		EDT.perform(new Runnable() {
-
-			@Override
-			public void run() {
-				updateWidget();
-			}
-		});
-	}
-
-	@Override
 	public void updateWidget() {
+		this.time = DateTime.now();
 		this.panel.setBackground(this.colorProvider.backgroundColor());
 		this.timeLabel.setText(this.timeFormatter.print(this.time));
 		this.timeLabel.setBackground(this.colorProvider.backgroundColor());

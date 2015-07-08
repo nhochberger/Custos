@@ -25,7 +25,7 @@ public class CustosGui implements ApplicationGui, EventReceiver<HeartbeatEvent> 
 	@Override
 	public void activate() {
 		this.mainFrame = new CustosMainFrame(this.applicationTitle, this.colorProvider);
-		for (CustosModule module : this.modules) {
+		for (final CustosModule module : this.modules) {
 			this.mainFrame.addModuleToView(module);
 		}
 		this.mainFrame.show();
