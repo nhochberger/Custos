@@ -23,10 +23,10 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 	protected void buildUI() {
 		exitOnClose();
 		center();
-		useLayoutManager(new MigLayout("", "", "25[]:[]:[]:[]25"));
+		useLayoutManager(new MigLayout("", "20[200]:push[200]:push[200]20", "20[]20"));
 		frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
 		frame().setAlwaysOnTop(true);
-		for (CustosModule module : this.modules) {
+		for (final CustosModule module : this.modules) {
 			add(module.getWidget().getComponent());
 		}
 		maximize();
@@ -38,7 +38,7 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 
 	public void update() {
 		frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
-		for (CustosModule custosModule : this.modules) {
+		for (final CustosModule custosModule : this.modules) {
 			custosModule.updateWidget();
 		}
 	}

@@ -45,7 +45,7 @@ public class ClockWidget implements CustosModuleWidget {
 		this.timeLabel = new EnhancedLabel(this.timeFormatter.print(this.time));
 		this.timeLabel.setFont(this.timeLabel.getFont().deriveFont(75f));
 		this.timeLabel.setForeground(this.colorProvider.foregroundColor());
-		this.timeLabel.setRightShadow(2, 2, this.colorProvider.shadowColor());
+		this.timeLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
 		this.dateLabel = new EnhancedLabel(this.dateFormatter.print(this.time), 2);
 		this.dateLabel.setFont(this.timeLabel.getFont().deriveFont(25f));
 		this.dateLabel.setForeground(this.colorProvider.foregroundColor());
