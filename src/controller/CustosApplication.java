@@ -18,6 +18,7 @@ import view.DayTimeAwareColorProvider;
 public class CustosApplication extends BasicLoggedApplication {
 
 	private final Heartbeat heartbeat;
+	private final ScreenSaverProhibiter screenSaverProhibiter;
 	private final ColorProvider colorProvider;
 	private final BasicSession session;
 	private final CustosGui gui;
@@ -39,7 +40,8 @@ public class CustosApplication extends BasicLoggedApplication {
 		this.session = new BasicSession(applicationProperties, new SimpleEventBus(), getLogger());
 		this.colorProvider = new DayTimeAwareColorProvider(this.session);
 		this.heartbeat = new Heartbeat(this.session);
-		this.gui = new CustosGui(applicationProperties.title(), this.colorProvider);
+		this.screenSaverProhibiter = new ScreenSaverProhibiter(this.session);
+		this.gui = new CustosGui(this.session, this.colorProvider);
 		this.session.getEventBus().register(this.gui, HeartbeatEvent.class);
 
 		this.modules = new LinkedList<>();
@@ -54,6 +56,7 @@ public class CustosApplication extends BasicLoggedApplication {
 	public void start() {
 		super.start();
 		this.heartbeat.start();
+		this.screenSaverProhibiter.start();
 		for (final CustosModule custosModule : this.modules) {
 			custosModule.start();
 		}

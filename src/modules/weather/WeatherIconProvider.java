@@ -10,6 +10,8 @@ import java.util.Properties;
 
 import javax.swing.Icon;
 
+import org.joda.time.DateTime;
+
 public class WeatherIconProvider extends SessionBasedObject {
 
 	private Properties iconCodes;
@@ -26,7 +28,12 @@ public class WeatherIconProvider extends SessionBasedObject {
 
 	public Icon getIconForCode(final int code) {
 		if (this.iconCodes.containsKey(String.valueOf(code))) {
-			return ImageLoader.loadIcon("modules/weather/" + this.iconCodes.getProperty(String.valueOf(code)));
+			final DateTime now = DateTime.now();
+			String iconName = this.iconCodes.getProperty(String.valueOf(code));
+			if (6 < now.getHourOfDay() || 22 >= now.getHourOfDay()) {
+				iconName = iconName.replace('d', 'n');
+			}
+			return ImageLoader.loadIcon("modules/weather/" + iconName);
 		}
 		return ImageLoader.loadIcon("modules/weather/unknown.png");
 	}

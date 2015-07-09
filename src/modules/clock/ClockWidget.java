@@ -1,7 +1,10 @@
 package modules.clock;
 
 import hochberger.utilities.gui.EnhancedLabel;
+import hochberger.utilities.gui.font.FontLoader;
 import hochberger.utilities.text.CommonDateTimeFormatters;
+
+import java.awt.Font;
 
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -40,18 +43,22 @@ public class ClockWidget implements CustosModuleWidget {
 			return;
 		}
 		this.isBuilt = true;
-		this.panel = new JPanel(new MigLayout());
+		Font baseFont = FontLoader.loadFrom("monofonto.ttf");
+		if (null == baseFont) {
+			baseFont = new JPanel().getFont();
+		}
+		this.panel = new JPanel(new MigLayout("", "0[320!]0", ""));
 		this.panel.setBackground(this.colorProvider.backgroundColor());
 		this.timeLabel = new EnhancedLabel(this.timeFormatter.print(this.time));
-		this.timeLabel.setFont(this.timeLabel.getFont().deriveFont(75f));
+		this.timeLabel.setFont(baseFont.deriveFont(75f));
 		this.timeLabel.setForeground(this.colorProvider.foregroundColor());
 		this.timeLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
 		this.dateLabel = new EnhancedLabel(this.dateFormatter.print(this.time), 2);
-		this.dateLabel.setFont(this.timeLabel.getFont().deriveFont(25f));
+		this.dateLabel.setFont(baseFont.deriveFont(25f));
 		this.dateLabel.setForeground(this.colorProvider.foregroundColor());
 		this.dateLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
 		this.panel.add(this.dateLabel, "center, wrap");
-		this.panel.add(this.timeLabel);
+		this.panel.add(this.timeLabel, "center");
 	}
 
 	@Override

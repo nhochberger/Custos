@@ -1,8 +1,10 @@
 package modules.weather;
 
 import hochberger.utilities.gui.EnhancedLabel;
+import hochberger.utilities.gui.font.FontLoader;
 
 import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -39,6 +41,10 @@ public class WeatherWidget implements CustosModuleWidget {
 			return;
 		}
 		this.isBuilt = true;
+		Font baseFont = FontLoader.loadFrom("monofonto.ttf");
+		if (null == baseFont) {
+			baseFont = new JPanel().getFont();
+		}
 		this.panel = new JPanel(new MigLayout());
 		this.panel.setLayout(new MigLayout("", "10[]10[]10", "10[]1[]1[]:"));
 		this.panel.setPreferredSize(new Dimension(300, 100));
@@ -48,19 +54,19 @@ public class WeatherWidget implements CustosModuleWidget {
 		this.panel.add(this.weatherStatusLabel, "dock west");
 
 		this.cityLabel = new EnhancedLabel("n/a");
-		this.cityLabel.setFont(this.cityLabel.getFont().deriveFont(15f));
+		this.cityLabel.setFont(baseFont.deriveFont(15f));
 		this.cityLabel.setForeground(this.colorProvider.foregroundColor());
 		this.cityLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
 		this.panel.add(this.cityLabel, "wrap");
 
 		this.currentTemperatureLabel = new EnhancedLabel("n/a ");
-		this.currentTemperatureLabel.setFont(this.currentTemperatureLabel.getFont().deriveFont(50f));
+		this.currentTemperatureLabel.setFont(baseFont.deriveFont(50f));
 		this.currentTemperatureLabel.setForeground(this.colorProvider.foregroundColor());
 		this.currentTemperatureLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
 		this.panel.add(this.currentTemperatureLabel, "wrap");
 
 		this.minMaxTemperatureLabel = new EnhancedLabel("n/a");
-		this.minMaxTemperatureLabel.setFont(this.minMaxTemperatureLabel.getFont().deriveFont(20f));
+		this.minMaxTemperatureLabel.setFont(baseFont.deriveFont(20f));
 		this.minMaxTemperatureLabel.setForeground(this.colorProvider.foregroundColor());
 		this.minMaxTemperatureLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
 		this.panel.add(this.minMaxTemperatureLabel);
