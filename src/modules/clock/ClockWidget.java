@@ -43,10 +43,7 @@ public class ClockWidget implements CustosModuleWidget {
 			return;
 		}
 		this.isBuilt = true;
-		Font baseFont = FontLoader.loadFrom("monofonto.ttf");
-		if (null == baseFont) {
-			baseFont = new JPanel().getFont();
-		}
+		final Font baseFont = FontLoader.loadFromWithFallback("monofonto.ttf", new JPanel().getFont());
 		this.panel = new JPanel(new MigLayout("", "0[320!]0", ""));
 		this.panel.setBackground(this.colorProvider.backgroundColor());
 		this.timeLabel = new EnhancedLabel(this.timeFormatter.print(this.time));

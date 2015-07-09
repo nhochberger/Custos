@@ -41,10 +41,7 @@ public class WeatherWidget implements CustosModuleWidget {
 			return;
 		}
 		this.isBuilt = true;
-		Font baseFont = FontLoader.loadFrom("monofonto.ttf");
-		if (null == baseFont) {
-			baseFont = new JPanel().getFont();
-		}
+		final Font baseFont = FontLoader.loadFromWithFallback("monofonto.ttf", new JPanel().getFont());
 		this.panel = new JPanel(new MigLayout());
 		this.panel.setLayout(new MigLayout("", "10[]10[]10", "10[]1[]1[]:"));
 		this.panel.setPreferredSize(new Dimension(300, 100));
