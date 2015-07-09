@@ -6,6 +6,8 @@ import hochberger.utilities.gui.UndecoratedEDTSafeFrame;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import javax.swing.JPanel;
+
 import modules.CustosModule;
 import net.miginfocom.swing.MigLayout;
 
@@ -24,6 +26,7 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 	protected void buildUI() {
 		exitOnClose();
 		center();
+		frame().setContentPane(new JPanel());
 		frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
 		useLayoutManager(new MigLayout("", "20[200]:push[200]:push[200]20", "20[]20"));
 		frame().setAlwaysOnTop(true);
@@ -38,6 +41,9 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 	}
 
 	public void update() {
+		if (!isBuilt()) {
+			return;
+		}
 		frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
 		for (final CustosModule custosModule : this.modules) {
 			custosModule.updateWidget();

@@ -2185,3 +2185,13 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was NUMBER
 2015-07-09 14:23:00,997 INFO (main): Heartbeat started.
 2015-07-09 14:23:12,748 INFO (main): Starting application
 2015-07-09 14:23:12,749 INFO (main): Heartbeat started.
+2015-07-09 14:24:20,923 INFO (main): Starting application
+2015-07-09 14:24:20,924 INFO (main): Heartbeat started.
+2015-07-09 14:42:11,688 INFO (main): Starting application
+2015-07-09 14:42:11,690 INFO (main): Heartbeat started.
+2015-07-09 15:05:04,627 INFO (main): Starting application
+2015-07-09 15:05:04,628 INFO (main): Heartbeat started.
+2015-07-09 16:06:42,703 INFO (main): Starting application
+2015-07-09 16:06:42,704 INFO (main): Heartbeat started.
+2015-07-09 16:12:52,740 INFO (main): Starting application
+2015-07-09 16:12:52,741 INFO (main): Heartbeat started.
