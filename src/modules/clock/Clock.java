@@ -46,6 +46,5 @@ public class Clock extends VisibleCustosModule {
 	@Override
 	public void receive(final HeartbeatEvent event) {
 		// TODO Auto-generated method stub
-
 	}
 }
