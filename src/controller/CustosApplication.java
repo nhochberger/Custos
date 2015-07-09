@@ -55,11 +55,11 @@ public class CustosApplication extends BasicLoggedApplication {
 	@Override
 	public void start() {
 		super.start();
-		this.heartbeat.start();
-		this.screenSaverProhibiter.start();
 		for (final CustosModule custosModule : this.modules) {
 			custosModule.start();
 		}
 		this.gui.activate();
+		this.screenSaverProhibiter.start();
+		this.heartbeat.start();
 	}
 }
