@@ -37,4 +37,12 @@ public class WeatherIconProvider extends SessionBasedObject {
 		}
 		return ImageLoader.loadIcon("modules/weather/unknown.png");
 	}
+
+	public Icon getForecastIconFor(final int code) {
+		if (this.iconCodes.containsKey(String.valueOf(code))) {
+			final String iconName = this.iconCodes.getProperty(String.valueOf(code)).replace("d", "d_s");
+			return ImageLoader.loadIcon("modules/weather/" + iconName);
+		}
+		return ImageLoader.loadIcon("modules/weather/unknown_s.png");
+	}
 }
