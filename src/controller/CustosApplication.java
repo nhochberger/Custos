@@ -63,6 +63,6 @@ public class CustosApplication extends BasicLoggedApplication {
 		this.gui.activate();
 		this.screenSaverProhibiter.start();
 		this.heartbeat.start();
-		this.session.getEventBus().publish(new SystemMessage(MessageSeverity.NORMAL, new DirectI18N("Custos ${0} successfully started.", this.session.getProperties().version()).toString()));
+		this.session.getEventBus().publish(new SystemMessage(MessageSeverity.SUCCESS, new DirectI18N("Custos ${0} successfully started.", this.session.getProperties().version()).toString()));
 	}
 }
