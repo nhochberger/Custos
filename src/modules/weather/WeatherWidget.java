@@ -77,8 +77,11 @@ public class WeatherWidget implements CustosModuleWidget {
 		this.cityLabel.setText(this.weatherData.getCity().getName());
 		this.panel.setBackground(this.colorProvider.backgroundColor());
 		this.cityLabel.setForeground(this.colorProvider.foregroundColor());
+		this.cityLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
 		this.currentTemperatureLabel.setForeground(this.colorProvider.foregroundColor());
+		this.currentTemperatureLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
 		this.minMaxTemperatureLabel.setForeground(this.colorProvider.foregroundColor());
+		this.minMaxTemperatureLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
 		this.weatherStatusLabel.setIcon(this.iconProvider.getIconForCode(this.weatherData.getList().get(0).getWeather().get(0).getId()));
 		this.currentTemperatureLabel.setText(this.weatherData.getList().get(0).getTemp().get("day").intValue() + "°C");
 		final int minTemperature = this.weatherData.getList().get(0).getTemp().get("min").intValue();
