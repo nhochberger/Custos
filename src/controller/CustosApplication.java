@@ -25,6 +25,7 @@ public class CustosApplication extends BasicLoggedApplication {
 	private final BasicSession session;
 	private final CustosGui gui;
 	private final List<CustosModule> modules;
+	private final VersionChecker versionChecker;
 
 	public static void main(final String... args) {
 		setUpLoggingServices(CustosApplication.class);
@@ -43,6 +44,7 @@ public class CustosApplication extends BasicLoggedApplication {
 		this.colorProvider = new DayTimeAwareColorProvider(this.session);
 		this.heartbeat = new Heartbeat(this.session);
 		this.screenSaverProhibiter = new ScreenSaverProhibiter(this.session);
+		this.versionChecker = new VersionChecker(this.session);
 		this.gui = new CustosGui(this.session, this.colorProvider);
 		this.session.getEventBus().register(this.gui, HeartbeatEvent.class);
 
@@ -63,6 +65,7 @@ public class CustosApplication extends BasicLoggedApplication {
 		this.gui.activate();
 		this.screenSaverProhibiter.start();
 		this.heartbeat.start();
+		this.versionChecker.start();
 		this.session.getEventBus().publish(new SystemMessage(MessageSeverity.SUCCESS, new DirectI18N("Custos ${0} successfully started.", this.session.getProperties().version()).toString()));
 	}
 }

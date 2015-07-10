@@ -1,6 +1,7 @@
 package modules.weather;
 
 import hochberger.utilities.application.session.BasicSession;
+import hochberger.utilities.timing.ToMilis;
 
 import java.io.IOException;
 import java.util.Timer;
@@ -55,7 +56,7 @@ public class Weather extends VisibleCustosModule {
 
 	@Override
 	public void start() {
-		this.timer.schedule(new JsonWeatherRequestTimerTask(), 1500, 5 * 60 * 1000);
+		this.timer.schedule(new JsonWeatherRequestTimerTask(), ToMilis.seconds(1.5), ToMilis.minutes(5));
 		EDT.perform(new Runnable() {
 
 			@Override
