@@ -4,6 +4,7 @@ import hochberger.utilities.application.ApplicationProperties;
 import hochberger.utilities.application.BasicLoggedApplication;
 import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.eventbus.SimpleEventBus;
+import hochberger.utilities.text.i18n.DirectI18N;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -14,6 +15,7 @@ import modules.weather.Weather;
 import view.ColorProvider;
 import view.CustosGui;
 import view.DayTimeAwareColorProvider;
+import controller.SystemMessage.MessageSeverity;
 
 public class CustosApplication extends BasicLoggedApplication {
 
@@ -61,5 +63,6 @@ public class CustosApplication extends BasicLoggedApplication {
 		this.gui.activate();
 		this.screenSaverProhibiter.start();
 		this.heartbeat.start();
+		this.session.getEventBus().publish(new SystemMessage(MessageSeverity.NORMAL, new DirectI18N("Custos ${0} successfully started.", this.session.getProperties().version()).toString()));
 	}
 }
