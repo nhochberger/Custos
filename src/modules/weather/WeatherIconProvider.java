@@ -30,7 +30,7 @@ public class WeatherIconProvider extends SessionBasedObject {
 		if (this.iconCodes.containsKey(String.valueOf(code))) {
 			final DateTime now = DateTime.now();
 			String iconName = this.iconCodes.getProperty(String.valueOf(code));
-			if (6 > now.getHourOfDay() || 22 < now.getHourOfDay()) {
+			if (6 > now.getHourOfDay() || 21 < now.getHourOfDay()) {
 				iconName = iconName.replace('d', 'n');
 			}
 			return ImageLoader.loadIcon("modules/weather/" + iconName);
