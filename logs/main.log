@@ -2375,3 +2375,31 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was NUMBER
 2015-07-11 09:28:57,747 INFO (main): Heartbeat started.
 2015-07-11 09:29:22,939 INFO (main): Starting application
 2015-07-11 09:29:23,469 INFO (main): Heartbeat started.
+2015-07-11 09:58:28,119 INFO (main): Starting application
+2015-07-11 09:58:28,815 INFO (main): Heartbeat started.
+2015-07-11 09:58:29,944 ERROR (Timer-3): Json request was unsuccessful.
+java.io.IOException: Server returned HTTP response code: 500 for URL: http://api.openweathermap.org/data/2.5/weather/daily?units=metric&appid=beb80c8a5590891c343321ccf26b1a5b&q=Neubiberg,de
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at modules.weather.OpenWeatherMapApiRequest.performRequest(OpenWeatherMapApiRequest.java:42)
+	at modules.weather.Weather$JsonWeatherRequestTimerTask.run(Weather.java:101)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+2015-07-11 09:59:31,424 INFO (main): Starting application
+2015-07-11 09:59:31,962 INFO (main): Heartbeat started.
+2015-07-11 10:00:24,614 INFO (main): Starting application
+2015-07-11 10:00:25,268 INFO (main): Heartbeat started.
+2015-07-11 10:00:44,260 INFO (main): Starting application
+2015-07-11 10:00:44,832 INFO (main): Heartbeat started.
+2015-07-11 10:01:43,812 INFO (main): Starting application
+2015-07-11 10:01:44,337 INFO (main): Heartbeat started.
+2015-07-11 10:03:28,937 INFO (main): Starting application
+2015-07-11 10:03:29,480 INFO (main): Heartbeat started.
+2015-07-11 10:04:23,422 INFO (main): Starting application
+2015-07-11 10:04:23,968 INFO (main): Heartbeat started.
+2015-07-11 10:05:57,974 INFO (main): Starting application
+2015-07-11 10:05:58,500 INFO (main): Heartbeat started.
+2015-07-11 10:07:04,131 INFO (main): Starting application
+2015-07-11 10:07:04,685 INFO (main): Heartbeat started.
+2015-07-11 10:08:07,986 INFO (main): Starting application
+2015-07-11 10:08:08,479 INFO (main): Heartbeat started.

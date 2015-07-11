@@ -8,6 +8,6 @@ public class CurrentWeatherJsonRequest extends OpenWeatherMapApiRequest {
 
 	@Override
 	protected String requestType() {
-		return baseUrl() + "weather/daily?" + units() + "&appid=" + apiKey() + "&q=";
+		return baseUrl() + "weather?" + units() + "&appid=" + apiKey() + "&q=";
 	}
 }

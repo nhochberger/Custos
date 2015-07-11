@@ -17,7 +17,7 @@ public class WeatherWidget implements CustosModuleWidget {
 
 	private static final String N_A = "n/a ";
 	private static final int UNKNOWN = 0;
-	private ForecastData weatherData;
+	private ForecastData forecastData;
 	private final WeatherIconProvider iconProvider;
 	private boolean isBuilt;
 	private final ColorProvider colorProvider;
@@ -32,12 +32,13 @@ public class WeatherWidget implements CustosModuleWidget {
 	private EnhancedLabel forecastLabel2;
 	private JLabel forecastIconLabel3;
 	private EnhancedLabel forecastLabel3;
+	private CurrentWeatherData weatherData;
 
 	public WeatherWidget(final ColorProvider colorProvider, final WeatherIconProvider iconProvider) {
 		super();
 		this.colorProvider = colorProvider;
 		this.iconProvider = iconProvider;
-		this.weatherData = new ForecastData();
+		this.forecastData = new ForecastData();
 		this.isBuilt = false;
 	}
 
@@ -105,36 +106,39 @@ public class WeatherWidget implements CustosModuleWidget {
 
 	@Override
 	public void updateWidget() {
-		if (null == this.weatherData) {
+		if (null == this.forecastData) {
 			return;
 		}
-		this.cityLabel.setText(this.weatherData.getCity().getName());
+		if (null == this.weatherData || null == this.forecastData) {
+			return;
+		}
+		this.cityLabel.setText(this.weatherData.getName());
 		this.cityLabel.setForeground(this.colorProvider.foregroundColor());
 		this.cityLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
 		this.currentTemperatureLabel.setForeground(this.colorProvider.foregroundColor());
 		this.currentTemperatureLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
 		this.minMaxTemperatureLabel.setForeground(this.colorProvider.foregroundColor());
 		this.minMaxTemperatureLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
-		this.weatherStatusLabel.setIcon(this.iconProvider.getIconForCode(this.weatherData.getList().get(0).getWeather().get(0).getId()));
-		this.currentTemperatureLabel.setText(this.weatherData.getList().get(0).getTemp().get("day").intValue() + "°C");
-		final int minTemperature = this.weatherData.getList().get(0).getTemp().get("min").intValue();
-		final int maxTemperature = this.weatherData.getList().get(0).getTemp().get("max").intValue();
+		this.weatherStatusLabel.setIcon(this.iconProvider.getIconForCode(this.forecastData.getList().get(0).getWeather().get(0).getId()));
+		this.currentTemperatureLabel.setText(Float.valueOf(this.weatherData.getMain().getTemp()).intValue() + "°C");
+		final int minTemperature = Float.valueOf(this.weatherData.getMain().getTemp_min()).intValue();
+		final int maxTemperature = Float.valueOf(this.weatherData.getMain().getTemp_max()).intValue();
 		this.minMaxTemperatureLabel.setText(minTemperature + "°C - " + maxTemperature + "°C");
 
-		this.forecastIconLabel1.setIcon(this.iconProvider.getForecastIconFor(this.weatherData.getList().get(1).getWeather().get(0).getId()));
+		this.forecastIconLabel1.setIcon(this.iconProvider.getForecastIconFor(this.forecastData.getList().get(1).getWeather().get(0).getId()));
 		this.forecastLabel1.setForeground(this.colorProvider.foregroundColor());
 		this.forecastLabel1.setRightShadow(1, 1, this.colorProvider.shadowColor());
-		this.forecastLabel1.setText(this.weatherData.getList().get(1).getTemp().get("day").intValue() + "°C");
+		this.forecastLabel1.setText(this.forecastData.getList().get(1).getTemp().get("day").intValue() + "°C");
 
-		this.forecastIconLabel2.setIcon(this.iconProvider.getForecastIconFor(this.weatherData.getList().get(2).getWeather().get(0).getId()));
+		this.forecastIconLabel2.setIcon(this.iconProvider.getForecastIconFor(this.forecastData.getList().get(2).getWeather().get(0).getId()));
 		this.forecastLabel2.setForeground(this.colorProvider.foregroundColor());
 		this.forecastLabel2.setRightShadow(1, 1, this.colorProvider.shadowColor());
-		this.forecastLabel2.setText(this.weatherData.getList().get(2).getTemp().get("day").intValue() + "°C");
+		this.forecastLabel2.setText(this.forecastData.getList().get(2).getTemp().get("day").intValue() + "°C");
 
-		this.forecastIconLabel3.setIcon(this.iconProvider.getForecastIconFor(this.weatherData.getList().get(3).getWeather().get(0).getId()));
+		this.forecastIconLabel3.setIcon(this.iconProvider.getForecastIconFor(this.forecastData.getList().get(3).getWeather().get(0).getId()));
 		this.forecastLabel3.setForeground(this.colorProvider.foregroundColor());
 		this.forecastLabel3.setRightShadow(1, 1, this.colorProvider.shadowColor());
-		this.forecastLabel3.setText(this.weatherData.getList().get(3).getTemp().get("day").intValue() + "°C");
+		this.forecastLabel3.setText(this.forecastData.getList().get(3).getTemp().get("day").intValue() + "°C");
 	}
 
 	@Override
@@ -142,7 +146,11 @@ public class WeatherWidget implements CustosModuleWidget {
 		return this.panel;
 	}
 
-	public void setNewData(final ForecastData weatherData) {
+	public void setNewForecastData(final ForecastData forecastData) {
+		this.forecastData = forecastData;
+	}
+
+	public void setNewCurrentWeatherData(final CurrentWeatherData weatherData) {
 		this.weatherData = weatherData;
 	}
 }
