@@ -3,7 +3,7 @@ package modules.weather;
 import java.util.List;
 import java.util.Map;
 
-public class WeatherData {
+public class ForecastData {
 	private City city;
 	private List<Forecast> list;
 

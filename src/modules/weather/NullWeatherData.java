@@ -2,7 +2,7 @@ package modules.weather;
 
 import java.util.List;
 
-public class NullWeatherData extends WeatherData {
+public class NullWeatherData extends ForecastData {
 
 	public NullWeatherData() {
 		super();

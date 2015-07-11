@@ -17,7 +17,7 @@ public class WeatherWidget implements CustosModuleWidget {
 
 	private static final String N_A = "n/a ";
 	private static final int UNKNOWN = 0;
-	private WeatherData weatherData;
+	private ForecastData weatherData;
 	private final WeatherIconProvider iconProvider;
 	private boolean isBuilt;
 	private final ColorProvider colorProvider;
@@ -37,7 +37,7 @@ public class WeatherWidget implements CustosModuleWidget {
 		super();
 		this.colorProvider = colorProvider;
 		this.iconProvider = iconProvider;
-		this.weatherData = new WeatherData();
+		this.weatherData = new ForecastData();
 		this.isBuilt = false;
 	}
 
@@ -142,7 +142,7 @@ public class WeatherWidget implements CustosModuleWidget {
 		return this.panel;
 	}
 
-	public void setNewData(final WeatherData weatherData) {
+	public void setNewData(final ForecastData weatherData) {
 		this.weatherData = weatherData;
 	}
 }

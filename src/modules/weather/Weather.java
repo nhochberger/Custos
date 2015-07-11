@@ -25,7 +25,7 @@ public class Weather extends VisibleCustosModule {
 	private final WeatherWidget widget;
 	private final String city;
 	private final String country;
-	private WeatherData weatherData;
+	private ForecastData weatherData;
 	private final WeatherIconProvider iconProvider;
 
 	public Weather(final BasicSession session, final ColorProvider colorProvider) {
@@ -82,7 +82,7 @@ public class Weather extends VisibleCustosModule {
 			final ForecastJsonRequest request = new ForecastJsonRequest();
 			try {
 				final String result = request.performRequest(Weather.this.city, Weather.this.country);
-				Weather.this.weatherData = new Gson().fromJson(result, WeatherData.class);
+				Weather.this.weatherData = new Gson().fromJson(result, ForecastData.class);
 			} catch (final IOException e) {
 				session().getLogger().error("Json request was unsuccessful.", e);
 			}
