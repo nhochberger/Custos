@@ -45,7 +45,9 @@ public class SystemMessageDialog implements EventReceiver<SystemMessage> {
 		this.dialog.setResizable(false);
 		this.messagesPanel = new JPanel(new MigLayout());
 		this.messagesPanel.setBackground(this.colorProvider.backgroundColor());
-		this.dialog.setContentPane(new JScrollPane(this.messagesPanel));
+		JScrollPane scrollPane = new JScrollPane(this.messagesPanel);
+		scrollPane.setAutoscrolls(true);
+		this.dialog.setContentPane(scrollPane);
 	}
 
 	public void show() {
@@ -71,6 +73,7 @@ public class SystemMessageDialog implements EventReceiver<SystemMessage> {
 					SystemMessageDialog.this.messagesPanel.add(label, "wrap");
 				}
 				SystemMessageDialog.this.messagesPanel.doLayout();
+				SystemMessageDialog.this.dialog.getContentPane().doLayout();
 			}
 		});
 	}
