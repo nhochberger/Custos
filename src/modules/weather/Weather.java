@@ -93,6 +93,8 @@ public class Weather extends VisibleCustosModule {
 			try {
 				final String forecastResult = forecastRequest.performRequest(Weather.this.city, Weather.this.country);
 				Weather.this.forecastData = new Gson().fromJson(forecastResult, ForecastData.class);
+				session().getEventBus().publish(
+						new SystemMessage(MessageSeverity.NORMAL, new DirectI18N("Weather data updated at ${0}.", CommonDateTimeFormatters.hourMinuteSecond().print(DateTime.now())).toString()));
 			} catch (final IOException e) {
 				session().getLogger().error("Json request was unsuccessful.", e);
 				session().getEventBus().publish(new SystemMessage(MessageSeverity.WARNING, "Error while retrieving weather forecast data."));
@@ -104,8 +106,6 @@ public class Weather extends VisibleCustosModule {
 				session().getLogger().error("Json request was unsuccessful.", e);
 				session().getEventBus().publish(new SystemMessage(MessageSeverity.WARNING, "Error while retrieving current weather data."));
 			}
-			session().getEventBus().publish(
-					new SystemMessage(MessageSeverity.NORMAL, new DirectI18N("Weather data updated at ${0}.", CommonDateTimeFormatters.hourMinuteSecond().print(DateTime.now())).toString()));
 		}
 	}
 

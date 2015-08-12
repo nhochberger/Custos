@@ -74,7 +74,9 @@ public class VersionChecker extends SessionBasedObject implements Lifecycle {
 				connection.disconnect();
 				compareVersions(response.toString());
 			} catch (final IOException e) {
+				session().getEventBus().publish(new SystemMessage(MessageSeverity.WARNING, new DirectI18N("Unable to retrieve version information.").toString()));
 				logger().error("Unable to retrieve version information.", e);
+
 			}
 		}
 	}
