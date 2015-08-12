@@ -9,22 +9,25 @@ import java.util.LinkedList;
 
 import modules.CustosModule;
 import controller.HeartbeatEvent;
+import controller.SystemMessageMemory;
 
 public class CustosGui extends SessionBasedObject implements ApplicationGui, EventReceiver<HeartbeatEvent> {
 
 	private final LinkedList<CustosModule> modules;
 	private final ColorProvider colorProvider;
 	private CustosMainFrame mainFrame;
+	private final SystemMessageMemory messageMemory;
 
-	public CustosGui(final BasicSession session, final ColorProvider colorProvider) {
+	public CustosGui(final BasicSession session, final ColorProvider colorProvider, final SystemMessageMemory messageMemory) {
 		super(session);
 		this.colorProvider = colorProvider;
+		this.messageMemory = messageMemory;
 		this.modules = new LinkedList<>();
 	}
 
 	@Override
 	public void activate() {
-		this.mainFrame = new CustosMainFrame(session(), this.colorProvider);
+		this.mainFrame = new CustosMainFrame(session(), this.colorProvider, this.messageMemory);
 		for (final CustosModule module : this.modules) {
 			this.mainFrame.addModuleToView(module);
 		}

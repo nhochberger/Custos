@@ -26,6 +26,7 @@ public class CustosApplication extends BasicLoggedApplication {
 	private final CustosGui gui;
 	private final List<CustosModule> modules;
 	private final VersionChecker versionChecker;
+	private final SystemMessageMemory systemMessageMemory;
 
 	public static void main(final String... args) {
 		setUpLoggingServices(CustosApplication.class);
@@ -45,7 +46,9 @@ public class CustosApplication extends BasicLoggedApplication {
 		this.heartbeat = new Heartbeat(this.session);
 		this.screenSaverProhibiter = new ScreenSaverProhibiter(this.session);
 		this.versionChecker = new VersionChecker(this.session);
-		this.gui = new CustosGui(this.session, this.colorProvider);
+		this.systemMessageMemory = new SystemMessageMemory();
+		this.session.getEventBus().register(this.systemMessageMemory, SystemMessage.class);
+		this.gui = new CustosGui(this.session, this.colorProvider, this.systemMessageMemory);
 		this.session.getEventBus().register(this.gui, HeartbeatEvent.class);
 
 		this.modules = new LinkedList<>();
