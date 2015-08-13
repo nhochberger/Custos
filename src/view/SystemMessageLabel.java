@@ -2,6 +2,8 @@ package view;
 
 import hochberger.utilities.eventbus.EventReceiver;
 
+import java.awt.Cursor;
+
 import javax.swing.JLabel;
 
 import controller.SystemMessage;
@@ -26,6 +28,7 @@ public class SystemMessageLabel implements EventReceiver<SystemMessage> {
 		}
 		this.isBuilt = true;
 		this.label = new JLabel();
+		this.label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	}
 
 	public JLabel getLabel() {
