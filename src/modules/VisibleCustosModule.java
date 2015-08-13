@@ -3,6 +3,7 @@ package modules;
 import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.application.session.SessionBasedObject;
 import view.ColorProvider;
+import edt.EDT;
 
 public abstract class VisibleCustosModule extends SessionBasedObject implements CustosModule {
 
@@ -15,5 +16,14 @@ public abstract class VisibleCustosModule extends SessionBasedObject implements 
 
 	protected ColorProvider colorProvider() {
 		return this.colorProvider;
+	}
+
+	public void updateWidget() {
+		EDT.performBlocking(new Runnable() {
+			@Override
+			public void run() {
+				getWidget().updateWidget();
+			}
+		});
 	}
 }

@@ -9,13 +9,14 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import modules.CustosModule;
+import modules.VisibleCustosModule;
 import net.miginfocom.swing.MigLayout;
 import controller.SystemMessage;
 import controller.SystemMessageMemory;
 
 public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 
-	private final List<CustosModule> modules;
+	private final List<VisibleCustosModule> modules;
 	private final ColorProvider colorProvider;
 	private final SystemMessageLabel systemMessageLabel;
 	private final SystemMessageDialog systemMessageDialog;
@@ -54,7 +55,7 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 		maximize();
 	}
 
-	public void addModuleToView(final CustosModule module) {
+	public void addModuleToView(final VisibleCustosModule module) {
 		this.modules.add(module);
 	}
 
@@ -63,7 +64,7 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 			return;
 		}
 		frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
-		for (final CustosModule custosModule : this.modules) {
+		for (final VisibleCustosModule custosModule : this.modules) {
 			custosModule.updateWidget();
 		}
 	}

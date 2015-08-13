@@ -39,17 +39,6 @@ public class Clock extends VisibleCustosModule {
 	}
 
 	@Override
-	public void updateWidget() {
-		EDT.performBlocking(new Runnable() {
-
-			@Override
-			public void run() {
-				getWidget().updateWidget();
-			}
-		});
-	}
-
-	@Override
 	public void receive(final HeartbeatEvent event) {
 		// TODO Auto-generated method stub
 	}

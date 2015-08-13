@@ -7,13 +7,13 @@ import hochberger.utilities.gui.ApplicationGui;
 
 import java.util.LinkedList;
 
-import modules.CustosModule;
+import modules.VisibleCustosModule;
 import controller.HeartbeatEvent;
 import controller.SystemMessageMemory;
 
 public class CustosGui extends SessionBasedObject implements ApplicationGui, EventReceiver<HeartbeatEvent> {
 
-	private final LinkedList<CustosModule> modules;
+	private final LinkedList<VisibleCustosModule> modules;
 	private final ColorProvider colorProvider;
 	private CustosMainFrame mainFrame;
 	private final SystemMessageMemory messageMemory;
@@ -28,7 +28,7 @@ public class CustosGui extends SessionBasedObject implements ApplicationGui, Eve
 	@Override
 	public void activate() {
 		this.mainFrame = new CustosMainFrame(session(), this.colorProvider, this.messageMemory);
-		for (final CustosModule module : this.modules) {
+		for (final VisibleCustosModule module : this.modules) {
 			this.mainFrame.addModuleToView(module);
 		}
 		this.mainFrame.show();
@@ -40,7 +40,7 @@ public class CustosGui extends SessionBasedObject implements ApplicationGui, Eve
 
 	}
 
-	public void addModule(final CustosModule module) {
+	public void addModule(final VisibleCustosModule module) {
 		this.modules.add(module);
 	}
 

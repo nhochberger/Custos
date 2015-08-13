@@ -6,6 +6,13 @@ import modules.CustosModuleWidget;
 
 public class AlarmClockWidget implements CustosModuleWidget {
 
+	private boolean isBuilt;
+
+	public AlarmClockWidget() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public void updateWidget() {
 		// TODO Auto-generated method stub
@@ -20,8 +27,6 @@ public class AlarmClockWidget implements CustosModuleWidget {
 
 	@Override
 	public void build() {
-		// TODO Auto-generated method stub
 
 	}
-
 }
