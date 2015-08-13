@@ -11,6 +11,7 @@ import java.util.List;
 
 import modules.CustosModule;
 import modules.VisibleCustosModule;
+import modules.alarmclock.AlarmClock;
 import modules.clock.Clock;
 import modules.weather.Weather;
 import view.ColorProvider;
@@ -55,6 +56,7 @@ public class CustosApplication extends BasicLoggedApplication {
 		this.modules = new LinkedList<>();
 		this.modules.add(new Clock(this.session, this.colorProvider));
 		this.modules.add(new Weather(this.session, this.colorProvider));
+		this.modules.add(new AlarmClock(this.session, this.colorProvider));
 		for (final CustosModule custosModule : this.modules) {
 			if (custosModule instanceof VisibleCustosModule) {
 				this.gui.addModule((VisibleCustosModule) custosModule);

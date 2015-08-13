@@ -10947,3 +10947,206 @@ java.net.UnknownHostException: www.hochberger.eu
 2015-08-13 16:02:30,573 INFO (main): Heartbeat started.
 2015-08-13 16:03:25,881 INFO (main): Starting application
 2015-08-13 16:03:27,155 INFO (main): Heartbeat started.
+2015-08-13 16:22:39,148 INFO (main): Starting application
+2015-08-13 16:22:40,396 INFO (main): Heartbeat started.
+2015-08-13 16:23:48,062 INFO (main): Starting application
+2015-08-13 16:23:49,482 INFO (main): Heartbeat started.
+2015-08-13 16:23:56,493 INFO (main): Starting application
+2015-08-13 16:23:57,913 INFO (main): Heartbeat started.
+2015-08-13 16:25:43,868 INFO (main): Starting application
+2015-08-13 16:25:45,286 INFO (main): Heartbeat started.
+2015-08-13 16:34:39,960 INFO (main): Starting application
+2015-08-13 16:34:40,708 INFO (main): Heartbeat started.
+2015-08-13 16:36:04,695 INFO (main): Starting application
+2015-08-13 16:36:46,431 INFO (main): Starting application
+2015-08-13 16:37:16,400 INFO (main): Starting application
+2015-08-13 16:37:17,523 INFO (main): Heartbeat started.
+2015-08-13 16:39:03,511 INFO (main): Starting application
+2015-08-13 16:39:04,447 INFO (main): Heartbeat started.
+2015-08-13 16:39:22,937 INFO (main): Starting application
+2015-08-13 16:39:26,670 INFO (main): Starting application
+2015-08-13 16:39:28,004 INFO (main): Heartbeat started.
+2015-08-13 16:42:01,235 INFO (main): Starting application
+2015-08-13 16:42:02,686 INFO (main): Heartbeat started.
+2015-08-13 16:46:41,902 INFO (main): Starting application
+2015-08-13 16:46:43,014 INFO (main): Heartbeat started.
+2015-08-13 16:47:14,223 INFO (main): Starting application
+2015-08-13 16:47:15,237 INFO (main): Heartbeat started.
+2015-08-13 16:47:41,376 INFO (main): Starting application
+2015-08-13 16:47:42,270 INFO (main): Heartbeat started.
+2015-08-13 16:54:30,367 INFO (main): Starting application
+2015-08-13 16:54:31,782 INFO (main): Heartbeat started.
+2015-08-13 16:55:56,524 INFO (main): Starting application
+2015-08-13 16:55:57,503 INFO (main): Heartbeat started.
+2015-08-13 16:56:11,603 INFO (main): Starting application
+2015-08-13 16:56:12,508 INFO (main): Heartbeat started.
+2015-08-13 16:56:24,106 INFO (main): Starting application
+2015-08-13 16:56:24,975 INFO (main): Heartbeat started.
+2015-08-13 17:11:55,095 INFO (main): Starting application
+2015-08-13 17:11:56,170 INFO (main): Heartbeat started.
+2015-08-13 17:19:11,611 INFO (main): Starting application
+2015-08-13 17:19:12,818 INFO (main): Heartbeat started.
+2015-08-13 17:19:50,177 INFO (main): Starting application
+2015-08-13 17:19:51,539 INFO (main): Heartbeat started.
+2015-08-13 17:25:55,957 INFO (main): Starting application
+2015-08-13 17:25:57,263 INFO (main): Heartbeat started.
+2015-08-13 17:32:30,329 INFO (main): Starting application
+2015-08-13 17:32:31,744 INFO (main): Heartbeat started.
+2015-08-13 17:37:25,400 INFO (main): Starting application
+2015-08-13 17:37:26,649 INFO (main): Heartbeat started.
+2015-08-13 18:02:21,049 INFO (main): Starting application
+2015-08-13 18:02:22,382 INFO (main): Heartbeat started.
+2015-08-13 18:02:34,411 INFO (main): Starting application
+2015-08-13 18:02:35,598 INFO (main): Heartbeat started.
+2015-08-13 18:02:44,452 INFO (main): Starting application
+2015-08-13 18:02:45,821 INFO (main): Heartbeat started.
+2015-08-13 18:03:17,794 INFO (main): Starting application
+2015-08-13 18:03:19,087 INFO (main): Heartbeat started.
+2015-08-13 18:04:08,547 INFO (main): Starting application
+2015-08-13 18:04:09,568 FATAL (main): Error while starting application. Shutting down.
+java.lang.ClassCastException: layout of JScrollPane must be a ScrollPaneLayout
+	at javax.swing.JScrollPane.setLayout(Unknown Source)
+	at modules.alarmclock.AlarmClockWidget.build(AlarmClockWidget.java:58)
+	at modules.alarmclock.AlarmClock.start(AlarmClock.java:36)
+	at controller.CustosApplication.start(CustosApplication.java:71)
+	at controller.CustosApplication.main(CustosApplication.java:38)
+2015-08-13 18:04:49,901 INFO (main): Starting application
+2015-08-13 18:04:51,013 INFO (main): Heartbeat started.
+2015-08-13 18:05:07,032 INFO (main): Starting application
+2015-08-13 18:05:07,896 INFO (main): Heartbeat started.
+2015-08-13 18:09:24,177 INFO (main): Starting application
+2015-08-13 18:09:25,366 INFO (main): Heartbeat started.
+2015-08-13 18:09:35,019 INFO (main): Starting application
+2015-08-13 18:09:36,236 INFO (main): Heartbeat started.
+2015-08-13 18:11:32,943 INFO (main): Starting application
+2015-08-13 18:11:33,804 FATAL (main): Error while starting application. Shutting down.
+java.lang.IllegalArgumentException: Illegal Constraint: 'cell 1'
+At least two integers must follow cell 1
+	at net.miginfocom.layout.ConstraintParser.parseComponentConstraint(Unknown Source)
+	at net.miginfocom.swing.MigLayout.setComponentConstraintsImpl(Unknown Source)
+	at net.miginfocom.swing.MigLayout.addLayoutComponent(Unknown Source)
+	at java.awt.Container.addImpl(Unknown Source)
+	at java.awt.Container.add(Unknown Source)
+	at modules.alarmclock.AlarmClockWidget.build(AlarmClockWidget.java:52)
+	at modules.alarmclock.AlarmClock.start(AlarmClock.java:36)
+	at controller.CustosApplication.start(CustosApplication.java:71)
+	at controller.CustosApplication.main(CustosApplication.java:38)
+2015-08-13 18:12:29,395 INFO (main): Starting application
+2015-08-13 18:12:30,303 FATAL (main): Error while starting application. Shutting down.
+java.lang.IllegalArgumentException: Illegal Constraint: 'cell 0'
+At least two integers must follow cell 0
+	at net.miginfocom.layout.ConstraintParser.parseComponentConstraint(Unknown Source)
+	at net.miginfocom.swing.MigLayout.setComponentConstraintsImpl(Unknown Source)
+	at net.miginfocom.swing.MigLayout.addLayoutComponent(Unknown Source)
+	at java.awt.Container.addImpl(Unknown Source)
+	at java.awt.Container.add(Unknown Source)
+	at modules.alarmclock.AlarmClockWidget.build(AlarmClockWidget.java:52)
+	at modules.alarmclock.AlarmClock.start(AlarmClock.java:36)
+	at controller.CustosApplication.start(CustosApplication.java:71)
+	at controller.CustosApplication.main(CustosApplication.java:38)
+2015-08-13 18:12:39,066 INFO (main): Starting application
+2015-08-13 18:12:40,236 INFO (main): Heartbeat started.
+2015-08-13 18:13:06,399 INFO (main): Starting application
+2015-08-13 18:13:07,705 INFO (main): Heartbeat started.
+2015-08-13 18:13:30,670 INFO (main): Starting application
+2015-08-13 18:13:31,916 INFO (main): Heartbeat started.
+2015-08-13 18:13:47,706 INFO (main): Starting application
+2015-08-13 18:13:48,991 INFO (main): Heartbeat started.
+2015-08-13 18:15:06,580 INFO (main): Starting application
+2015-08-13 18:15:07,193 INFO (main): Heartbeat started.
+2015-08-13 18:15:31,712 INFO (main): Starting application
+2015-08-13 18:15:33,016 INFO (main): Heartbeat started.
+2015-08-13 18:16:17,922 INFO (main): Starting application
+2015-08-13 18:16:19,232 INFO (main): Heartbeat started.
+2015-08-13 18:16:33,446 INFO (main): Starting application
+2015-08-13 18:16:34,709 INFO (main): Heartbeat started.
+2015-08-13 18:18:56,329 INFO (main): Starting application
+2015-08-13 18:18:57,611 INFO (main): Heartbeat started.
+2015-08-13 18:19:25,943 INFO (main): Starting application
+2015-08-13 18:19:27,052 INFO (main): Heartbeat started.
+2015-08-13 18:19:38,668 INFO (main): Starting application
+2015-08-13 18:19:39,888 INFO (main): Heartbeat started.
+2015-08-13 18:22:07,148 INFO (main): Starting application
+2015-08-13 18:22:08,437 INFO (main): Heartbeat started.
+2015-08-13 18:22:40,508 INFO (main): Starting application
+2015-08-13 18:22:41,695 INFO (main): Heartbeat started.
+2015-08-13 18:22:57,140 INFO (main): Starting application
+2015-08-13 18:22:58,439 INFO (main): Heartbeat started.
+2015-08-13 18:23:12,411 INFO (main): Starting application
+2015-08-13 18:23:13,690 INFO (main): Heartbeat started.
+2015-08-13 18:23:40,207 INFO (main): Starting application
+2015-08-13 18:23:41,099 INFO (main): Heartbeat started.
+2015-08-13 18:24:21,678 INFO (main): Starting application
+2015-08-13 18:24:23,026 INFO (main): Heartbeat started.
+2015-08-13 18:25:04,146 INFO (main): Starting application
+2015-08-13 18:25:05,320 INFO (main): Heartbeat started.
+2015-08-13 18:25:20,349 INFO (main): Starting application
+2015-08-13 18:25:21,575 INFO (main): Heartbeat started.
+2015-08-13 18:25:56,168 INFO (main): Starting application
+2015-08-13 18:25:57,205 INFO (main): Heartbeat started.
+2015-08-13 18:45:06,043 INFO (main): Starting application
+2015-08-13 18:45:07,218 INFO (main): Heartbeat started.
+2015-08-13 18:45:40,800 INFO (main): Starting application
+2015-08-13 18:45:42,069 INFO (main): Heartbeat started.
+2015-08-13 18:46:24,515 INFO (main): Starting application
+2015-08-13 18:46:25,740 INFO (main): Heartbeat started.
+2015-08-13 18:52:34,451 INFO (main): Starting application
+2015-08-13 18:52:35,602 INFO (main): Heartbeat started.
+2015-08-13 18:53:02,192 INFO (main): Starting application
+2015-08-13 18:53:03,262 INFO (main): Heartbeat started.
+2015-08-13 18:53:45,813 INFO (main): Starting application
+2015-08-13 18:53:46,850 INFO (main): Heartbeat started.
+2015-08-13 18:54:15,519 INFO (main): Starting application
+2015-08-13 18:54:16,741 INFO (main): Heartbeat started.
+2015-08-13 18:58:11,512 INFO (main): Starting application
+2015-08-13 18:58:12,784 INFO (main): Heartbeat started.
+2015-08-13 19:00:32,562 INFO (main): Starting application
+2015-08-13 19:00:33,731 INFO (main): Heartbeat started.
+2015-08-13 19:00:58,438 INFO (main): Starting application
+2015-08-13 19:00:59,711 INFO (main): Heartbeat started.
+2015-08-13 19:04:56,351 INFO (main): Starting application
+2015-08-13 19:04:57,494 INFO (main): Heartbeat started.
+2015-08-13 19:18:02,521 INFO (main): Starting application
+2015-08-13 19:18:03,847 INFO (main): Heartbeat started.
+2015-08-13 19:18:24,361 INFO (main): Starting application
+2015-08-13 19:18:25,619 INFO (main): Heartbeat started.
+2015-08-13 19:18:53,698 INFO (main): Starting application
+2015-08-13 19:18:54,986 INFO (main): Heartbeat started.
+2015-08-13 19:19:10,817 INFO (main): Starting application
+2015-08-13 19:19:11,598 INFO (main): Heartbeat started.
+2015-08-13 19:19:21,643 INFO (main): Starting application
+2015-08-13 19:19:22,798 INFO (main): Heartbeat started.
+2015-08-13 19:19:34,594 INFO (main): Starting application
+2015-08-13 19:19:35,917 INFO (main): Heartbeat started.
+2015-08-13 19:19:56,892 INFO (main): Starting application
+2015-08-13 19:19:58,138 INFO (main): Heartbeat started.
+2015-08-13 19:21:07,070 INFO (main): Starting application
+2015-08-13 19:21:07,961 INFO (main): Heartbeat started.
+2015-08-13 19:21:26,466 INFO (main): Starting application
+2015-08-13 19:21:27,391 INFO (main): Heartbeat started.
+2015-08-13 19:21:51,083 INFO (main): Starting application
+2015-08-13 19:21:51,982 INFO (main): Heartbeat started.
+2015-08-13 19:22:24,952 INFO (main): Starting application
+2015-08-13 19:22:26,238 INFO (main): Heartbeat started.
+2015-08-13 19:22:37,395 INFO (main): Starting application
+2015-08-13 19:22:38,662 INFO (main): Heartbeat started.
+2015-08-13 19:22:56,052 INFO (main): Starting application
+2015-08-13 19:22:57,351 INFO (main): Heartbeat started.
+2015-08-13 19:23:10,896 INFO (main): Starting application
+2015-08-13 19:23:12,056 INFO (main): Heartbeat started.
+2015-08-13 19:23:30,841 INFO (main): Starting application
+2015-08-13 19:23:32,073 INFO (main): Heartbeat started.
+2015-08-13 19:23:43,485 INFO (main): Starting application
+2015-08-13 19:23:44,768 INFO (main): Heartbeat started.
+2015-08-13 19:24:03,176 INFO (main): Starting application
+2015-08-13 19:24:04,279 INFO (main): Heartbeat started.
+2015-08-13 19:24:17,871 INFO (main): Starting application
+2015-08-13 19:24:19,168 INFO (main): Heartbeat started.
+2015-08-13 19:27:00,882 INFO (main): Starting application
+2015-08-13 19:27:02,011 INFO (main): Heartbeat started.
+2015-08-13 19:27:37,959 INFO (main): Starting application
+2015-08-13 19:27:39,093 INFO (main): Heartbeat started.
+2015-08-13 20:09:09,190 INFO (main): Starting application
+2015-08-13 20:09:10,585 INFO (main): Heartbeat started.
+2015-08-13 20:12:27,413 INFO (main): Starting application
+2015-08-13 20:12:28,832 INFO (main): Heartbeat started.

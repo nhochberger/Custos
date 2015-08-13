@@ -13,15 +13,17 @@ import controller.HeartbeatEvent;
 public class AlarmClock extends VisibleCustosModule {
 
 	private final List<Alarm> alarms;
+	private final AlarmClockWidget widget;
 
 	public AlarmClock(final BasicSession session, final ColorProvider colorProvider) {
 		super(session, colorProvider);
 		this.alarms = new LinkedList<>();
+		this.widget = new AlarmClockWidget(colorProvider);
 	}
 
 	@Override
 	public CustosModuleWidget getWidget() {
-		return null;
+		return this.widget;
 	}
 
 	@Override
@@ -31,8 +33,7 @@ public class AlarmClock extends VisibleCustosModule {
 
 	@Override
 	public void start() {
-		// TODO read alarms from file
-
+		this.widget.build();
 	}
 
 	@Override
