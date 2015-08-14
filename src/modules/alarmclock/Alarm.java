@@ -1,5 +1,7 @@
 package modules.alarmclock;
 
+import hochberger.utilities.text.Text;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -40,9 +42,18 @@ public class Alarm {
 		return this.weekdayRepetition.contains(day);
 	}
 
+	public void setAlarmTime(final AlarmTime alarmTime) {
+		this.alarmTime = alarmTime;
+	}
+
 	public boolean checkTriggered() {
 		DateTime now = DateTime.now();
 		Weekday today = Weekday.getWeekdayFor(now.getDayOfWeek());
 		return this.weekdayRepetition.contains(today) && this.alarmTime.applies(now);
+	}
+
+	@Override
+	public String toString() {
+		return this.alarmTime.toString() + Text.space() + Text.fromIterable(this.weekdayRepetition);
 	}
 }

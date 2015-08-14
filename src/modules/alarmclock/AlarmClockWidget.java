@@ -59,6 +59,9 @@ public class AlarmClockWidget implements CustosModuleWidget {
 				NewAlarmDialog dialog = new NewAlarmDialog(AlarmClockWidget.this.panel, AlarmClockWidget.this.colorProvider);
 				dialog.build();
 				dialog.show();
+				if (dialog.wasClosedByCommit()) {
+					System.err.println(dialog.getResult());
+				}
 			}
 		});
 		leftPanel.add(newAlarmButton, "center");

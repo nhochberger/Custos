@@ -3,7 +3,7 @@ package modules.alarmclock;
 import hochberger.utilities.gui.ImageButton;
 import hochberger.utilities.gui.font.FontLoader;
 import hochberger.utilities.gui.input.SelfHighlightningValidatingTextField;
-import hochberger.utilities.gui.input.validator.IntegerStringInputValidator;
+import hochberger.utilities.gui.input.validator.MinMaxIntegerStringInputValidator;
 import hochberger.utilities.images.loader.ImageLoader;
 import hochberger.utilities.text.i18n.DirectI18N;
 
@@ -14,7 +14,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import net.miginfocom.swing.MigLayout;
 import view.ColorProvider;
@@ -26,7 +29,8 @@ public class NewAlarmDialog {
 	private final Component parent;
 	private final ColorProvider colorProvider;
 	private boolean closedByCommit;
-	private Alarm result;
+	private SelfHighlightningValidatingTextField hourTextField;
+	private SelfHighlightningValidatingTextField minuteTextField;
 
 	public NewAlarmDialog(final Component parent, final ColorProvider colorProvider) {
 		super();
@@ -43,21 +47,39 @@ public class NewAlarmDialog {
 		this.isBuilt = true;
 		this.dialog = new JDialog();
 		this.dialog.setModal(true);
+		this.dialog.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.dialog.setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		this.dialog.setUndecorated(true);
 		this.dialog.setAlwaysOnTop(true);
 		this.dialog.setSize(this.parent.getWidth(), this.parent.getHeight());
 		this.dialog.setTitle(new DirectI18N("Create Alarm").toString());
 		this.dialog.setLocationRelativeTo(this.parent);
-		JPanel panel = new JPanel(new MigLayout("debug", ":push[]:push", "[]"));
+		JPanel panel = new JPanel(new MigLayout("", ":push[]:push", "[]"));
 		panel.setBackground(this.colorProvider.backgroundColor());
 		this.dialog.setContentPane(panel);
 
 		final Font baseFont = FontLoader.loadFromWithFallback("monofonto.ttf", new JPanel().getFont());
+		Font font = baseFont.deriveFont(25f);
 		JPanel settingsPanel = new JPanel(new MigLayout());
-		SelfHighlightningValidatingTextField hourTextField = new SelfHighlightningValidatingTextField(2);
-		hourTextField.addValidator(new IntegerStringInputValidator());
-		settingsPanel.add(hourTextField);
+		settingsPanel.setOpaque(false);
+		this.hourTextField = new SelfHighlightningValidatingTextField(3);
+		this.hourTextField.addValidator(new MinMaxIntegerStringInputValidator(0, 23));
+		this.hourTextField.setFont(font);
+		this.hourTextField.setHorizontalAlignment(JTextField.CENTER);
+		this.hourTextField.setText("00");
+		settingsPanel.add(this.hourTextField);
+
+		JLabel colonLabel = new JLabel(":");
+		colonLabel.setFont(font);
+		settingsPanel.add(colonLabel);
+
+		this.minuteTextField = new SelfHighlightningValidatingTextField(3);
+		this.minuteTextField.addValidator(new MinMaxIntegerStringInputValidator(0, 59));
+		this.minuteTextField.setFont(font);
+		this.minuteTextField.setHorizontalAlignment(JTextField.CENTER);
+		this.minuteTextField.setText("00");
+		settingsPanel.add(this.minuteTextField);
+
 		panel.add(settingsPanel);
 
 		JPanel buttonsPanel = new JPanel(new MigLayout("", ":push[]50[]:push", "0[]0"));
@@ -75,12 +97,22 @@ public class NewAlarmDialog {
 		this.dialog.setVisible(true);
 	}
 
+	public void hide() {
+		this.dialog.setVisible(false);
+	}
+
 	public boolean wasClosedByCommit() {
 		return this.closedByCommit;
 	}
 
 	public Alarm getResult() {
-		return this.result;
+		if (!this.isBuilt) {
+			return null;
+		}
+		AlarmTime time = new AlarmTime(Integer.valueOf(this.hourTextField.getText()), Integer.valueOf(this.minuteTextField.getText()));
+		Alarm result = new Alarm();
+		result.setAlarmTime(time);
+		return result;
 	}
 
 	private class DenyButtonActionListener implements ActionListener {
@@ -91,7 +123,7 @@ public class NewAlarmDialog {
 
 		@Override
 		public void actionPerformed(final ActionEvent arg0) {
-			NewAlarmDialog.this.dialog.setVisible(false);
+			hide();
 		}
 	}
 
@@ -103,7 +135,10 @@ public class NewAlarmDialog {
 
 		@Override
 		public void actionPerformed(final ActionEvent arg0) {
-			NewAlarmDialog.this.dialog.setVisible(false);
+			if (!(NewAlarmDialog.this.hourTextField.validateInput() && NewAlarmDialog.this.minuteTextField.validateInput())) {
+				return;
+			}
+			hide();
 			NewAlarmDialog.this.closedByCommit = true;
 		}
 	}

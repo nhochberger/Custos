@@ -16,4 +16,9 @@ public class AlarmTime {
 	public boolean applies(final DateTime time) {
 		return (this.minute == time.getMinuteOfHour() && this.hour == time.getHourOfDay() && 0 == time.getSecondOfMinute());
 	}
+
+	@Override
+	public String toString() {
+		return this.hour + ":" + this.minute;
+	}
 }
