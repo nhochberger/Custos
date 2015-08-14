@@ -60,27 +60,29 @@ public class NewAlarmDialog {
 
 		final Font baseFont = FontLoader.loadFromWithFallback("monofonto.ttf", new JPanel().getFont());
 		Font font = baseFont.deriveFont(25f);
-		JPanel settingsPanel = new JPanel(new MigLayout());
-		settingsPanel.setOpaque(false);
+		JPanel timeSettingsPanel = new JPanel(new MigLayout());
+		timeSettingsPanel.setOpaque(false);
 		this.hourTextField = new SelfHighlightningValidatingTextField(3);
 		this.hourTextField.addValidator(new MinMaxIntegerStringInputValidator(0, 23));
 		this.hourTextField.setFont(font);
 		this.hourTextField.setHorizontalAlignment(JTextField.CENTER);
 		this.hourTextField.setText("00");
-		settingsPanel.add(this.hourTextField);
+		timeSettingsPanel.add(this.hourTextField);
 
 		JLabel colonLabel = new JLabel(":");
 		colonLabel.setFont(font);
-		settingsPanel.add(colonLabel);
+		timeSettingsPanel.add(colonLabel);
 
 		this.minuteTextField = new SelfHighlightningValidatingTextField(3);
 		this.minuteTextField.addValidator(new MinMaxIntegerStringInputValidator(0, 59));
 		this.minuteTextField.setFont(font);
 		this.minuteTextField.setHorizontalAlignment(JTextField.CENTER);
 		this.minuteTextField.setText("00");
-		settingsPanel.add(this.minuteTextField);
+		timeSettingsPanel.add(this.minuteTextField);
+		panel.add(timeSettingsPanel, "wrap");
 
-		panel.add(settingsPanel);
+		JPanel weekdayPanel = new JPanel(new MigLayout("", ":push[]4[]4[]4[]4[]4[]4[]:push", ""));
+		weekdayPanel.setOpaque(false);
 
 		JPanel buttonsPanel = new JPanel(new MigLayout("", ":push[]50[]:push", "0[]0"));
 		ImageButton acceptButton = new ImageButton(ImageLoader.loadImage("modules/alarmclock/check.png"));

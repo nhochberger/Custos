@@ -9,19 +9,6 @@ import org.joda.time.DateTime;
 
 public class Alarm {
 
-	public enum Weekday {
-		SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY;
-
-		public static Weekday getWeekdayFor(final int day) {
-			for (Weekday weekday : values()) {
-				if (day == weekday.ordinal()) {
-					return weekday;
-				}
-			}
-			return null;
-		}
-	}
-
 	private AlarmTime alarmTime;
 	private final List<Weekday> weekdayRepetition;
 
