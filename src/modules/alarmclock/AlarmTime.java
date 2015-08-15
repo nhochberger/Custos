@@ -17,6 +17,14 @@ public class AlarmTime {
 		return (this.minute == time.getMinuteOfHour() && this.hour == time.getHourOfDay() && 0 == time.getSecondOfMinute());
 	}
 
+	public int getHour() {
+		return this.hour;
+	}
+
+	public int getMinute() {
+		return this.minute;
+	}
+
 	@Override
 	public String toString() {
 		return this.hour + ":" + this.minute;
