@@ -27,6 +27,6 @@ public class AlarmTime {
 
 	@Override
 	public String toString() {
-		return this.hour + ":" + this.minute;
+		return String.format("%02d", this.hour) + ":" + String.format("%02d", this.minute);
 	}
 }

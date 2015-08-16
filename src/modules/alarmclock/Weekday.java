@@ -2,6 +2,8 @@ package modules.alarmclock;
 
 import hochberger.utilities.text.i18n.DirectI18N;
 
+import java.util.Comparator;
+
 public enum Weekday {
 	SUNDAY(new DirectI18N("Su")), MONDAY(new DirectI18N("Mo")), TUESDAY(new DirectI18N("Tu")), WEDNESDAY(new DirectI18N("We")), THURSDAY(new DirectI18N("Th")), FRIDAY(new DirectI18N("Fr")), SATURDAY(
 			new DirectI18N("Sa"));
@@ -23,5 +25,17 @@ public enum Weekday {
 
 	public String getShortName() {
 		return this.shortName;
+	}
+
+	public static class WeekdayComparator implements Comparator<Weekday> {
+
+		public WeekdayComparator() {
+			super();
+		}
+
+		@Override
+		public int compare(final Weekday arg0, final Weekday arg1) {
+			return arg0.ordinal() - arg1.ordinal();
+		}
 	}
 }

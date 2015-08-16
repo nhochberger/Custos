@@ -18,7 +18,18 @@ public class AlarmClock extends VisibleCustosModule {
 	public AlarmClock(final BasicSession session, final ColorProvider colorProvider) {
 		super(session, colorProvider);
 		this.alarms = new LinkedList<>();
-		this.widget = new AlarmClockWidget(colorProvider);
+		this.widget = new AlarmClockWidget(colorProvider, this.alarms);
+		Alarm.EmptyAlarm emptyAlarm = new Alarm.EmptyAlarm();
+		emptyAlarm.setRepetitionForWeekDay(Weekday.MONDAY);
+		emptyAlarm.setRepetitionForWeekDay(Weekday.SUNDAY);
+		// emptyAlarm.setRepetitionForWeekDay(Weekday.WEDNESDAY);
+		// emptyAlarm.setRepetitionForWeekDay(Weekday.FRIDAY);
+		emptyAlarm.setRepetitionForWeekDay(Weekday.SATURDAY);
+		emptyAlarm.setRepetitionForWeekDay(Weekday.THURSDAY);
+		emptyAlarm.setRepetitionForWeekDay(Weekday.TUESDAY);
+		this.alarms.add(emptyAlarm);
+		this.alarms.add(emptyAlarm);
+		this.alarms.add(emptyAlarm);
 	}
 
 	@Override

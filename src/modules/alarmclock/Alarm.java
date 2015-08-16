@@ -2,8 +2,8 @@ package modules.alarmclock;
 
 import hochberger.utilities.text.Text;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.joda.time.DateTime;
 
@@ -15,7 +15,7 @@ public class Alarm {
 
 	public Alarm() {
 		super();
-		this.weekdayRepetition = new HashSet<>();
+		this.weekdayRepetition = new TreeSet<>(new Weekday.WeekdayComparator());
 		this.active = true;
 	}
 
@@ -59,6 +59,10 @@ public class Alarm {
 
 	public boolean getActive() {
 		return this.active;
+	}
+
+	public Set<Weekday> getWeekdayRepetition() {
+		return this.weekdayRepetition;
 	}
 
 	@Override

@@ -53,7 +53,7 @@ public class NewAlarmDialog extends WrappedComponent<JDialog> {
 		dialog.setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		dialog.setUndecorated(true);
 		dialog.setAlwaysOnTop(true);
-		dialog.setSize(this.parent.getWidth(), this.parent.getHeight());
+		dialog.setSize(this.parent.getWidth(), 125);
 		dialog.setTitle(new DirectI18N("Create Alarm").toString());
 		dialog.setLocationRelativeTo(this.parent);
 		JPanel panel = new JPanel(new MigLayout("", ":push[center]:push", ":push[]2[]2[]:push"));
@@ -115,11 +115,6 @@ public class NewAlarmDialog extends WrappedComponent<JDialog> {
 	}
 
 	public Alarm getResult() {
-		// AlarmTime time = new
-		// AlarmTime(Integer.valueOf(this.hourTextField.getText()),
-		// Integer.valueOf(this.minuteTextField.getText()));
-		// Alarm result = new Alarm();
-		// result.setAlarmTime(time);
 		return this.alarm;
 	}
 
