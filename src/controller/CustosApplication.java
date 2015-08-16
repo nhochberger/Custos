@@ -68,6 +68,7 @@ public class CustosApplication extends BasicLoggedApplication {
 	public void start() {
 		super.start();
 		for (final CustosModule custosModule : this.modules) {
+			this.session.getEventBus().register(custosModule, HeartbeatEvent.class);
 			custosModule.start();
 		}
 		this.gui.activate();

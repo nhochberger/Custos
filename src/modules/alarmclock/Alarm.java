@@ -49,7 +49,8 @@ public class Alarm {
 
 	public boolean checkTriggered() {
 		DateTime now = DateTime.now();
-		Weekday today = Weekday.getWeekdayFor(now.getDayOfWeek());
+		// HACK: DateTime delivers dayOfWeek as Mo = 1, ... SU = 7.
+		Weekday today = Weekday.getWeekdayFor(now.getDayOfWeek() % 7);
 		return this.weekdayRepetition.contains(today) && this.alarmTime.applies(now);
 	}
 

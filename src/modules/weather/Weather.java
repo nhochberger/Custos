@@ -111,6 +111,6 @@ public class Weather extends VisibleCustosModule {
 
 	@Override
 	public void receive(final HeartbeatEvent event) {
-		updateWidget();
+		// do nothing on purpose here
 	}
 }

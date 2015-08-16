@@ -35,6 +35,12 @@ public enum Weekday {
 
 		@Override
 		public int compare(final Weekday arg0, final Weekday arg1) {
+			if (null == arg0) {
+				return -1;
+			}
+			if (null == arg1) {
+				return 1;
+			}
 			return arg0.ordinal() - arg1.ordinal();
 		}
 	}
