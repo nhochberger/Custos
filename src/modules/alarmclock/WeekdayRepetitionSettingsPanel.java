@@ -2,6 +2,8 @@ package modules.alarmclock;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
@@ -15,12 +17,15 @@ public class WeekdayRepetitionSettingsPanel {
 	private boolean isBuilt;
 	private final ColorProvider colorProvider;
 	private final Alarm alarm;
+	private final Set<Weekday> weekdays;
 
 	public WeekdayRepetitionSettingsPanel(final ColorProvider colorProvider, final Alarm alarm) {
 		super();
 		this.colorProvider = colorProvider;
 		this.alarm = alarm;
 		this.isBuilt = false;
+		this.weekdays = new TreeSet<>(new Weekday.WeekdayComparator());
+		this.weekdays.addAll(alarm.getWeekdayRepetition());
 	}
 
 	public void build() {
@@ -37,11 +42,19 @@ public class WeekdayRepetitionSettingsPanel {
 			box.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(final ActionEvent e) {
-					WeekdayRepetitionSettingsPanel.this.alarm.setRepetitionForWeekday(day, box.isSelected());
+					if (box.isSelected()) {
+						WeekdayRepetitionSettingsPanel.this.weekdays.add(day);
+					} else {
+						WeekdayRepetitionSettingsPanel.this.weekdays.remove(day);
+					}
 				}
 			});
 			this.panel.add(box);
 		}
+	}
+
+	public Set<Weekday> getWeekdays() {
+		return this.weekdays;
 	}
 
 	public JPanel getPanel() {

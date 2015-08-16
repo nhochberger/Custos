@@ -32,6 +32,7 @@ public class NewAlarmDialog extends WrappedComponent<JDialog> {
 	private SelfHighlightningValidatingTextField hourTextField;
 	private SelfHighlightningValidatingTextField minuteTextField;
 	private final Alarm alarm;
+	private WeekdayRepetitionSettingsPanel weekdayRepetitionSettingsPanel;
 
 	public NewAlarmDialog(final Alarm alarm, final Component parent, final ColorProvider colorProvider) {
 		super();
@@ -83,12 +84,9 @@ public class NewAlarmDialog extends WrappedComponent<JDialog> {
 		timeSettingsPanel.add(this.minuteTextField);
 		panel.add(timeSettingsPanel, "wrap");
 
-		WeekdayRepetitionSettingsPanel weekdayRepetitionSettingsPanel = new WeekdayRepetitionSettingsPanel(this.colorProvider, this.alarm);
-		weekdayRepetitionSettingsPanel.build();
-		panel.add(weekdayRepetitionSettingsPanel.getPanel(), "wrap");
-
-		JPanel weekdayPanel = new JPanel(new MigLayout("", ":push[]4[]4[]4[]4[]4[]4[]:push", ""));
-		weekdayPanel.setOpaque(false);
+		this.weekdayRepetitionSettingsPanel = new WeekdayRepetitionSettingsPanel(this.colorProvider, this.alarm);
+		this.weekdayRepetitionSettingsPanel.build();
+		panel.add(this.weekdayRepetitionSettingsPanel.getPanel(), "wrap");
 
 		JPanel buttonsPanel = new JPanel(new MigLayout("", ":push[]50[]:push", "0[]0"));
 		ImageButton acceptButton = new ImageButton(ImageLoader.loadImage("modules/alarmclock/check.png"));
@@ -115,6 +113,10 @@ public class NewAlarmDialog extends WrappedComponent<JDialog> {
 	}
 
 	public Alarm getResult() {
+		this.alarm.setAlarmTime(new AlarmTime(Integer.valueOf(this.hourTextField.getText()), Integer.valueOf(this.minuteTextField.getText())));
+		for (Weekday day : Weekday.values()) {
+			this.alarm.setRepetitionForWeekday(day, this.weekdayRepetitionSettingsPanel.getWeekdays().contains(day));
+		}
 		return this.alarm;
 	}
 

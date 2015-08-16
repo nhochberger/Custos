@@ -36,6 +36,8 @@ public class AlarmClock extends VisibleCustosModule {
 	public void start() {
 		this.widget.build();
 		session().getEventBus().register(new NewAlarmHandler(), NewAlarmEvent.class);
+		session().getEventBus().register(new DeleteAlarmHandler(), DeleteAlarmEvent.class);
+		session().getEventBus().register(new EditAlarmHander(), AlarmEditedEvent.class);
 	}
 
 	@Override
@@ -64,7 +66,7 @@ public class AlarmClock extends VisibleCustosModule {
 		System.err.println("alarm triggered");
 	}
 
-	public class NewAlarmHandler implements EventReceiver<NewAlarmEvent> {
+	private final class NewAlarmHandler implements EventReceiver<NewAlarmEvent> {
 
 		public NewAlarmHandler() {
 			super();
@@ -73,6 +75,31 @@ public class AlarmClock extends VisibleCustosModule {
 		@Override
 		public void receive(final NewAlarmEvent event) {
 			AlarmClock.this.alarms.add(event.getAlarm());
+			getWidget().updateWidget();
+		}
+	}
+
+	private final class DeleteAlarmHandler implements EventReceiver<DeleteAlarmEvent> {
+
+		public DeleteAlarmHandler() {
+			super();
+		}
+
+		@Override
+		public void receive(final DeleteAlarmEvent event) {
+			AlarmClock.this.alarms.remove(event.getAlarm());
+			getWidget().updateWidget();
+		}
+	}
+
+	private final class EditAlarmHander implements EventReceiver<AlarmEditedEvent> {
+
+		public EditAlarmHander() {
+			super();
+		}
+
+		@Override
+		public void receive(final AlarmEditedEvent event) {
 			getWidget().updateWidget();
 		}
 	}
