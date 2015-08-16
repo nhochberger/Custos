@@ -1,6 +1,7 @@
 package modules.alarmclock;
 
 import hochberger.utilities.application.session.BasicSession;
+import hochberger.utilities.eventbus.EventReceiver;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -18,18 +19,7 @@ public class AlarmClock extends VisibleCustosModule {
 	public AlarmClock(final BasicSession session, final ColorProvider colorProvider) {
 		super(session, colorProvider);
 		this.alarms = new LinkedList<>();
-		this.widget = new AlarmClockWidget(colorProvider, this.alarms);
-		Alarm.EmptyAlarm emptyAlarm = new Alarm.EmptyAlarm();
-		emptyAlarm.setRepetitionForWeekDay(Weekday.MONDAY);
-		emptyAlarm.setRepetitionForWeekDay(Weekday.SUNDAY);
-		// emptyAlarm.setRepetitionForWeekDay(Weekday.WEDNESDAY);
-		// emptyAlarm.setRepetitionForWeekDay(Weekday.FRIDAY);
-		emptyAlarm.setRepetitionForWeekDay(Weekday.SATURDAY);
-		emptyAlarm.setRepetitionForWeekDay(Weekday.THURSDAY);
-		emptyAlarm.setRepetitionForWeekDay(Weekday.TUESDAY);
-		this.alarms.add(emptyAlarm);
-		this.alarms.add(emptyAlarm);
-		this.alarms.add(emptyAlarm);
+		this.widget = new AlarmClockWidget(session.getEventBus(), colorProvider, this.alarms);
 	}
 
 	@Override
@@ -39,17 +29,17 @@ public class AlarmClock extends VisibleCustosModule {
 
 	@Override
 	public void updateWidget() {
-
+		// getWidget().updateWidget();
 	}
 
 	@Override
 	public void start() {
 		this.widget.build();
+		session().getEventBus().register(new NewAlarmHandler(), NewAlarmEvent.class);
 	}
 
 	@Override
 	public void stop() {
-
 	}
 
 	@Override
@@ -72,5 +62,18 @@ public class AlarmClock extends VisibleCustosModule {
 
 	private void triggerAlarm() {
 		System.err.println("alarm triggered");
+	}
+
+	public class NewAlarmHandler implements EventReceiver<NewAlarmEvent> {
+
+		public NewAlarmHandler() {
+			super();
+		}
+
+		@Override
+		public void receive(final NewAlarmEvent event) {
+			AlarmClock.this.alarms.add(event.getAlarm());
+			getWidget().updateWidget();
+		}
 	}
 }

@@ -1,5 +1,6 @@
 package modules.alarmclock;
 
+import hochberger.utilities.eventbus.EventBus;
 import hochberger.utilities.gui.ImageButton;
 import hochberger.utilities.gui.font.FontLoader;
 import hochberger.utilities.images.loader.ImageLoader;
@@ -16,6 +17,7 @@ import javax.swing.JPanel;
 import modules.CustosModuleWidget;
 import net.miginfocom.swing.MigLayout;
 import view.ColorProvider;
+import edt.EDT;
 
 public class AlarmClockWidget implements CustosModuleWidget {
 
@@ -23,16 +25,30 @@ public class AlarmClockWidget implements CustosModuleWidget {
 	private JPanel panel;
 	private final ColorProvider colorProvider;
 	private final List<Alarm> alarms;
+	private JPanel rightPanel;
+	private final EventBus eventBus;
 
-	public AlarmClockWidget(final ColorProvider colorProvider, final List<Alarm> alarms) {
+	public AlarmClockWidget(final EventBus eventBus, final ColorProvider colorProvider, final List<Alarm> alarms) {
 		super();
+		this.eventBus = eventBus;
 		this.colorProvider = colorProvider;
 		this.alarms = alarms;
 	}
 
 	@Override
 	public void updateWidget() {
-		// TODO Auto-generated method stub
+		EDT.performBlocking(new Runnable() {
+
+			@Override
+			public void run() {
+				AlarmClockWidget.this.rightPanel.removeAll();
+				for (Alarm alarm : AlarmClockWidget.this.alarms) {
+					SingleAlarm singleAlarm = new SingleAlarm(AlarmClockWidget.this.colorProvider, alarm);
+					singleAlarm.build();
+					AlarmClockWidget.this.rightPanel.add(singleAlarm.getComponent(), "wrap");
+				}
+			}
+		});
 	}
 
 	@Override
@@ -61,7 +77,7 @@ public class AlarmClockWidget implements CustosModuleWidget {
 				dialog.build();
 				dialog.show();
 				if (dialog.wasClosedByCommit()) {
-					System.err.println(dialog.getResult());
+					AlarmClockWidget.this.eventBus.publishFromEDT(new NewAlarmEvent(dialog.getResult()));
 				}
 			}
 		});
@@ -69,13 +85,13 @@ public class AlarmClockWidget implements CustosModuleWidget {
 
 		this.panel.add(leftPanel, "cell 0 0");
 
-		JPanel rightPanel = new JPanel(new MigLayout("", "0[234!]0", "0[20]"));
-		rightPanel.setOpaque(false);
+		this.rightPanel = new JPanel(new MigLayout("", "0[234!]0", "0[20]"));
+		this.rightPanel.setOpaque(false);
 		for (Alarm alarm : this.alarms) {
 			SingleAlarm singleAlarm = new SingleAlarm(this.colorProvider, alarm);
 			singleAlarm.build();
-			rightPanel.add(singleAlarm.getComponent(), "wrap");
+			this.rightPanel.add(singleAlarm.getComponent(), "wrap");
 		}
-		this.panel.add(rightPanel, "cell 1 0");
+		this.panel.add(this.rightPanel, "cell 1 0");
 	}
 }
