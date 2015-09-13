@@ -15,11 +15,13 @@ public class AlarmClock extends VisibleCustosModule {
 
 	private final List<Alarm> alarms;
 	private final AlarmClockWidget widget;
+	private final AlarmPersistenceManager persistenceManager;
 
 	public AlarmClock(final BasicSession session, final ColorProvider colorProvider) {
 		super(session, colorProvider);
 		this.alarms = new LinkedList<>();
 		this.widget = new AlarmClockWidget(session.getEventBus(), colorProvider, this.alarms);
+		this.persistenceManager = new AlarmPersistenceManager(session);
 	}
 
 	@Override
@@ -29,7 +31,8 @@ public class AlarmClock extends VisibleCustosModule {
 
 	@Override
 	public void updateWidget() {
-		// getWidget().updateWidget();
+		// do not use by now!
+		// Currently breaks widget's behavior
 	}
 
 	@Override
@@ -64,6 +67,11 @@ public class AlarmClock extends VisibleCustosModule {
 
 	private void triggerAlarm() {
 		System.err.println("alarm triggered");
+
+	}
+
+	private void persistAlarms() {
+		this.persistenceManager.persistAlarms(this.alarms);
 	}
 
 	private final class NewAlarmHandler implements EventReceiver<NewAlarmEvent> {
@@ -76,6 +84,7 @@ public class AlarmClock extends VisibleCustosModule {
 		public void receive(final NewAlarmEvent event) {
 			AlarmClock.this.alarms.add(event.getAlarm());
 			getWidget().updateWidget();
+			persistAlarms();
 		}
 	}
 
@@ -89,6 +98,7 @@ public class AlarmClock extends VisibleCustosModule {
 		public void receive(final DeleteAlarmEvent event) {
 			AlarmClock.this.alarms.remove(event.getAlarm());
 			getWidget().updateWidget();
+			persistAlarms();
 		}
 	}
 
@@ -101,6 +111,7 @@ public class AlarmClock extends VisibleCustosModule {
 		@Override
 		public void receive(final AlarmEditedEvent event) {
 			getWidget().updateWidget();
+			persistAlarms();
 		}
 	}
 }
