@@ -18185,3 +18185,15 @@ java.lang.ClassCastException: java.util.ArrayList cannot be cast to java.util.Li
 2015-09-16 00:30:45,908 INFO (main): Starting application
 2015-09-16 00:30:46,094 INFO (main): Alarms read from F:\workspace\Custos/alarms.cfg
 2015-09-16 00:30:46,371 INFO (main): Heartbeat started.
+2015-09-16 00:31:21,928 INFO (main): Starting application
+2015-09-16 00:31:22,106 INFO (main): Alarms read from F:\workspace\Custos/alarms.cfg
+2015-09-16 00:31:22,373 INFO (main): Heartbeat started.
+2015-09-16 00:32:55,152 INFO (main): Starting application
+2015-09-16 00:32:55,342 INFO (main): Alarms read from F:\workspace\Custos/alarms.cfg
+2015-09-16 00:32:55,605 INFO (main): Heartbeat started.
+2015-09-16 00:33:08,730 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":17,"minute":45},"weekdayRepetition":["SUNDAY","TUESDAY","FRIDAY"],"active":true}]
+2015-09-16 00:33:08,731 INFO (Thread-7): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:33:09,346 DEBUG (Thread-8): Serialized alarms:
+[]
+2015-09-16 00:33:09,347 INFO (Thread-8): Alarms successfully saved to F:\workspace\Custos/alarms.cfg

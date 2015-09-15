@@ -66,6 +66,7 @@ public class CustosApplication extends BasicLoggedApplication {
 
 	@Override
 	public void start() {
+		this.session.getEventBus().publish(new SystemMessage(MessageSeverity.SUCCESS, new DirectI18N("Starting application").toString()));
 		super.start();
 		for (final CustosModule custosModule : this.modules) {
 			this.session.getEventBus().register(custosModule, HeartbeatEvent.class);
