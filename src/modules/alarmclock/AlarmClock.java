@@ -37,6 +37,7 @@ public class AlarmClock extends VisibleCustosModule {
 
 	@Override
 	public void start() {
+		this.alarms.addAll(this.persistenceManager.readAlarms());
 		this.widget.build();
 		session().getEventBus().register(new NewAlarmHandler(), NewAlarmEvent.class);
 		session().getEventBus().register(new DeleteAlarmHandler(), DeleteAlarmEvent.class);
@@ -49,7 +50,7 @@ public class AlarmClock extends VisibleCustosModule {
 
 	@Override
 	public void receive(final HeartbeatEvent event) {
-		boolean alarmDue = checkDueAlarms();
+		final boolean alarmDue = checkDueAlarms();
 		if (alarmDue) {
 			triggerAlarm();
 		}
@@ -57,7 +58,7 @@ public class AlarmClock extends VisibleCustosModule {
 
 	private boolean checkDueAlarms() {
 		boolean alarmDue = false;
-		for (Alarm alarm : this.alarms) {
+		for (final Alarm alarm : this.alarms) {
 			if (alarm.checkTriggered()) {
 				alarmDue = true;
 			}
