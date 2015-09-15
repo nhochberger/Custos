@@ -18197,3 +18197,33 @@ java.lang.ClassCastException: java.util.ArrayList cannot be cast to java.util.Li
 2015-09-16 00:33:09,346 DEBUG (Thread-8): Serialized alarms:
 []
 2015-09-16 00:33:09,347 INFO (Thread-8): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:54:18,387 INFO (main): Starting application
+2015-09-16 00:54:18,483 INFO (main): Alarms read from F:\workspace\Custos/alarms.cfg
+2015-09-16 00:54:18,764 INFO (main): Heartbeat started.
+2015-09-16 00:54:32,310 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":55},"weekdayRepetition":["WEDNESDAY"],"active":true}]
+2015-09-16 00:54:32,310 INFO (Thread-7): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:55:48,580 INFO (main): Starting application
+2015-09-16 00:55:48,676 INFO (main): Alarms read from F:\workspace\Custos/alarms.cfg
+2015-09-16 00:55:48,927 INFO (main): Heartbeat started.
+2015-09-16 00:55:53,494 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":56},"weekdayRepetition":["WEDNESDAY"],"active":true}]
+2015-09-16 00:55:53,495 INFO (Thread-7): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:55:53,529 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":56},"weekdayRepetition":["WEDNESDAY"],"active":true}]
+2015-09-16 00:55:53,530 INFO (Thread-13): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:55:53,538 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":56},"weekdayRepetition":["WEDNESDAY"],"active":true}]
+2015-09-16 00:55:53,539 INFO (Thread-12): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:55:53,548 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":56},"weekdayRepetition":["WEDNESDAY"],"active":true}]
+2015-09-16 00:55:53,548 INFO (Thread-11): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:55:53,557 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":56},"weekdayRepetition":["WEDNESDAY"],"active":true}]
+2015-09-16 00:55:53,557 INFO (Thread-10): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:55:53,567 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":56},"weekdayRepetition":["WEDNESDAY"],"active":true}]
+2015-09-16 00:55:53,567 INFO (Thread-9): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:55:53,576 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":56},"weekdayRepetition":["WEDNESDAY"],"active":true}]
+2015-09-16 00:55:53,577 INFO (Thread-8): Alarms successfully saved to F:\workspace\Custos/alarms.cfg

@@ -1,11 +1,17 @@
 package modules.alarmclock;
 
+import hochberger.utilities.application.ResourceLoader;
 import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.eventbus.EventReceiver;
+import hochberger.utilities.threading.ThreadRunner;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.List;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
 import view.ColorProvider;
@@ -67,8 +73,18 @@ public class AlarmClock extends VisibleCustosModule {
 	}
 
 	private void triggerAlarm() {
-		System.err.println("alarm triggered");
+		ThreadRunner.startThread(new Runnable() {
 
+			@Override
+			public void run() {
+				try {
+					final Player player = new Player(new FileInputStream(ResourceLoader.loadFile("modules/alarmclock/alarm.mp3")));
+					player.play();
+				} catch (FileNotFoundException | JavaLayerException e) {
+					logger().error(e);
+				}
+			}
+		});
 	}
 
 	private void persistAlarms() {
