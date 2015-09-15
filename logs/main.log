@@ -18057,3 +18057,131 @@ java.net.UnknownHostException: www.hochberger.eu
 	at controller.VersionChecker$VersionCheckTimerTask.run(VersionChecker.java:64)
 	at java.util.TimerThread.mainLoop(Unknown Source)
 	at java.util.TimerThread.run(Unknown Source)
+2015-09-14 16:36:10,795 INFO (main): Starting application
+2015-09-14 16:36:11,448 INFO (main): Heartbeat started.
+2015-09-14 16:36:23,507 ERROR (Timer-3): Json request was unsuccessful.
+java.net.UnknownHostException: api.openweathermap.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.<init>(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+	at modules.weather.OpenWeatherMapApiRequest.performRequest(OpenWeatherMapApiRequest.java:40)
+	at modules.weather.Weather$JsonWeatherRequestTimerTask.run(Weather.java:94)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+2015-09-14 16:36:23,518 ERROR (Timer-3): Json request was unsuccessful.
+java.net.UnknownHostException: api.openweathermap.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.<init>(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+	at modules.weather.OpenWeatherMapApiRequest.performRequest(OpenWeatherMapApiRequest.java:40)
+	at modules.weather.Weather$JsonWeatherRequestTimerTask.run(Weather.java:103)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+2015-09-14 16:36:27,511 ERROR (Timer-2): Unable to retrieve version information.
+java.net.UnknownHostException: www.hochberger.eu
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.<init>(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+	at controller.VersionChecker$VersionCheckTimerTask.run(VersionChecker.java:64)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+2015-09-15 23:58:47,638 INFO (main): Starting application
+2015-09-15 23:58:48,353 INFO (main): Heartbeat started.
+2015-09-15 23:58:52,328 INFO (Thread-7): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:01:50,654 INFO (main): Starting application
+2015-09-16 00:01:51,040 INFO (main): Heartbeat started.
+2015-09-16 00:01:53,700 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":[],"active":true}]
+2015-09-16 00:01:53,701 INFO (Thread-7): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:01:56,094 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":[],"active":true},{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["WEDNESDAY","THURSDAY"],"active":true}]
+2015-09-16 00:01:56,094 INFO (Thread-8): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:01:59,049 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":[],"active":true},{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["WEDNESDAY","THURSDAY"],"active":true},{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["MONDAY","TUESDAY"],"active":true}]
+2015-09-16 00:01:59,050 INFO (Thread-9): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:02:05,883 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":[],"active":true},{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["WEDNESDAY","THURSDAY"],"active":true},{"alarmTime":{"hour":10,"minute":0},"weekdayRepetition":["MONDAY"],"active":true}]
+2015-09-16 00:02:05,883 INFO (Thread-10): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:02:05,899 DEBUG (Thread-15): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":[],"active":true},{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["WEDNESDAY","THURSDAY"],"active":true},{"alarmTime":{"hour":10,"minute":0},"weekdayRepetition":["MONDAY"],"active":true}]
+2015-09-16 00:02:05,900 INFO (Thread-15): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:02:05,914 DEBUG (Thread-16): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":[],"active":true},{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["WEDNESDAY","THURSDAY"],"active":true},{"alarmTime":{"hour":10,"minute":0},"weekdayRepetition":["MONDAY"],"active":true}]
+2015-09-16 00:02:05,915 INFO (Thread-16): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:02:05,931 DEBUG (Thread-14): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":[],"active":true},{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["WEDNESDAY","THURSDAY"],"active":true},{"alarmTime":{"hour":10,"minute":0},"weekdayRepetition":["MONDAY"],"active":true}]
+2015-09-16 00:02:05,931 INFO (Thread-14): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:02:05,948 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":[],"active":true},{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["WEDNESDAY","THURSDAY"],"active":true},{"alarmTime":{"hour":10,"minute":0},"weekdayRepetition":["MONDAY"],"active":true}]
+2015-09-16 00:02:05,949 INFO (Thread-13): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:02:05,965 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":[],"active":true},{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["WEDNESDAY","THURSDAY"],"active":true},{"alarmTime":{"hour":10,"minute":0},"weekdayRepetition":["MONDAY"],"active":true}]
+2015-09-16 00:02:05,966 INFO (Thread-11): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:02:05,982 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":[],"active":true},{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["WEDNESDAY","THURSDAY"],"active":true},{"alarmTime":{"hour":10,"minute":0},"weekdayRepetition":["MONDAY"],"active":true}]
+2015-09-16 00:02:05,983 INFO (Thread-12): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:02:09,216 DEBUG (Thread-17): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["WEDNESDAY","THURSDAY"],"active":true},{"alarmTime":{"hour":10,"minute":0},"weekdayRepetition":["MONDAY"],"active":true}]
+2015-09-16 00:02:09,217 INFO (Thread-17): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:16:58,218 INFO (main): Starting application
+2015-09-16 00:16:58,440 FATAL (main): Error while starting application. Shutting down.
+java.lang.ClassCastException: java.util.ArrayList cannot be cast to java.util.LinkedList
+	at modules.alarmclock.AlarmPersistenceManager.readAlarms(AlarmPersistenceManager.java:74)
+	at modules.alarmclock.AlarmClock.start(AlarmClock.java:40)
+	at controller.CustosApplication.start(CustosApplication.java:72)
+	at controller.CustosApplication.main(CustosApplication.java:38)
+2015-09-16 00:17:24,149 INFO (main): Starting application
+2015-09-16 00:17:24,580 INFO (main): Heartbeat started.
+2015-09-16 00:17:29,296 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["WEDNESDAY","THURSDAY"],"active":true}]
+2015-09-16 00:17:29,297 INFO (Thread-7): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:17:39,236 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":0,"minute":0},"weekdayRepetition":["WEDNESDAY","THURSDAY"],"active":true},{"alarmTime":{"hour":17,"minute":45},"weekdayRepetition":["SUNDAY","TUESDAY","FRIDAY"],"active":true}]
+2015-09-16 00:17:39,237 INFO (Thread-8): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-09-16 00:17:44,139 INFO (main): Starting application
+2015-09-16 00:17:44,608 INFO (main): Heartbeat started.
+2015-09-16 00:19:05,728 INFO (main): Starting application
+2015-09-16 00:19:05,930 INFO (main): Alarms read from F:\workspace\Custos/alarms.cfg
+2015-09-16 00:19:06,186 INFO (main): Heartbeat started.
+2015-09-16 00:27:07,038 INFO (main): Starting application
+2015-09-16 00:27:07,229 INFO (main): Alarms read from F:\workspace\Custos/alarms.cfg
+2015-09-16 00:27:07,504 INFO (main): Heartbeat started.
+2015-09-16 00:30:45,908 INFO (main): Starting application
+2015-09-16 00:30:46,094 INFO (main): Alarms read from F:\workspace\Custos/alarms.cfg
+2015-09-16 00:30:46,371 INFO (main): Heartbeat started.

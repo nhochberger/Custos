@@ -28,6 +28,8 @@ public class SingleAlarm extends WrappedComponent<JPanel> {
 	private final Alarm alarm;
 	private final ColorProvider colorProvider;
 	private final EventBus eventBus;
+	private JLabel alarmTimeLabel;
+	private JLabel weekdayRepetitionLabel;
 
 	public SingleAlarm(final EventBus eventBus, final ColorProvider colorProvider, final Alarm alarm) {
 		super();
@@ -41,30 +43,31 @@ public class SingleAlarm extends WrappedComponent<JPanel> {
 		setComponent(new JPanel(new MigLayout("", "4[42!]3[145!]3[16!]3[16!]2", "0[]0")));
 		component().setOpaque(false);
 		final Font baseFont = FontLoader.loadFromWithFallback("monofonto.ttf", new JPanel().getFont());
-		JLabel alarmTimeLabel = new JLabel(this.alarm.getAlarmTime().toString());
-		alarmTimeLabel.setFont(baseFont.deriveFont(16f));
-		alarmTimeLabel.setForeground(this.colorProvider.foregroundColor());
-		component().add(alarmTimeLabel);
-		JLabel weekdayRepetitionLabel = new JLabel();
-		weekdayRepetitionLabel.setFont(baseFont.deriveFont(14f));
-		StringBuilder builder = new StringBuilder();
-		for (Weekday day : this.alarm.getWeekdayRepetition()) {
+		this.alarmTimeLabel = new JLabel(this.alarm.getAlarmTime().toString());
+		this.alarmTimeLabel.setFont(baseFont.deriveFont(16f));
+		this.alarmTimeLabel.setForeground(this.colorProvider.foregroundColor());
+		component().add(this.alarmTimeLabel);
+		this.weekdayRepetitionLabel = new JLabel();
+		this.weekdayRepetitionLabel.setFont(baseFont.deriveFont(14f));
+		this.weekdayRepetitionLabel.setForeground(this.colorProvider.foregroundColor());
+		final StringBuilder builder = new StringBuilder();
+		for (final Weekday day : this.alarm.getWeekdayRepetition()) {
 			builder.append(day.getShortName());
 			builder.append(" ");
 		}
-		weekdayRepetitionLabel.setText(builder.toString());
-		component().add(weekdayRepetitionLabel);
-		ImageButton editButton = new ImageButton(ImageLoader.loadImage("modules/alarmclock/edit.png"));
+		this.weekdayRepetitionLabel.setText(builder.toString());
+		component().add(this.weekdayRepetitionLabel);
+		final ImageButton editButton = new ImageButton(ImageLoader.loadImage("modules/alarmclock/edit.png"));
 		editButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(final ActionEvent arg0) {
-				NewAlarmDialog dialog = new NewAlarmDialog(SingleAlarm.this.alarm, getComponent().getParent().getParent(), SingleAlarm.this.colorProvider);
+				final NewAlarmDialog dialog = new NewAlarmDialog(SingleAlarm.this.alarm, getComponent().getParent().getParent(), SingleAlarm.this.colorProvider);
 				dialog.build();
 				dialog.show();
 				if (dialog.wasClosedByCommit()) {
 					SingleAlarm.this.alarm.setAlarmTime(dialog.getResult().getAlarmTime());
-					for (Weekday day : Weekday.values()) {
+					for (final Weekday day : Weekday.values()) {
 						SingleAlarm.this.alarm.setRepetitionForWeekday(day, dialog.getResult().getWeekdayRepetition().contains(day));
 						SingleAlarm.this.eventBus.publishFromEDT(new AlarmEditedEvent());
 					}
@@ -72,8 +75,16 @@ public class SingleAlarm extends WrappedComponent<JPanel> {
 			}
 		});
 		component().add(editButton);
-		ImageButton removeButton = new ImageButton(ImageLoader.loadImage("modules/alarmclock/trash.png"));
+		final ImageButton removeButton = new ImageButton(ImageLoader.loadImage("modules/alarmclock/trash.png"));
 		removeButton.addActionListener(new RemoveButtonActionListener());
 		component().add(removeButton);
+	}
+
+	public void updateWidget() {
+		if (!isBuilt()) {
+			return;
+		}
+		this.alarmTimeLabel.setForeground(this.colorProvider.foregroundColor());
+		this.weekdayRepetitionLabel.setForeground(this.colorProvider.foregroundColor());
 	}
 }
