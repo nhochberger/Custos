@@ -5,7 +5,6 @@ import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.eventbus.EventReceiver;
 import hochberger.utilities.threading.ThreadRunner;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,12 +21,14 @@ public class AlarmClock extends VisibleCustosModule {
 	private final List<Alarm> alarms;
 	private final AlarmClockWidget widget;
 	private final AlarmPersistenceManager persistenceManager;
+	private boolean alarmActive;
 
 	public AlarmClock(final BasicSession session, final ColorProvider colorProvider) {
 		super(session, colorProvider);
 		this.alarms = new LinkedList<>();
 		this.widget = new AlarmClockWidget(session.getEventBus(), colorProvider, this.alarms);
 		this.persistenceManager = new AlarmPersistenceManager(session);
+		this.alarmActive = false;
 	}
 
 	@Override
@@ -73,13 +74,20 @@ public class AlarmClock extends VisibleCustosModule {
 	}
 
 	private void triggerAlarm() {
+		if (this.alarmActive) {
+			logger().info("Alarm is active. New Alarm is skipped.");
+			return;
+		}
 		ThreadRunner.startThread(new Runnable() {
 
 			@Override
 			public void run() {
 				try {
-					final Player player = new Player(new FileInputStream(ResourceLoader.loadFile("modules/alarmclock/alarm.mp3")));
+					AlarmClock.this.alarmActive = true;
+					final Player player = new Player(ResourceLoader.loadAsStream("modules/alarmclock/alarm.mp3"));
+					logger().debug(ResourceLoader.loadFile("modules/alarmclock/alarm.mp3"));
 					player.play();
+					AlarmClock.this.alarmActive = false;
 				} catch (FileNotFoundException | JavaLayerException e) {
 					logger().error(e);
 				}

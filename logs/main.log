@@ -18227,3 +18227,288 @@ java.lang.ClassCastException: java.util.ArrayList cannot be cast to java.util.Li
 2015-09-16 00:55:53,576 DEBUG (Thread-8): Serialized alarms:
 [{"alarmTime":{"hour":0,"minute":56},"weekdayRepetition":["WEDNESDAY"],"active":true}]
 2015-09-16 00:55:53,577 INFO (Thread-8): Alarms successfully saved to F:\workspace\Custos/alarms.cfg
+2015-10-01 10:07:29,085 INFO (main): Starting application
+2015-10-01 10:07:29,164 ERROR (main): Unable to store alarms to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:07:31,208 INFO (main): Heartbeat started.
+2015-10-01 10:07:42,444 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":8},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:07:42,444 INFO (Thread-7): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:08:53,501 INFO (main): Starting application
+2015-10-01 10:08:53,705 INFO (main): Alarms read from D:\workspace\Custos/alarms.cfg
+2015-10-01 10:08:54,157 INFO (main): Heartbeat started.
+2015-10-01 10:10:59,979 INFO (main): Starting application
+2015-10-01 10:11:00,324 INFO (main): Alarms read from D:\workspace\Custos/alarms.cfg
+2015-10-01 10:11:00,932 INFO (main): Heartbeat started.
+2015-10-01 10:11:07,500 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":12},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:11:07,500 INFO (Thread-7): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:11:07,548 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":12},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:11:07,548 INFO (Thread-13): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:11:07,579 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":12},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:11:07,579 INFO (Thread-12): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:11:07,610 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":12},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:11:07,610 INFO (Thread-11): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:11:07,657 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":12},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:11:07,657 INFO (Thread-10): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:11:07,673 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":12},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:11:07,688 INFO (Thread-9): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:11:07,704 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":12},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:11:07,704 INFO (Thread-8): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:22:09,809 INFO (main): Starting application
+2015-10-01 10:22:10,137 INFO (main): Alarms read from D:\workspace\Custos/alarms.cfg
+2015-10-01 10:22:10,886 INFO (main): Heartbeat started.
+2015-10-01 10:22:19,155 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":23},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:22:19,155 INFO (Thread-7): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:22:19,203 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":23},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:22:19,203 INFO (Thread-13): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:22:19,234 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":23},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:22:19,234 INFO (Thread-11): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:22:19,265 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":23},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:22:19,265 INFO (Thread-12): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:22:19,297 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":23},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:22:19,297 INFO (Thread-10): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:22:19,328 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":23},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:22:19,328 INFO (Thread-9): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:22:19,359 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":23},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:22:19,359 INFO (Thread-8): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:23:02,093 DEBUG (Thread-14): C:\Users\Nico\AppData\Local\Temp\custos_tmp_3363954061113724828
+2015-10-01 10:25:41,239 INFO (main): Starting application
+2015-10-01 10:25:41,552 INFO (main): Alarms read from D:\workspace\Custos/alarms.cfg
+2015-10-01 10:25:42,300 INFO (main): Heartbeat started.
+2015-10-01 10:25:47,624 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":26},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:25:47,624 INFO (Thread-7): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:25:47,672 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":26},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:25:47,672 INFO (Thread-13): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:25:47,703 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":26},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:25:47,703 INFO (Thread-12): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:25:47,734 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":26},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:25:47,734 INFO (Thread-11): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:25:47,765 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":26},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:25:47,765 INFO (Thread-10): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:25:47,797 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":26},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:25:47,797 INFO (Thread-9): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:25:47,828 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":26},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:25:47,843 INFO (Thread-8): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:26:38,660 INFO (main): Starting application
+2015-10-01 10:26:38,926 INFO (main): Alarms read from D:\workspace\Custos/alarms.cfg
+2015-10-01 10:26:39,457 INFO (main): Heartbeat started.
+2015-10-01 10:26:47,865 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":27},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:26:47,865 INFO (Thread-7): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:26:47,897 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":27},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:26:47,897 INFO (Thread-13): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:26:47,929 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":27},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:26:47,929 INFO (Thread-12): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:26:47,960 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":27},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:26:47,960 INFO (Thread-11): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:26:47,991 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":27},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:26:47,991 INFO (Thread-10): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:26:48,022 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":27},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:26:48,022 INFO (Thread-9): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:26:48,053 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":27},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:26:48,053 INFO (Thread-8): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:27:01,322 DEBUG (Thread-14): C:\Users\Nico\AppData\Local\Temp\custos_tmp_440219060898011573
+2015-10-01 10:27:49,522 INFO (main): Starting application
+2015-10-01 10:27:49,646 INFO (main): Alarms read from D:\workspace\Custos/alarms.cfg
+2015-10-01 10:27:50,099 INFO (main): Heartbeat started.
+2015-10-01 10:27:54,920 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":28},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:27:54,936 INFO (Thread-7): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:27:54,968 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":28},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:27:54,968 INFO (Thread-12): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:27:55,015 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":28},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:27:55,015 INFO (Thread-11): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:27:55,046 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":28},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:27:55,046 INFO (Thread-10): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:27:55,077 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":28},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:27:55,077 INFO (Thread-13): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:27:55,124 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":28},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:27:55,124 INFO (Thread-9): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:27:55,155 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":28},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:27:55,171 INFO (Thread-8): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:28:00,922 DEBUG (Thread-14): C:\Users\Nico\AppData\Local\Temp\custos_tmp_437778821555718750
+2015-10-01 10:28:58,470 INFO (main): Starting application
+2015-10-01 10:28:58,830 INFO (main): Alarms read from D:\workspace\Custos/alarms.cfg
+2015-10-01 10:28:59,391 INFO (main): Heartbeat started.
+2015-10-01 10:29:08,853 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":30},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:29:08,853 INFO (Thread-7): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:29:08,901 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":30},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:29:08,901 INFO (Thread-13): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:29:08,932 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":30},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:29:08,932 INFO (Thread-12): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:29:08,964 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":30},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:29:08,964 INFO (Thread-11): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:29:08,995 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":30},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:29:08,995 INFO (Thread-10): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:29:09,026 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":30},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:29:09,026 INFO (Thread-9): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:29:09,042 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":30},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:29:09,057 INFO (Thread-8): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:30:01,221 DEBUG (Thread-14): C:\Users\Nico\AppData\Local\Temp\custos_tmp_4119048823197155464
+2015-10-01 10:33:38,231 INFO (main): Starting application
+2015-10-01 10:33:38,512 INFO (main): Alarms read from D:\workspace\Custos/alarms.cfg
+2015-10-01 10:33:39,340 INFO (main): Heartbeat started.
+2015-10-01 10:33:44,247 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":34},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:33:44,247 INFO (Thread-7): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:33:44,294 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":34},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:33:44,294 INFO (Thread-13): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:33:44,326 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":34},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:33:44,326 INFO (Thread-12): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:33:44,388 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":34},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:33:44,388 INFO (Thread-11): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:33:44,404 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":34},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:33:44,419 INFO (Thread-10): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:33:44,435 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":34},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:33:44,435 INFO (Thread-9): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:33:44,466 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":34},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:33:44,466 INFO (Thread-8): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:34:01,246 DEBUG (Thread-14): C:\Users\Nico\AppData\Local\Temp\custos_tmp_41435881967734530
+2015-10-01 10:37:39,762 INFO (main): Starting application
+2015-10-01 10:37:40,106 INFO (main): Alarms read from D:\workspace\Custos/alarms.cfg
+2015-10-01 10:37:40,777 INFO (main): Heartbeat started.
+2015-10-01 10:37:46,868 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":38},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:37:46,868 INFO (Thread-7): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:37:46,916 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":38},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:37:46,932 INFO (Thread-12): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:37:46,963 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":38},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:37:46,963 INFO (Thread-13): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:37:46,994 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":38},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:37:46,994 INFO (Thread-10): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:37:47,025 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":38},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:37:47,025 INFO (Thread-11): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:37:47,056 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":38},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:37:47,056 INFO (Thread-9): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:37:47,088 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":38},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:37:47,134 INFO (Thread-8): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:38:01,705 DEBUG (Thread-14): C:\Users\Nico\AppData\Local\Temp\custos_tmp_8333788415753516361mp3
+2015-10-01 10:38:23,405 INFO (main): Starting application
+2015-10-01 10:38:23,720 INFO (main): Alarms read from D:\workspace\Custos/alarms.cfg
+2015-10-01 10:38:24,328 INFO (main): Heartbeat started.
+2015-10-01 10:38:29,024 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":39},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:38:29,039 INFO (Thread-7): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:38:29,087 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":39},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:38:29,087 INFO (Thread-13): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:38:29,118 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":39},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:38:29,118 INFO (Thread-12): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:38:29,150 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":39},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:38:29,150 INFO (Thread-11): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:38:29,181 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":39},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:38:29,181 INFO (Thread-10): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:38:29,212 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":39},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:38:29,228 INFO (Thread-9): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:38:29,259 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":39},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:38:29,259 INFO (Thread-8): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:39:01,100 DEBUG (Thread-14): C:\Users\Nico\AppData\Local\Temp\custos_tmp_1409647863642220678.mp3
+2015-10-01 10:45:53,800 INFO (main): Starting application
+2015-10-01 10:45:54,067 INFO (main): Alarms read from D:\workspace\Custos/alarms.cfg
+2015-10-01 10:45:54,925 INFO (main): Heartbeat started.
+2015-10-01 10:45:59,387 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":46},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:45:59,387 INFO (Thread-7): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:45:59,419 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":46},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:45:59,419 INFO (Thread-9): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:45:59,466 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":46},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:45:59,466 INFO (Thread-10): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:45:59,497 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":46},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:45:59,497 INFO (Thread-13): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:45:59,513 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":46},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:45:59,513 INFO (Thread-11): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:45:59,544 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":46},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:45:59,544 INFO (Thread-12): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:45:59,560 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":46},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true}]
+2015-10-01 10:45:59,560 INFO (Thread-8): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:46:02,045 DEBUG (Thread-14): C:\Users\Nico\AppData\Local\Temp\custos_tmp_3016983739647719174.mp3
+2015-10-01 10:51:19,851 INFO (main): Starting application
+2015-10-01 10:51:20,205 INFO (main): Alarms read from D:\workspace\Custos/alarms.cfg
+2015-10-01 10:51:21,000 INFO (main): Heartbeat started.
+2015-10-01 10:51:28,786 DEBUG (Thread-7): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":46},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true},{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["THURSDAY"],"active":true}]
+2015-10-01 10:51:28,786 INFO (Thread-7): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:51:31,956 DEBUG (Thread-8): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true},{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["THURSDAY"],"active":true}]
+2015-10-01 10:51:31,956 INFO (Thread-8): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:51:31,988 DEBUG (Thread-14): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true},{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["THURSDAY"],"active":true}]
+2015-10-01 10:51:31,988 INFO (Thread-14): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:51:32,035 DEBUG (Thread-13): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true},{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["THURSDAY"],"active":true}]
+2015-10-01 10:51:32,035 INFO (Thread-13): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:51:32,066 DEBUG (Thread-12): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true},{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["THURSDAY"],"active":true}]
+2015-10-01 10:51:32,066 INFO (Thread-12): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:51:32,113 DEBUG (Thread-11): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true},{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["THURSDAY"],"active":true}]
+2015-10-01 10:51:32,113 INFO (Thread-11): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:51:32,159 DEBUG (Thread-10): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true},{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["THURSDAY"],"active":true}]
+2015-10-01 10:51:32,159 INFO (Thread-10): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:51:32,206 DEBUG (Thread-9): Serialized alarms:
+[{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],"active":true},{"alarmTime":{"hour":10,"minute":52},"weekdayRepetition":["THURSDAY"],"active":true}]
+2015-10-01 10:51:32,206 INFO (Thread-9): Alarms successfully saved to D:\workspace\Custos/alarms.cfg
+2015-10-01 10:52:01,136 DEBUG (Thread-15): C:\Users\Nico\AppData\Local\Temp\custos_tmp_2122572764603881742.mp3
