@@ -26,10 +26,10 @@ public class TriggeredAlarm extends SessionBasedObject implements Lifecycle {
         }
         final DateTime now = DateTime.now();
         final BasicModalDialog dialog = new BasicModalDialog(new DirectI18N(
-                "${0}:${1}", String.valueOf(now.getHourOfDay()),
-                String.valueOf(now.getMinuteOfHour())), new DirectI18N(
-                Text.empty()), new DirectI18N("Snooze"), new DirectI18N(
-                "Cancel"));
+                "${0}:${1}", String.format("%02d", now.getHourOfDay()),
+                String.format("%02d", now.getMinuteOfHour())), new DirectI18N(
+                        Text.empty()), new DirectI18N("Snooze"), new DirectI18N(
+                                "Cancel"));
         dialog.build();
         dialog.show();
         // ThreadRunner.startThread(new Runnable() {
