@@ -10,7 +10,6 @@ import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
 import view.ColorProvider;
 import controller.HeartbeatEvent;
-import edt.EDT;
 
 public class AlarmClock extends VisibleCustosModule {
 
@@ -79,15 +78,9 @@ public class AlarmClock extends VisibleCustosModule {
             logger().info("Alarm is active. New Alarm is skipped.");
             return;
         }
-        EDT.perform(new Runnable() {
+        final TriggeredAlarm triggeredAlarm = new TriggeredAlarm(session());
+        triggeredAlarm.start();
 
-            @Override
-            public void run() {
-                final TriggeredAlarm triggeredAlarm = new TriggeredAlarm(
-                        session());
-                triggeredAlarm.start();
-            }
-        });
         // ThreadRunner.startThread(new Runnable() {
         //
         // @Override
