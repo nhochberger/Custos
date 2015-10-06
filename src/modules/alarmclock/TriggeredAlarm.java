@@ -28,14 +28,8 @@ public class TriggeredAlarm extends SessionBasedObject implements Lifecycle {
         final BasicModalDialog dialog = new BasicModalDialog(new DirectI18N(
                 "${0}:${1}", String.format("%02d", now.getHourOfDay()),
                 String.format("%02d", now.getMinuteOfHour())), new DirectI18N(
-                Text.empty()), new DirectI18N("Snooze"), new DirectI18N(
-                "Cancel")) {
-            @Override
-            protected void prePackHook() {
-                component().setUndecorated(true);
-                component().setOpacity(0.7f);
-            }
-        };
+                        Text.empty()), new DirectI18N("Snooze"), new DirectI18N(
+                                "Cancel"));
         try {
             final Player player = new Player(
                     ResourceLoader.loadAsStream("modules/alarmclock/alarm.mp3"));
