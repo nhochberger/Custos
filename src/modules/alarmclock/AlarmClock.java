@@ -117,7 +117,7 @@ public class AlarmClock extends VisibleCustosModule {
     }
 
     private final class DeleteAlarmHandler implements
-            EventReceiver<DeleteAlarmEvent> {
+    EventReceiver<DeleteAlarmEvent> {
 
         public DeleteAlarmHandler() {
             super();
@@ -132,7 +132,7 @@ public class AlarmClock extends VisibleCustosModule {
     }
 
     private final class EditAlarmHander implements
-            EventReceiver<AlarmEditedEvent> {
+    EventReceiver<AlarmEditedEvent> {
 
         public EditAlarmHander() {
             super();

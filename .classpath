@@ -9,5 +9,10 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/Custos/lib/jl1.0.1.jar!/doc"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/feed4j-1.0/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/feed4j-1.0/lib/nekohtml.jar"/>
+	<classpathentry kind="lib" path="lib/feed4j-1.0/lib/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="lib/feed4j-1.0/lib/xml-apis.jar"/>
+	<classpathentry kind="lib" path="lib/feed4j-1.0/feed4j.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
