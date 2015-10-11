@@ -1,6 +1,7 @@
 package modules.newsreader;
 
 import hochberger.utilities.gui.font.FontLoader;
+import hochberger.utilities.text.i18n.DirectI18N;
 
 import java.awt.Font;
 
@@ -51,18 +52,21 @@ public class NewsReaderWidget implements CustosModuleWidget {
         final Font baseFont = FontLoader.loadFromWithFallback("monofonto.ttf", new JPanel().getFont());
         this.isBuilt = true;
         this.panel = new JPanel();
-        this.panel.setBorder(BorderFactory.createLineBorder(this.colorProvider.foregroundColor().brighter().brighter().brighter()));
+        this.panel.setBorder(BorderFactory.createLineBorder(this.colorProvider.foregroundColor()));
         this.panel.setOpaque(false);
         this.panel.setLayout(new MigLayout("height 150px!", "2[316!]2", "2[]2"));
-        this.headlineArea = new JTextArea(this.currentHeadline);
+        this.headlineArea = new JTextArea();
         this.headlineArea.setForeground(this.colorProvider.foregroundColor());
+        this.headlineArea.setText(new DirectI18N("Loading...").toString());
         this.headlineArea.setEditable(false);
         this.headlineArea.setLineWrap(true);
         this.headlineArea.setWrapStyleWord(true);
         this.headlineArea.setFont(baseFont.deriveFont(14f));
         this.headlineArea.setOpaque(false);
         this.panel.add(this.headlineArea, "growx, wrap");
-        this.descriptionArea = new JTextArea(this.currentDescription);
+        this.descriptionArea = new JTextArea();
+        this.descriptionArea.setForeground(this.colorProvider.foregroundColor());
+        this.descriptionArea.setText(new DirectI18N("Loading...").toString());
         this.descriptionArea.setEditable(false);
         this.descriptionArea.setLineWrap(true);
         this.descriptionArea.setWrapStyleWord(true);
