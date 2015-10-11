@@ -42,7 +42,7 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
         center();
         frame().getContentPane().setBackground(
                 this.colorProvider.backgroundColor());
-        useLayoutManager(new MigLayout("debug, wrap 3", "20[]:push[]:push[]20",
+        useLayoutManager(new MigLayout("wrap 3", "20[]:push[]:push[]20",
                 "20[]20[]20[]push"));
         frame().setAlwaysOnTop(true);
         this.systemMessageLabel.build();
