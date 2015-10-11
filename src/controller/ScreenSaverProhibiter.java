@@ -13,39 +13,39 @@ import com.sun.glass.events.KeyEvent;
 
 public class ScreenSaverProhibiter extends SessionBasedObject implements Lifecycle {
 
-	private final Timer timer;
+    private final Timer timer;
 
-	public ScreenSaverProhibiter(final BasicSession session) {
-		super(session);
-		this.timer = new Timer();
-	}
+    public ScreenSaverProhibiter(final BasicSession session) {
+        super(session);
+        this.timer = new Timer();
+    }
 
-	@Override
-	public void start() {
-		this.timer.schedule(new ScreenSaverProhibiterTimerTask(), 10000, 10000);
-	}
+    @Override
+    public void start() {
+        this.timer.schedule(new ScreenSaverProhibiterTimerTask(), 10000, 10000);
+    }
 
-	@Override
-	public void stop() {
-		this.timer.cancel();
-	}
+    @Override
+    public void stop() {
+        this.timer.cancel();
+    }
 
-	public class ScreenSaverProhibiterTimerTask extends TimerTask {
+    public class ScreenSaverProhibiterTimerTask extends TimerTask {
 
-		public ScreenSaverProhibiterTimerTask() {
-			super();
-		}
+        public ScreenSaverProhibiterTimerTask() {
+            super();
+        }
 
-		@Override
-		public void run() {
-			try {
-				final Robot robot = new Robot();
-				robot.keyPress(KeyEvent.VK_SCROLL_LOCK);
-				Thread.sleep(50);
-				robot.keyPress(KeyEvent.VK_SCROLL_LOCK);
-			} catch (final AWTException | InterruptedException e) {
-				logger().error("Error while trying to prevent screensaver.", e);
-			}
-		}
-	}
+        @Override
+        public void run() {
+            try {
+                final Robot robot = new Robot();
+                robot.keyPress(KeyEvent.VK_SCROLL_LOCK);
+                Thread.sleep(50);
+                robot.keyPress(KeyEvent.VK_SCROLL_LOCK);
+            } catch (final AWTException | InterruptedException e) {
+                logger().error("Error while trying to prevent screensaver.", e);
+            }
+        }
+    }
 }

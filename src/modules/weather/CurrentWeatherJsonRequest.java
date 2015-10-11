@@ -2,12 +2,12 @@ package modules.weather;
 
 public class CurrentWeatherJsonRequest extends OpenWeatherMapApiRequest {
 
-	public CurrentWeatherJsonRequest() {
-		super();
-	}
+    public CurrentWeatherJsonRequest() {
+        super();
+    }
 
-	@Override
-	protected String requestType() {
-		return baseUrl() + "weather?" + units() + "&appid=" + apiKey() + "&q=";
-	}
+    @Override
+    protected String requestType() {
+        return baseUrl() + "weather?" + units() + "&appid=" + apiKey() + "&q=";
+    }
 }

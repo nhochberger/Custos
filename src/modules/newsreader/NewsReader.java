@@ -30,8 +30,7 @@ public class NewsReader extends VisibleCustosModule {
     private final List<FeedItem> feedItems;
     private final Timer timer;
 
-    public NewsReader(final BasicSession session,
-            final ColorProvider colorProvider) {
+    public NewsReader(final BasicSession session, final ColorProvider colorProvider) {
         super(session, colorProvider);
         this.widget = new NewsReaderWidget(colorProvider());
         this.feedItems = new LinkedList<>();
@@ -58,26 +57,19 @@ public class NewsReader extends VisibleCustosModule {
             @Override
             public void run() {
                 try {
-                    final Feed feedRepresenation = FeedParser.parse(new URL(
-                            FEED_URL));
-                    logger().info(
-                            "Successfully fetched "
-                                    + feedRepresenation.getItemCount()
-                                    + " items from " + FEED_URL);
+                    final Feed feedRepresenation = FeedParser.parse(new URL(FEED_URL));
+                    logger().info("Successfully fetched " + feedRepresenation.getItemCount() + " items from " + FEED_URL);
                     NewsReader.this.feedItems.clear();
                     for (int i = 0; i < feedRepresenation.getItemCount(); i++) {
-                        NewsReader.this.feedItems.add(feedRepresenation
-                                .getItem(i));
+                        NewsReader.this.feedItems.add(feedRepresenation.getItem(i));
                     }
-                } catch (FeedIOException | FeedXMLParseException
-                        | UnsupportedFeedException | MalformedURLException e) {
+                } catch (FeedIOException | FeedXMLParseException | UnsupportedFeedException | MalformedURLException e) {
                     logger().error("Unable to retrieve RSS", e);
                 }
 
             }
         };
-        this.timer.schedule(fetchNewsTask, ToMilis.seconds(5),
-                ToMilis.minutes(5));
+        this.timer.schedule(fetchNewsTask, ToMilis.seconds(5), ToMilis.minutes(5));
 
         final TimerTask updateNewsTask = new TimerTask() {
 
@@ -87,16 +79,12 @@ public class NewsReader extends VisibleCustosModule {
                     logger().info("No news to display at this moment.");
                     return;
                 }
-                final FeedItem nextNews = NewsReader.this.feedItems
-                        .get(NewsReader.this.currentNewsIndex
-                                % NewsReader.this.feedItems.size());
-                NewsReader.this.widget.setCurrentNews(nextNews.getTitle(),
-                        nextNews.getDescriptionAsText());
+                final FeedItem nextNews = NewsReader.this.feedItems.get(NewsReader.this.currentNewsIndex % NewsReader.this.feedItems.size());
+                NewsReader.this.widget.setCurrentNews(nextNews.getTitle(), nextNews.getDescriptionAsText());
                 NewsReader.this.currentNewsIndex++;
             }
         };
-        this.timer.schedule(updateNewsTask, ToMilis.seconds(8),
-                ToMilis.seconds(15));
+        this.timer.schedule(updateNewsTask, ToMilis.seconds(8), ToMilis.seconds(15));
     }
 
     @Override

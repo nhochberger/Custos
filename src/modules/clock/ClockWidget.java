@@ -43,16 +43,14 @@ public class ClockWidget implements CustosModuleWidget {
             return;
         }
         this.isBuilt = true;
-        final Font baseFont = FontLoader.loadFromWithFallback("monofonto.ttf",
-                new JPanel().getFont());
+        final Font baseFont = FontLoader.loadFromWithFallback("monofonto.ttf", new JPanel().getFont());
         this.panel = new JPanel(new MigLayout("", "0[320!]0", ""));
         this.panel.setOpaque(false);
         this.timeLabel = new EnhancedLabel(this.timeFormatter.print(this.time));
         this.timeLabel.setFont(baseFont.deriveFont(75f));
         this.timeLabel.setForeground(this.colorProvider.foregroundColor());
         this.timeLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
-        this.dateLabel = new EnhancedLabel(this.dateFormatter.print(this.time),
-                2);
+        this.dateLabel = new EnhancedLabel(this.dateFormatter.print(this.time), 2);
         this.dateLabel.setFont(baseFont.deriveFont(25f));
         this.dateLabel.setForeground(this.colorProvider.foregroundColor());
         this.dateLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());

@@ -25,14 +25,10 @@ public class TriggeredAlarm extends SessionBasedObject implements Lifecycle {
     @Override
     public void start() {
         final DateTime now = DateTime.now();
-        final BasicModalDialog dialog = new BasicModalDialog(new DirectI18N(
-                "${0}:${1}", String.format("%02d", now.getHourOfDay()),
-                String.format("%02d", now.getMinuteOfHour())), new DirectI18N(
-                        Text.empty()), new DirectI18N("Snooze"), new DirectI18N(
-                                "Cancel"));
+        final BasicModalDialog dialog = new BasicModalDialog(new DirectI18N("${0}:${1}", String.format("%02d", now.getHourOfDay()), String.format("%02d", now.getMinuteOfHour())), new DirectI18N(
+                Text.empty()), new DirectI18N("Snooze"), new DirectI18N("Cancel"));
         try {
-            final Player player = new Player(
-                    ResourceLoader.loadAsStream("modules/alarmclock/alarm.mp3"));
+            final Player player = new Player(ResourceLoader.loadAsStream("modules/alarmclock/alarm.mp3"));
             dialog.addCloseListener(new DialogCloseListener() {
 
                 @Override

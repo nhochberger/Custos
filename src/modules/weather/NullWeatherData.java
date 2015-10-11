@@ -4,18 +4,18 @@ import java.util.List;
 
 public class NullWeatherData extends ForecastData {
 
-	public NullWeatherData() {
-		super();
-	}
+    public NullWeatherData() {
+        super();
+    }
 
-	@Override
-	public City getCity() {
-		return super.getCity();
-	}
+    @Override
+    public City getCity() {
+        return super.getCity();
+    }
 
-	@Override
-	public List<Forecast> getList() {
-		// TODO Auto-generated method stub
-		return super.getList();
-	}
+    @Override
+    public List<Forecast> getList() {
+        // TODO Auto-generated method stub
+        return super.getList();
+    }
 }

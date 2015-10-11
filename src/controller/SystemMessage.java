@@ -12,72 +12,72 @@ import view.ColorProvider;
 
 public class SystemMessage implements Event {
 
-	public static enum MessageSeverity {
+    public static enum MessageSeverity {
 
-		NORMAL {
-			@Override
-			public Color getColorFrom(final ColorProvider colorProvider) {
-				return colorProvider.foregroundColor();
-			}
-		},
-		WARNING {
-			@Override
-			public Color getColorFrom(final ColorProvider colorProvider) {
-				return colorProvider.highlightColor();
-			}
-		},
-		SEVERE {
-			@Override
-			public Color getColorFrom(final ColorProvider colorProvider) {
-				return colorProvider.warningColor();
-			}
-		},
-		SUCCESS {
-			@Override
-			public Color getColorFrom(final ColorProvider colorProvider) {
-				return colorProvider.everythingOkColor();
-			}
-		};
+        NORMAL {
+            @Override
+            public Color getColorFrom(final ColorProvider colorProvider) {
+                return colorProvider.foregroundColor();
+            }
+        },
+        WARNING {
+            @Override
+            public Color getColorFrom(final ColorProvider colorProvider) {
+                return colorProvider.highlightColor();
+            }
+        },
+        SEVERE {
+            @Override
+            public Color getColorFrom(final ColorProvider colorProvider) {
+                return colorProvider.warningColor();
+            }
+        },
+        SUCCESS {
+            @Override
+            public Color getColorFrom(final ColorProvider colorProvider) {
+                return colorProvider.everythingOkColor();
+            }
+        };
 
-		public abstract Color getColorFrom(ColorProvider colorProvider);
-	}
+        public abstract Color getColorFrom(ColorProvider colorProvider);
+    }
 
-	private final MessageSeverity severity;
-	private final String text;
-	private final DateTime time;
+    private final MessageSeverity severity;
+    private final String text;
+    private final DateTime time;
 
-	public SystemMessage(final MessageSeverity severity, final String text) {
-		super();
-		this.severity = severity;
-		this.text = text;
-		this.time = DateTime.now();
-	}
+    public SystemMessage(final MessageSeverity severity, final String text) {
+        super();
+        this.severity = severity;
+        this.text = text;
+        this.time = DateTime.now();
+    }
 
-	public MessageSeverity getSeverity() {
-		return this.severity;
-	}
+    public MessageSeverity getSeverity() {
+        return this.severity;
+    }
 
-	public String getText() {
-		return this.text;
-	};
+    public String getText() {
+        return this.text;
+    };
 
-	public DateTime getTime() {
-		return this.time;
-	}
+    public DateTime getTime() {
+        return this.time;
+    }
 
-	@Override
-	public void performEvent() {
-		// TODO Auto-generated method stub
-	}
+    @Override
+    public void performEvent() {
+        // TODO Auto-generated method stub
+    }
 
-	@Override
-	public String toString() {
-		StringBuilder result = new StringBuilder();
-		result.append(CommonDateTimeFormatters.dayMonthYearOnlyDigits().print(this.time));
-		result.append(Text.space());
-		result.append(CommonDateTimeFormatters.hourMinuteSecond().print(this.time));
-		result.append(": ");
-		result.append(this.text);
-		return result.toString();
-	}
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append(CommonDateTimeFormatters.dayMonthYearOnlyDigits().print(this.time));
+        result.append(Text.space());
+        result.append(CommonDateTimeFormatters.hourMinuteSecond().print(this.time));
+        result.append(": ");
+        result.append(this.text);
+        return result.toString();
+    }
 }

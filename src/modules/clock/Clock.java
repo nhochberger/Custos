@@ -9,37 +9,37 @@ import edt.EDT;
 
 public class Clock extends VisibleCustosModule {
 
-	private final ClockWidget widget;
+    private final ClockWidget widget;
 
-	public Clock(final BasicSession session, final ColorProvider colorProvider) {
-		super(session, colorProvider);
-		this.widget = new ClockWidget(colorProvider());
-	}
+    public Clock(final BasicSession session, final ColorProvider colorProvider) {
+        super(session, colorProvider);
+        this.widget = new ClockWidget(colorProvider());
+    }
 
-	@Override
-	public void start() {
-		EDT.perform(new Runnable() {
+    @Override
+    public void start() {
+        EDT.perform(new Runnable() {
 
-			@Override
-			public void run() {
-				Clock.this.widget.build();
-			}
-		});
-	}
+            @Override
+            public void run() {
+                Clock.this.widget.build();
+            }
+        });
+    }
 
-	@Override
-	public void stop() {
-		// TODO Auto-generated method stub
+    @Override
+    public void stop() {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public CustosModuleWidget getWidget() {
-		return this.widget;
-	}
+    @Override
+    public CustosModuleWidget getWidget() {
+        return this.widget;
+    }
 
-	@Override
-	public void receive(final HeartbeatEvent event) {
-		// TODO Auto-generated method stub
-	}
+    @Override
+    public void receive(final HeartbeatEvent event) {
+        // TODO Auto-generated method stub
+    }
 }

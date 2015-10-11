@@ -7,23 +7,23 @@ import java.util.List;
 
 public class SystemMessageMemory implements EventReceiver<SystemMessage> {
 
-	private static final int MAX_MESSAGES = 250;
-	private final List<SystemMessage> messages;
+    private static final int MAX_MESSAGES = 250;
+    private final List<SystemMessage> messages;
 
-	public SystemMessageMemory() {
-		super();
-		this.messages = new LinkedList<>();
-	}
+    public SystemMessageMemory() {
+        super();
+        this.messages = new LinkedList<>();
+    }
 
-	@Override
-	public void receive(final SystemMessage message) {
-		while (MAX_MESSAGES < this.messages.size()) {
-			this.messages.remove(0);
-		}
-		this.messages.add(message);
-	}
+    @Override
+    public void receive(final SystemMessage message) {
+        while (MAX_MESSAGES < this.messages.size()) {
+            this.messages.remove(0);
+        }
+        this.messages.add(message);
+    }
 
-	public List<SystemMessage> getMessages() {
-		return this.messages;
-	}
+    public List<SystemMessage> getMessages() {
+        return this.messages;
+    }
 }

@@ -18,12 +18,10 @@ public class AlarmClock extends VisibleCustosModule {
     private final AlarmPersistenceManager persistenceManager;
     private final boolean alarmActive;
 
-    public AlarmClock(final BasicSession session,
-            final ColorProvider colorProvider) {
+    public AlarmClock(final BasicSession session, final ColorProvider colorProvider) {
         super(session, colorProvider);
         this.alarms = new LinkedList<>();
-        this.widget = new AlarmClockWidget(session.getEventBus(),
-                colorProvider, this.alarms);
+        this.widget = new AlarmClockWidget(session.getEventBus(), colorProvider, this.alarms);
         this.persistenceManager = new AlarmPersistenceManager(session);
         this.alarmActive = false;
     }
@@ -43,12 +41,9 @@ public class AlarmClock extends VisibleCustosModule {
     public void start() {
         this.alarms.addAll(this.persistenceManager.readAlarms());
         this.widget.build();
-        session().getEventBus().register(new NewAlarmHandler(),
-                NewAlarmEvent.class);
-        session().getEventBus().register(new DeleteAlarmHandler(),
-                DeleteAlarmEvent.class);
-        session().getEventBus().register(new EditAlarmHander(),
-                AlarmEditedEvent.class);
+        session().getEventBus().register(new NewAlarmHandler(), NewAlarmEvent.class);
+        session().getEventBus().register(new DeleteAlarmHandler(), DeleteAlarmEvent.class);
+        session().getEventBus().register(new EditAlarmHander(), AlarmEditedEvent.class);
     }
 
     @Override
@@ -116,8 +111,7 @@ public class AlarmClock extends VisibleCustosModule {
         }
     }
 
-    private final class DeleteAlarmHandler implements
-    EventReceiver<DeleteAlarmEvent> {
+    private final class DeleteAlarmHandler implements EventReceiver<DeleteAlarmEvent> {
 
         public DeleteAlarmHandler() {
             super();
@@ -131,8 +125,7 @@ public class AlarmClock extends VisibleCustosModule {
         }
     }
 
-    private final class EditAlarmHander implements
-    EventReceiver<AlarmEditedEvent> {
+    private final class EditAlarmHander implements EventReceiver<AlarmEditedEvent> {
 
         public EditAlarmHander() {
             super();

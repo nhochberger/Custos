@@ -4,15 +4,15 @@ import java.awt.Color;
 
 public interface ColorProvider {
 
-	public Color backgroundColor();
+    public Color backgroundColor();
 
-	public Color foregroundColor();
+    public Color foregroundColor();
 
-	public Color shadowColor();
+    public Color shadowColor();
 
-	public Color highlightColor();
+    public Color highlightColor();
 
-	public Color warningColor();
+    public Color warningColor();
 
-	public Color everythingOkColor();
+    public Color everythingOkColor();
 }

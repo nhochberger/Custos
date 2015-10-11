@@ -4,9 +4,9 @@ import javax.swing.JComponent;
 
 public interface CustosModuleWidget {
 
-	public void updateWidget();
+    public void updateWidget();
 
-	public JComponent getComponent();
+    public JComponent getComponent();
 
-	public void build();
+    public void build();
 }
