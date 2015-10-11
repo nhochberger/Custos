@@ -26,7 +26,7 @@ public class DayTimeAwareColorProvider extends SessionBasedObject implements Col
         if (isDayTime()) {
             return new Color(73, 66, 61, 255);
         }
-        return Color.RED.darker();
+        return Color.RED.darker().darker();
     }
 
     @Override
