@@ -26,7 +26,7 @@ public class NewsReader extends VisibleCustosModule {
 
     private static final String FEED_URL = "http://www.tagesschau.de/xml/rss2";
     private final NewsReaderWidget widget;
-    private int currentNewsIndex = 0;
+    private final int currentNewsIndex = 0;
     private final List<FeedItem> feedItems;
     private final Timer timer;
 
@@ -63,6 +63,7 @@ public class NewsReader extends VisibleCustosModule {
                     for (int i = 0; i < feedRepresenation.getItemCount(); i++) {
                         NewsReader.this.feedItems.add(feedRepresenation.getItem(i));
                     }
+                    NewsReader.this.widget.setNews(NewsReader.this.feedItems);
                 } catch (FeedIOException | FeedXMLParseException | UnsupportedFeedException | MalformedURLException e) {
                     logger().error("Unable to retrieve RSS", e);
                 }
@@ -71,20 +72,20 @@ public class NewsReader extends VisibleCustosModule {
         };
         this.timer.schedule(fetchNewsTask, ToMilis.seconds(5), ToMilis.minutes(5));
 
-        final TimerTask updateNewsTask = new TimerTask() {
-
-            @Override
-            public void run() {
-                if (NewsReader.this.feedItems.isEmpty()) {
-                    logger().info("No news to display at this moment.");
-                    return;
-                }
-                final FeedItem nextNews = NewsReader.this.feedItems.get(NewsReader.this.currentNewsIndex % NewsReader.this.feedItems.size());
-                NewsReader.this.widget.setCurrentNews(nextNews.getTitle(), nextNews.getDescriptionAsText());
-                NewsReader.this.currentNewsIndex++;
-            }
-        };
-        this.timer.schedule(updateNewsTask, ToMilis.seconds(8), ToMilis.seconds(15));
+        // final TimerTask updateNewsTask = new TimerTask() {
+        //
+        // @Override
+        // public void run() {
+        // if (NewsReader.this.feedItems.isEmpty()) {
+        // logger().info("No news to display at this moment.");
+        // return;
+        // }
+        // final FeedItem nextNews = NewsReader.this.feedItems.get(NewsReader.this.currentNewsIndex % NewsReader.this.feedItems.size());
+        // NewsReader.this.widget.setCurrentNews(nextNews.getTitle(), nextNews.getDescriptionAsText());
+        // NewsReader.this.currentNewsIndex++;
+        // }
+        // };
+        // this.timer.schedule(updateNewsTask, ToMilis.seconds(8), ToMilis.seconds(15));
     }
 
     @Override
