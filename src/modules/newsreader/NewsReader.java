@@ -1,6 +1,7 @@
 package modules.newsreader;
 
 import hochberger.utilities.application.session.BasicSession;
+import hochberger.utilities.text.i18n.DirectI18N;
 import hochberger.utilities.timing.ToMilis;
 import it.sauronsoftware.feed4j.FeedIOException;
 import it.sauronsoftware.feed4j.FeedParser;
@@ -16,6 +17,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import modules.CustosModuleConfiguration;
+import modules.CustosModuleConfigurationEntry;
 import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
 import view.ColorProvider;
@@ -24,16 +27,20 @@ import edt.EDT;
 
 public class NewsReader extends VisibleCustosModule {
 
-    private static final String FEED_URL = "http://www.tagesschau.de/xml/rss2";
+    private static final String NEWSREADER_URL_KEY = "newsreader.url";
     private final NewsReaderWidget widget;
     private final List<FeedItem> feedItems;
     private final Timer timer;
+    private final CustosModuleConfiguration configuration;
 
     public NewsReader(final BasicSession session, final ColorProvider colorProvider) {
         super(session, colorProvider);
         this.widget = new NewsReaderWidget(colorProvider());
         this.feedItems = new LinkedList<>();
         this.timer = new Timer();
+        this.configuration = new CustosModuleConfiguration(new DirectI18N("News Reader Configuration"));
+        this.configuration.addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("RSS-Feed:"), new DirectI18N("The address of the feed from which news are to be loaded."),
+                NEWSREADER_URL_KEY, "http://www.tagesschau.de/xml/rss2"));
     }
 
     @Override
@@ -56,8 +63,9 @@ public class NewsReader extends VisibleCustosModule {
             @Override
             public void run() {
                 try {
-                    final Feed feedRepresenation = FeedParser.parse(new URL(FEED_URL));
-                    logger().info("Successfully fetched " + feedRepresenation.getItemCount() + " items from " + FEED_URL);
+                    final String feedUrl = NewsReader.this.configuration.getConfigurationEntries().get(NEWSREADER_URL_KEY).getValue();
+                    final Feed feedRepresenation = FeedParser.parse(new URL(feedUrl));
+                    logger().info("Successfully fetched " + feedRepresenation.getItemCount() + " items from " + feedUrl);
                     NewsReader.this.feedItems.clear();
                     for (int i = 0; i < feedRepresenation.getItemCount(); i++) {
                         NewsReader.this.feedItems.add(feedRepresenation.getItem(i));
@@ -80,5 +88,10 @@ public class NewsReader extends VisibleCustosModule {
     @Override
     public void receive(final HeartbeatEvent event) {
         // TODO Auto-generated method stub
+    }
+
+    @Override
+    public CustosModuleConfiguration getConfiguration() {
+        return this.configuration;
     }
 }

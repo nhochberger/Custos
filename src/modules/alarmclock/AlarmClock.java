@@ -6,6 +6,7 @@ import hochberger.utilities.eventbus.EventReceiver;
 import java.util.LinkedList;
 import java.util.List;
 
+import modules.CustosModuleConfiguration;
 import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
 import view.ColorProvider;
@@ -17,6 +18,7 @@ public class AlarmClock extends VisibleCustosModule {
     private final AlarmClockWidget widget;
     private final AlarmPersistenceManager persistenceManager;
     private final boolean alarmActive;
+    private final CustosModuleConfiguration configuration;
 
     public AlarmClock(final BasicSession session, final ColorProvider colorProvider) {
         super(session, colorProvider);
@@ -24,6 +26,7 @@ public class AlarmClock extends VisibleCustosModule {
         this.widget = new AlarmClockWidget(session.getEventBus(), colorProvider, this.alarms);
         this.persistenceManager = new AlarmPersistenceManager(session);
         this.alarmActive = false;
+        this.configuration = new CustosModuleConfiguration.NoCustosModuleConfiguration();
     }
 
     @Override
@@ -75,22 +78,11 @@ public class AlarmClock extends VisibleCustosModule {
         }
         final TriggeredAlarm triggeredAlarm = new TriggeredAlarm(session());
         triggeredAlarm.start();
+    }
 
-        // ThreadRunner.startThread(new Runnable() {
-        //
-        // @Override
-        // public void run() {
-        // try {
-        // AlarmClock.this.alarmActive = true;
-        // final Player player = new Player(ResourceLoader
-        // .loadAsStream("modules/alarmclock/alarm.mp3"));
-        // player.play();
-        // AlarmClock.this.alarmActive = false;
-        // } catch (final JavaLayerException e) {
-        // logger().error(e);
-        // }
-        // }
-        // });
+    @Override
+    public CustosModuleConfiguration getConfiguration() {
+        return this.configuration;
     }
 
     private void persistAlarms() {

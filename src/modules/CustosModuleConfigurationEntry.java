@@ -7,7 +7,7 @@ public class CustosModuleConfigurationEntry {
     private final I18N title;
     private final I18N description;
     private final String key;
-    private final String value;
+    private String value;
 
     public CustosModuleConfigurationEntry(final I18N title, final I18N description, final String key, final String value) {
         super();
@@ -31,5 +31,9 @@ public class CustosModuleConfigurationEntry {
 
     public String getValue() {
         return this.value;
+    }
+
+    public void setValue(final String value) {
+        this.value = value;
     }
 }

@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import modules.CustosModuleConfiguration;
+import modules.CustosModuleConfigurationEntry;
 import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
 
@@ -35,6 +37,7 @@ public class Weather extends VisibleCustosModule {
     private ForecastData forecastData;
     private CurrentWeatherData currentWeatherData;
     private final WeatherIconProvider iconProvider;
+    private final CustosModuleConfiguration configuration;
 
     public Weather(final BasicSession session, final ColorProvider colorProvider) {
         super(session, colorProvider);
@@ -43,6 +46,11 @@ public class Weather extends VisibleCustosModule {
         this.city = session().getProperties().otherProperty(WEATHER_CITY);
         this.country = session().getProperties().otherProperty(WEATHER_COUNTRY);
         this.widget = new WeatherWidget(colorProvider, this.iconProvider);
+        this.configuration = new CustosModuleConfiguration(new DirectI18N("Weather Configuration"));
+        this.configuration.addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("Country:"), new DirectI18N(
+                "The abbreveation for the country you live in. E.g. USA: us, Germany: de,..."), "weather.country", "de"));
+        this.configuration.addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("City:"), new DirectI18N("The name or postal code of the city you live in."), "weather.city",
+                "Berlin"));
     }
 
     @Override
@@ -112,5 +120,10 @@ public class Weather extends VisibleCustosModule {
     @Override
     public void receive(final HeartbeatEvent event) {
         // do nothing on purpose here
+    }
+
+    @Override
+    public CustosModuleConfiguration getConfiguration() {
+        return this.configuration;
     }
 }

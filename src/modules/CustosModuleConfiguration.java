@@ -1,30 +1,40 @@
 package modules;
 
+import hochberger.utilities.text.Text;
+import hochberger.utilities.text.i18n.DirectI18N;
 import hochberger.utilities.text.i18n.I18N;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CustosModuleConfiguration {
 
     private final I18N title;
-    private final List<CustosModuleConfigurationEntry> entries;
+    private final Map<String, CustosModuleConfigurationEntry> entries;
 
     public CustosModuleConfiguration(final I18N title) {
         super();
         this.title = title;
-        this.entries = new LinkedList<>();
+        this.entries = new HashMap<>();
     }
 
     public void addConfigurationEntry(final CustosModuleConfigurationEntry entry) {
-        this.entries.add(entry);
+        this.entries.put(entry.getKey(), entry);
     }
 
-    public List<CustosModuleConfigurationEntry> getConfigurationEntries() {
+    public Map<String, CustosModuleConfigurationEntry> getConfigurationEntries() {
         return this.entries;
     }
 
     public I18N getTitle() {
         return this.title;
+    }
+
+    public static class NoCustosModuleConfiguration extends CustosModuleConfiguration {
+
+        public NoCustosModuleConfiguration() {
+            super(new DirectI18N(Text.empty()));
+        }
+
     }
 }

@@ -10,6 +10,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import modules.CustosModule;
+import modules.CustosModuleConfiguration;
+import modules.CustosModuleConfigurationEntry;
 import modules.VisibleCustosModule;
 import modules.alarmclock.AlarmClock;
 import modules.clock.Clock;
@@ -45,6 +47,8 @@ public class CustosApplication extends BasicLoggedApplication {
     public CustosApplication(final ApplicationProperties applicationProperties) {
         super();
         this.session = new BasicSession(applicationProperties, new SimpleEventBus(), getLogger());
+        final CustosConfiguration custosConfiguration = new CustosConfiguration(this.session);
+        custosConfiguration.load();
         this.colorProvider = new DayTimeAwareColorProvider(this.session);
         this.heartbeat = new Heartbeat(this.session);
         this.screenSaverProhibiter = new ScreenSaverProhibiter(this.session);
@@ -60,6 +64,11 @@ public class CustosApplication extends BasicLoggedApplication {
         this.modules.add(new AlarmClock(this.session, this.colorProvider));
         this.modules.add(new NewsReader(this.session, this.colorProvider));
         for (final CustosModule custosModule : this.modules) {
+            final CustosModuleConfiguration currentModuleConfiguration = custosModule.getConfiguration();
+            for (final CustosModuleConfigurationEntry entry : currentModuleConfiguration.getConfigurationEntries().values()) {
+
+                entry.setValue(custosConfiguration.getValueFor(entry.getKey(), entry.getValue()));
+            }
             if (custosModule instanceof VisibleCustosModule) {
                 this.gui.addModule((VisibleCustosModule) custosModule);
             }
