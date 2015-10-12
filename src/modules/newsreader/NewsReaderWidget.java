@@ -95,7 +95,7 @@ public class NewsReaderWidget implements CustosModuleWidget {
                 updateWidget();
             }
         });
-        topPanel.add(previousButton);
+        topPanel.add(previousButton, "top");
         this.headlineArea = new JTextArea(new DirectI18N("Loading...").toString());
         this.headlineArea.setForeground(this.colorProvider.foregroundColor());
         this.headlineArea.setFont(baseFont.deriveFont(14f));
@@ -120,7 +120,7 @@ public class NewsReaderWidget implements CustosModuleWidget {
                 updateWidget();
             }
         });
-        topPanel.add(nextButton);
+        topPanel.add(nextButton, "top");
         this.panel.add(topPanel, "growx, wrap");
         this.descriptionArea = new JTextArea(new DirectI18N("Loading...").toString());
         this.descriptionArea.setForeground(this.colorProvider.foregroundColor());
@@ -159,7 +159,7 @@ public class NewsReaderWidget implements CustosModuleWidget {
                 NewsReaderWidget.this.currentDescription = currentNews.getDescriptionAsText();
             }
         };
-        this.timer.schedule(this.updateNewsTask, ToMilis.seconds(1), ToMilis.seconds(15));
+        this.timer.schedule(this.updateNewsTask, ToMilis.seconds(6), ToMilis.seconds(15));
 
     }
 

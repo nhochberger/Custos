@@ -69,7 +69,7 @@ public class NewsReader extends VisibleCustosModule {
 
             }
         };
-        this.timer.scheduleAtFixedRate(fetchNewsTask, ToMilis.seconds(5), ToMilis.minutes(5));
+        this.timer.scheduleAtFixedRate(fetchNewsTask, ToMilis.seconds(5), ToMilis.minutes(10));
     }
 
     @Override
