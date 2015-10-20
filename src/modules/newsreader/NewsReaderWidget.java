@@ -54,8 +54,11 @@ public class NewsReaderWidget implements CustosModuleWidget {
         if (!this.isBuilt) {
             return;
         }
+        this.headlineArea.setForeground(this.colorProvider.foregroundColor());
         this.headlineArea.setText(this.currentHeadline);
+        this.descriptionArea.setForeground(this.colorProvider.foregroundColor());
         this.descriptionArea.setText(this.currentDescription);
+        this.panel.setBorder(BorderFactory.createLineBorder(this.colorProvider.foregroundColor()));
     }
 
     @Override
@@ -74,6 +77,7 @@ public class NewsReaderWidget implements CustosModuleWidget {
         final EventToParentForwardingMouseAdapter eventForwarder = new EventToParentForwardingMouseAdapter(this.panel);
         this.panel.setBorder(BorderFactory.createLineBorder(this.colorProvider.foregroundColor()));
         this.panel.setOpaque(false);
+        this.panel.setDoubleBuffered(true);
         this.panel.setLayout(new MigLayout("height 150px!", "2[316!]2", "2[]2"));
         final JPanel topPanel = new JPanel(new MigLayout("", "0[]2[260!]2[]0", "0[]0"));
         topPanel.addMouseListener(eventForwarder);
