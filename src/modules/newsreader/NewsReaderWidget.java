@@ -78,8 +78,8 @@ public class NewsReaderWidget implements CustosModuleWidget {
         this.panel.setBorder(BorderFactory.createLineBorder(this.colorProvider.foregroundColor()));
         this.panel.setOpaque(false);
         this.panel.setDoubleBuffered(true);
-        this.panel.setLayout(new MigLayout("height 150px!", "2[316!]2", "2[]2"));
-        final JPanel topPanel = new JPanel(new MigLayout("", "0[]2[260!]2[]0", "0[]0"));
+        this.panel.setLayout(new MigLayout("height 150px!", "2[]2", "2[]2"));
+        final JPanel topPanel = new JPanel(new MigLayout("", "0[]2[]2[]0", "0[]0"));
         topPanel.addMouseListener(eventForwarder);
         topPanel.setOpaque(false);
         final ImageButton previousButton = new ImageButton(ImageLoader.loadImage("modules/newsreader/previous.png"));
@@ -178,6 +178,11 @@ public class NewsReaderWidget implements CustosModuleWidget {
 
     public void setCurrentNewsIndex(final int newIndex) {
         this.currentNewsIndex = newIndex;
+    }
+
+    @Override
+    public String getLayoutConstraints() {
+        return "grow x, span 2";
     }
 
     public class EventToParentForwardingMouseAdapter extends MouseAdapter {

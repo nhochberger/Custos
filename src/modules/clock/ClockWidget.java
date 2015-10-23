@@ -3,6 +3,7 @@ package modules.clock;
 import hochberger.utilities.gui.EnhancedLabel;
 import hochberger.utilities.gui.font.FontLoader;
 import hochberger.utilities.text.CommonDateTimeFormatters;
+import hochberger.utilities.text.Text;
 
 import java.awt.Font;
 
@@ -72,5 +73,10 @@ public class ClockWidget implements CustosModuleWidget {
     @Override
     public JComponent getComponent() {
         return this.panel;
+    }
+
+    @Override
+    public String getLayoutConstraints() {
+        return Text.empty();
     }
 }

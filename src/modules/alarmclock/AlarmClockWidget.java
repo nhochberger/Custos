@@ -3,6 +3,7 @@ package modules.alarmclock;
 import hochberger.utilities.eventbus.EventBus;
 import hochberger.utilities.gui.ImageButton;
 import hochberger.utilities.images.loader.ImageLoader;
+import hochberger.utilities.text.Text;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -53,6 +54,11 @@ public class AlarmClockWidget implements CustosModuleWidget {
     @Override
     public JComponent getComponent() {
         return this.panel;
+    }
+
+    @Override
+    public String getLayoutConstraints() {
+        return Text.empty();
     }
 
     @Override

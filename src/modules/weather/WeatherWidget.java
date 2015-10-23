@@ -2,6 +2,7 @@ package modules.weather;
 
 import hochberger.utilities.gui.EnhancedLabel;
 import hochberger.utilities.gui.font.FontLoader;
+import hochberger.utilities.text.Text;
 
 import java.awt.Font;
 
@@ -152,5 +153,10 @@ public class WeatherWidget implements CustosModuleWidget {
 
     public void setNewCurrentWeatherData(final CurrentWeatherData weatherData) {
         this.weatherData = weatherData;
+    }
+
+    @Override
+    public String getLayoutConstraints() {
+        return Text.empty();
     }
 }

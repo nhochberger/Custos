@@ -49,7 +49,7 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
         });
 
         for (final CustosModule module : this.modules) {
-            add(module.getWidget().getComponent());
+            add(module.getWidget().getComponent(), module.getWidget().getLayoutConstraints());
         }
         add(this.systemMessageLabel.getLabel(), "dock south, gapleft 5, gapright 5, gapbottom 5");
         maximize();

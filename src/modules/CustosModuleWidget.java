@@ -9,4 +9,6 @@ public interface CustosModuleWidget {
     public JComponent getComponent();
 
     public void build();
+
+    public String getLayoutConstraints();
 }
