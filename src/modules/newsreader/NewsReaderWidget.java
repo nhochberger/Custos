@@ -103,6 +103,7 @@ public class NewsReaderWidget implements CustosModuleWidget {
         this.descriptionArea.setOpaque(false);
         this.descriptionArea.setFont(this.descriptionArea.getFont().deriveFont(18f));
         this.descriptionArea.addMouseListener(forwarder);
+        this.descriptionArea.setHighlighter(null);
 
         this.panel.add(previousButton, "top");
         this.panel.add(this.headlineArea, "pushx");
