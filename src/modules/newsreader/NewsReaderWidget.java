@@ -3,11 +3,11 @@ package modules.newsreader;
 import hochberger.utilities.gui.ImageButton;
 import hochberger.utilities.gui.font.FontLoader;
 import hochberger.utilities.images.loader.ImageLoader;
-import hochberger.utilities.text.i18n.DirectI18N;
 import hochberger.utilities.timing.ToMilis;
 import it.sauronsoftware.feed4j.bean.FeedItem;
 
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -20,7 +20,7 @@ import java.util.TimerTask;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 
 import modules.CustosModuleWidget;
 import net.miginfocom.swing.MigLayout;
@@ -31,8 +31,8 @@ public class NewsReaderWidget implements CustosModuleWidget {
     private final ColorProvider colorProvider;
     private String currentHeadline;
     private String currentDescription;
-    private JTextArea headlineArea;
-    private JTextArea descriptionArea;
+    private JTextPane headlineArea;
+    private JTextPane descriptionArea;
     private boolean isBuilt;
     private JPanel panel;
     private final List<FeedItem> news;
@@ -73,79 +73,42 @@ public class NewsReaderWidget implements CustosModuleWidget {
         }
         final Font baseFont = FontLoader.loadFromWithFallback("monofonto.ttf", new JPanel().getFont());
         this.isBuilt = true;
-        this.panel = new JPanel();
-        final EventToParentForwardingMouseAdapter eventForwarder = new EventToParentForwardingMouseAdapter(this.panel);
-        this.panel.setBorder(BorderFactory.createLineBorder(this.colorProvider.foregroundColor()));
+
+        final Image previousImage = ImageLoader.loadImage("modules/newsreader/previous.png");
+        final Image nextImage = ImageLoader.loadImage("modules/newsreader/next.png");
+
+        this.panel = new JPanel(new MigLayout("fill, height 200px, wrap 3", "2px[" + previousImage.getWidth(null) + "px!]5px[grow, center]5px[" + nextImage.getWidth(null) + "px!]2px",
+                "2px[]5px[top]2px"));
+        this.panel.addMouseListener(new StopReloadMouseAdapter());
         this.panel.setOpaque(false);
-        this.panel.setDoubleBuffered(true);
-        this.panel.setLayout(new MigLayout("height 150px!", "2[]2", "2[]2"));
-        final JPanel topPanel = new JPanel(new MigLayout("", "0[]2[]2[]0", "0[]0"));
-        topPanel.addMouseListener(eventForwarder);
-        topPanel.setOpaque(false);
-        final ImageButton previousButton = new ImageButton(ImageLoader.loadImage("modules/newsreader/previous.png"));
-        previousButton.addMouseListener(eventForwarder);
-        previousButton.addActionListener(new ActionListener() {
 
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-                if (0 >= NewsReaderWidget.this.news.size()) {
-                    return;
-                }
-                // HACK
-                setCurrentNewsIndex((0 > (getCurrentNewsIndex() - 1)) ? NewsReaderWidget.this.news.size() - 1 : (getCurrentNewsIndex() - 1) % NewsReaderWidget.this.news.size());
-                final FeedItem currentNews = NewsReaderWidget.this.news.get(getCurrentNewsIndex());
-                NewsReaderWidget.this.currentHeadline = currentNews.getTitle();
-                NewsReaderWidget.this.currentDescription = currentNews.getDescriptionAsText();
-                updateWidget();
-            }
-        });
-        topPanel.add(previousButton, "top");
-        this.headlineArea = new JTextArea(new DirectI18N("Loading...").toString());
-        this.headlineArea.setForeground(this.colorProvider.foregroundColor());
-        this.headlineArea.setFont(baseFont.deriveFont(14f));
-        this.headlineArea.setEditable(false);
-        this.headlineArea.setLineWrap(true);
-        this.headlineArea.setWrapStyleWord(true);
+        final EventToParentForwardingMouseAdapter forwarder = new EventToParentForwardingMouseAdapter(this.panel);
+
+        final ImageButton previousButton = new ImageButton(previousImage);
+        previousButton.addActionListener(new PreviousHeadlineActionListener());
+        previousButton.addMouseListener(forwarder);
+
+        final ImageButton nextButton = new ImageButton(nextImage);
+        nextButton.addActionListener(new NextHeadlineActionListener());
+        nextButton.addMouseListener(forwarder);
+
+        this.headlineArea = new JTextPane();
+        this.headlineArea.setFont(baseFont.deriveFont(26f));
         this.headlineArea.setOpaque(false);
-        topPanel.add(this.headlineArea, "growx");
-        final ImageButton nextButton = new ImageButton(ImageLoader.loadImage("modules/newsreader/next.png"));
-        nextButton.addMouseListener(eventForwarder);
-        nextButton.addActionListener(new ActionListener() {
+        this.headlineArea.setEditable(false);
+        this.headlineArea.setHighlighter(null);
+        this.headlineArea.addMouseListener(forwarder);
 
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-                if (0 >= NewsReaderWidget.this.news.size()) {
-                    return;
-                }
-                setCurrentNewsIndex((getCurrentNewsIndex() + 1) % NewsReaderWidget.this.news.size());
-                final FeedItem currentNews = NewsReaderWidget.this.news.get(getCurrentNewsIndex());
-                NewsReaderWidget.this.currentHeadline = currentNews.getTitle();
-                NewsReaderWidget.this.currentDescription = currentNews.getDescriptionAsText();
-                updateWidget();
-            }
-        });
-        topPanel.add(nextButton, "top");
-        this.panel.add(topPanel, "growx, wrap");
-        this.descriptionArea = new JTextArea(new DirectI18N("Loading...").toString());
-        this.descriptionArea.setForeground(this.colorProvider.foregroundColor());
-        this.descriptionArea.setEditable(false);
-        this.descriptionArea.setLineWrap(true);
-        this.descriptionArea.setWrapStyleWord(true);
+        this.descriptionArea = new JTextPane();;
         this.descriptionArea.setOpaque(false);
-        this.panel.add(this.descriptionArea, "growx");
-        this.headlineArea.addMouseListener(eventForwarder);
-        this.descriptionArea.addMouseListener(eventForwarder);
-        this.panel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(final MouseEvent e) {
-                NewsReaderWidget.this.updateNewsTask.cancel();
-            }
+        this.descriptionArea.setFont(this.descriptionArea.getFont().deriveFont(18f));
+        this.descriptionArea.addMouseListener(forwarder);
 
-            @Override
-            public void mouseExited(final MouseEvent e) {
-                startUpdateNewsTimer();
-            }
-        });
+        this.panel.add(previousButton, "top");
+        this.panel.add(this.headlineArea, "pushx");
+        this.panel.add(nextButton, "top");
+        this.panel.add(this.descriptionArea, "span 3, pushy");
+        this.panel.doLayout();
         startUpdateNewsTimer();
     }
 
@@ -163,7 +126,7 @@ public class NewsReaderWidget implements CustosModuleWidget {
                 NewsReaderWidget.this.currentDescription = currentNews.getDescriptionAsText();
             }
         };
-        this.timer.schedule(this.updateNewsTask, ToMilis.seconds(6), ToMilis.seconds(15));
+        this.timer.schedule(this.updateNewsTask, ToMilis.seconds(3), ToMilis.seconds(15));
 
     }
 
@@ -182,7 +145,48 @@ public class NewsReaderWidget implements CustosModuleWidget {
 
     @Override
     public String getLayoutConstraints() {
-        return "grow x, span 2";
+        return "top, growx, span 2";
+    }
+
+    private final class StopReloadMouseAdapter extends MouseAdapter {
+        @Override
+        public void mouseEntered(final MouseEvent e) {
+            NewsReaderWidget.this.updateNewsTask.cancel();
+        }
+
+        @Override
+        public void mouseExited(final MouseEvent e) {
+            startUpdateNewsTimer();
+        }
+    }
+
+    private final class PreviousHeadlineActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(final ActionEvent e) {
+            if (0 >= NewsReaderWidget.this.news.size()) {
+                return;
+            }
+            // HACK
+            setCurrentNewsIndex((0 > (getCurrentNewsIndex() - 1)) ? NewsReaderWidget.this.news.size() - 1 : (getCurrentNewsIndex() - 1) % NewsReaderWidget.this.news.size());
+            final FeedItem currentNews = NewsReaderWidget.this.news.get(getCurrentNewsIndex());
+            NewsReaderWidget.this.currentHeadline = currentNews.getTitle();
+            NewsReaderWidget.this.currentDescription = currentNews.getDescriptionAsText();
+            updateWidget();
+        }
+    }
+
+    private final class NextHeadlineActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(final ActionEvent e) {
+            if (0 >= NewsReaderWidget.this.news.size()) {
+                return;
+            }
+            setCurrentNewsIndex((getCurrentNewsIndex() + 1) % NewsReaderWidget.this.news.size());
+            final FeedItem currentNews = NewsReaderWidget.this.news.get(getCurrentNewsIndex());
+            NewsReaderWidget.this.currentHeadline = currentNews.getTitle();
+            NewsReaderWidget.this.currentDescription = currentNews.getDescriptionAsText();
+            updateWidget();
+        }
     }
 
     public class EventToParentForwardingMouseAdapter extends MouseAdapter {
