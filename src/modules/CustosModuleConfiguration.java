@@ -26,6 +26,10 @@ public class CustosModuleConfiguration {
         return this.entries;
     }
 
+    public CustosModuleConfigurationEntry getEntryFor(final String key) {
+        return getConfigurationEntries().get(key);
+    }
+
     public I18N getTitle() {
         return this.title;
     }
@@ -35,6 +39,5 @@ public class CustosModuleConfiguration {
         public NoCustosModuleConfiguration() {
             super(new DirectI18N(Text.empty()));
         }
-
     }
 }

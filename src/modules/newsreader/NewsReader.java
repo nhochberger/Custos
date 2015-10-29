@@ -63,7 +63,7 @@ public class NewsReader extends VisibleCustosModule {
             @Override
             public void run() {
                 try {
-                    final String feedUrl = NewsReader.this.configuration.getConfigurationEntries().get(NEWSREADER_URL_KEY).getValue();
+                    final String feedUrl = NewsReader.this.configuration.getEntryFor(NEWSREADER_URL_KEY).getValue();
                     final Feed feedRepresenation = FeedParser.parse(new URL(feedUrl));
                     logger().info("Successfully fetched " + feedRepresenation.getItemCount() + " items from " + feedUrl);
                     NewsReader.this.feedItems.clear();

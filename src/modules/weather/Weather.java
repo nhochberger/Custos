@@ -75,8 +75,8 @@ public class Weather extends VisibleCustosModule {
 
     @Override
     public void start() {
-        this.city = this.configuration.getConfigurationEntries().get(WEATHER_CITY).getValue();
-        this.country = this.configuration.getConfigurationEntries().get(WEATHER_COUNTRY).getValue();
+        this.city = this.configuration.getEntryFor(WEATHER_CITY).getValue();
+        this.country = this.configuration.getEntryFor(WEATHER_COUNTRY).getValue();
         this.timer.schedule(new JsonWeatherRequestTimerTask(), ToMilis.seconds(1.5), ToMilis.minutes(5));
         EDT.perform(new Runnable() {
 
