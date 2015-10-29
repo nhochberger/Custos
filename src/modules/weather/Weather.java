@@ -27,13 +27,15 @@ import edt.EDT;
 
 public class Weather extends VisibleCustosModule {
 
+    private static final String DEFAULT_COUNTRY = "de";
+    private static final String DEFAULT_CITY = "Berlin";
     private static final String WEATHER_CITY = "weather.city";
     private static final String WEATHER_COUNTRY = "weather.country";
 
     private final Timer timer;
     private final WeatherWidget widget;
-    private final String city;
-    private final String country;
+    private String city;
+    private String country;
     private ForecastData forecastData;
     private CurrentWeatherData currentWeatherData;
     private final WeatherIconProvider iconProvider;
@@ -46,9 +48,9 @@ public class Weather extends VisibleCustosModule {
         this.widget = new WeatherWidget(colorProvider, this.iconProvider);
         this.configuration = new CustosModuleConfiguration(new DirectI18N("Weather Configuration"));
         this.configuration.addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("Country:"), new DirectI18N(
-                "The abbreveation for the country you live in. E.g. USA: us, Germany: de,..."), WEATHER_COUNTRY, "de"));
-        this.configuration
-                .addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("City:"), new DirectI18N("The name or postal code of the city you live in."), WEATHER_CITY, "Berlin"));
+                "The abbreveation for the country you live in. E.g. USA: us, Germany: de,..."), WEATHER_COUNTRY, DEFAULT_COUNTRY));
+        this.configuration.addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("City:"), new DirectI18N("The name or postal code of the city you live in."), WEATHER_CITY,
+                DEFAULT_CITY));
         this.city = this.configuration.getConfigurationEntries().get(WEATHER_CITY).getValue();
         this.country = this.configuration.getConfigurationEntries().get(WEATHER_COUNTRY).getValue();
     }
@@ -73,6 +75,8 @@ public class Weather extends VisibleCustosModule {
 
     @Override
     public void start() {
+        this.city = this.configuration.getConfigurationEntries().get(WEATHER_CITY).getValue();
+        this.country = this.configuration.getConfigurationEntries().get(WEATHER_COUNTRY).getValue();
         this.timer.schedule(new JsonWeatherRequestTimerTask(), ToMilis.seconds(1.5), ToMilis.minutes(5));
         EDT.perform(new Runnable() {
 

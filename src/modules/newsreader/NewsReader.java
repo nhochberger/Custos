@@ -27,6 +27,7 @@ import edt.EDT;
 
 public class NewsReader extends VisibleCustosModule {
 
+    private static final String DEFAULT_RSS = "http://www.tagesschau.de/xml/rss2";
     private static final String NEWSREADER_URL_KEY = "newsreader.url";
     private final NewsReaderWidget widget;
     private final List<FeedItem> feedItems;
@@ -40,7 +41,7 @@ public class NewsReader extends VisibleCustosModule {
         this.timer = new Timer();
         this.configuration = new CustosModuleConfiguration(new DirectI18N("News Reader Configuration"));
         this.configuration.addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("RSS-Feed:"), new DirectI18N("The address of the feed from which news are to be loaded."),
-                NEWSREADER_URL_KEY, "http://www.tagesschau.de/xml/rss2"));
+                NEWSREADER_URL_KEY, DEFAULT_RSS));
     }
 
     @Override
@@ -56,7 +57,6 @@ public class NewsReader extends VisibleCustosModule {
             public void run() {
                 NewsReader.this.widget.build();
             }
-
         });
         final TimerTask fetchNewsTask = new TimerTask() {
 

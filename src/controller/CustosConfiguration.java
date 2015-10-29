@@ -35,6 +35,7 @@ public class CustosConfiguration extends SessionBasedObject {
         }
         try {
             this.properties = LoadProperties.fromExtern(configFilePath);
+            logger().info("Successfully read config");
         } catch (final IOException e) {
             logger().fatal("Config file not found.");
         }
