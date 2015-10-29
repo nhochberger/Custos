@@ -3,6 +3,7 @@ package modules.alarmclock;
 import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.eventbus.EventReceiver;
 
+import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,6 +20,8 @@ public class AlarmClock extends VisibleCustosModule {
     private final AlarmPersistenceManager persistenceManager;
     private final boolean alarmActive;
     private final CustosModuleConfiguration configuration;
+    // HACK
+    private Color lastForegroundColor;
 
     public AlarmClock(final BasicSession session, final ColorProvider colorProvider) {
         super(session, colorProvider);
@@ -27,6 +30,7 @@ public class AlarmClock extends VisibleCustosModule {
         this.persistenceManager = new AlarmPersistenceManager(session);
         this.alarmActive = false;
         this.configuration = new CustosModuleConfiguration.NoCustosModuleConfiguration();
+        this.lastForegroundColor = colorProvider.foregroundColor();
     }
 
     @Override
@@ -36,8 +40,12 @@ public class AlarmClock extends VisibleCustosModule {
 
     @Override
     public void updateWidget() {
-        // do not use by now!
-        // Currently breaks widget's behavior
+        // HACK
+        if (this.lastForegroundColor.equals(colorProvider().foregroundColor())) {
+            return;
+        }
+        this.lastForegroundColor = colorProvider().foregroundColor();
+        super.updateWidget();
     }
 
     @Override
