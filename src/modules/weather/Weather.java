@@ -43,14 +43,14 @@ public class Weather extends VisibleCustosModule {
         super(session, colorProvider);
         this.timer = new Timer();
         this.iconProvider = new WeatherIconProvider(session);
-        this.city = session().getProperties().otherProperty(WEATHER_CITY);
-        this.country = session().getProperties().otherProperty(WEATHER_COUNTRY);
         this.widget = new WeatherWidget(colorProvider, this.iconProvider);
         this.configuration = new CustosModuleConfiguration(new DirectI18N("Weather Configuration"));
         this.configuration.addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("Country:"), new DirectI18N(
-                "The abbreveation for the country you live in. E.g. USA: us, Germany: de,..."), "weather.country", "de"));
-        this.configuration.addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("City:"), new DirectI18N("The name or postal code of the city you live in."), "weather.city",
-                "Berlin"));
+                "The abbreveation for the country you live in. E.g. USA: us, Germany: de,..."), WEATHER_COUNTRY, "de"));
+        this.configuration
+                .addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("City:"), new DirectI18N("The name or postal code of the city you live in."), WEATHER_CITY, "Berlin"));
+        this.city = this.configuration.getConfigurationEntries().get(WEATHER_CITY).getValue();
+        this.country = this.configuration.getConfigurationEntries().get(WEATHER_COUNTRY).getValue();
     }
 
     @Override
