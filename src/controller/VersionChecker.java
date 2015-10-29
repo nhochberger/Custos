@@ -34,7 +34,7 @@ public class VersionChecker extends SessionBasedObject implements Lifecycle {
 
     @Override
     public void stop() {
-
+        this.timer.cancel();
     }
 
     public void compareVersions(final String newVersion) {

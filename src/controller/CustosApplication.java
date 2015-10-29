@@ -1,10 +1,14 @@
 package controller;
 
 import hochberger.utilities.application.ApplicationProperties;
+import hochberger.utilities.application.ApplicationShutdownEvent;
+import hochberger.utilities.application.ApplicationShutdownEventReceiver;
 import hochberger.utilities.application.BasicLoggedApplication;
 import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.eventbus.SimpleEventBus;
 import hochberger.utilities.text.i18n.DirectI18N;
+import hochberger.utilities.timing.Sleeper;
+import hochberger.utilities.timing.ToMilis;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -77,8 +81,9 @@ public class CustosApplication extends BasicLoggedApplication {
 
     @Override
     public void start() {
-        this.session.getEventBus().publish(new SystemMessage(MessageSeverity.SUCCESS, new DirectI18N("Starting application").toString()));
         super.start();
+        this.session.getEventBus().register(new ApplicationShutdownEventReceiver(this.session, this), ApplicationShutdownEvent.class);
+        this.session.getEventBus().publish(new SystemMessage(MessageSeverity.SUCCESS, new DirectI18N("Starting application").toString()));
         for (final CustosModule custosModule : this.modules) {
             this.session.getEventBus().register(custosModule, HeartbeatEvent.class);
             custosModule.start();
@@ -88,5 +93,19 @@ public class CustosApplication extends BasicLoggedApplication {
         this.heartbeat.start();
         this.versionChecker.start();
         this.session.getEventBus().publish(new SystemMessage(MessageSeverity.SUCCESS, new DirectI18N("Custos ${0} successfully started.", this.session.getProperties().version()).toString()));
+    }
+
+    @Override
+    public void stop() {
+        logger().info("Custos is shutting down.");
+        this.session.getEventBus().publish(new SystemMessage(MessageSeverity.NORMAL, new DirectI18N("Custos is shutting down. Please wait.").toString()));
+        this.heartbeat.stop();
+        for (final CustosModule custosModule : this.modules) {
+            custosModule.stop();
+        }
+        this.versionChecker.stop();
+        this.screenSaverProhibiter.stop();
+        Sleeper.sleep(ToMilis.seconds(2));
+        super.stop();
     }
 }
