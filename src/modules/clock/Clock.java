@@ -50,4 +50,9 @@ public class Clock extends VisibleCustosModule {
     public CustosModuleConfiguration getConfiguration() {
         return this.configuration;
     }
+
+    @Override
+    public void applyConfiguration() {
+        // do nothing on purpose, since clock hs no configuration
+    }
 }

@@ -9,4 +9,6 @@ public interface CustosModule extends Lifecycle, EventReceiver<HeartbeatEvent> {
     public CustosModuleWidget getWidget();
 
     public CustosModuleConfiguration getConfiguration();
+
+    public void applyConfiguration();
 }

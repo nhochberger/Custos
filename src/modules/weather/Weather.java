@@ -51,8 +51,6 @@ public class Weather extends VisibleCustosModule {
                 "The abbreveation for the country you live in. E.g. USA: us, Germany: de,..."), WEATHER_COUNTRY, DEFAULT_COUNTRY));
         this.configuration.addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("City:"), new DirectI18N("The name or postal code of the city you live in."), WEATHER_CITY,
                 DEFAULT_CITY));
-        this.city = this.configuration.getConfigurationEntries().get(WEATHER_CITY).getValue();
-        this.country = this.configuration.getConfigurationEntries().get(WEATHER_COUNTRY).getValue();
     }
 
     @Override
@@ -75,8 +73,6 @@ public class Weather extends VisibleCustosModule {
 
     @Override
     public void start() {
-        this.city = this.configuration.getEntryFor(WEATHER_CITY).getValue();
-        this.country = this.configuration.getEntryFor(WEATHER_COUNTRY).getValue();
         this.timer.schedule(new JsonWeatherRequestTimerTask(), ToMilis.seconds(1.5), ToMilis.minutes(5));
         EDT.perform(new Runnable() {
 
@@ -129,5 +125,11 @@ public class Weather extends VisibleCustosModule {
     @Override
     public CustosModuleConfiguration getConfiguration() {
         return this.configuration;
+    }
+
+    @Override
+    public void applyConfiguration() {
+        this.city = this.configuration.getEntryFor(WEATHER_CITY).getValue();
+        this.country = this.configuration.getEntryFor(WEATHER_COUNTRY).getValue();
     }
 }

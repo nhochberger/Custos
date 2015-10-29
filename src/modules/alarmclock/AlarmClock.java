@@ -137,4 +137,9 @@ public class AlarmClock extends VisibleCustosModule {
             persistAlarms();
         }
     }
+
+    @Override
+    public void applyConfiguration() {
+        // do nothing on purpose, since AlrmClock has no configuration yet
+    }
 }

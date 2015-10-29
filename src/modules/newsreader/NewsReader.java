@@ -33,6 +33,7 @@ public class NewsReader extends VisibleCustosModule {
     private final List<FeedItem> feedItems;
     private final Timer timer;
     private final CustosModuleConfiguration configuration;
+    private String feedUrl;
 
     public NewsReader(final BasicSession session, final ColorProvider colorProvider) {
         super(session, colorProvider);
@@ -63,7 +64,6 @@ public class NewsReader extends VisibleCustosModule {
             @Override
             public void run() {
                 try {
-                    final String feedUrl = NewsReader.this.configuration.getEntryFor(NEWSREADER_URL_KEY).getValue();
                     final Feed feedRepresenation = FeedParser.parse(new URL(feedUrl));
                     logger().info("Successfully fetched " + feedRepresenation.getItemCount() + " items from " + feedUrl);
                     NewsReader.this.feedItems.clear();
@@ -83,6 +83,11 @@ public class NewsReader extends VisibleCustosModule {
     @Override
     public void stop() {
         this.timer.cancel();
+    }
+
+    @Override
+    public void applyConfiguration() {
+        feedUrl = this.configuration.getEntryFor(NEWSREADER_URL_KEY).getValue();
     }
 
     @Override

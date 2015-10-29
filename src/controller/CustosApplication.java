@@ -66,9 +66,9 @@ public class CustosApplication extends BasicLoggedApplication {
         for (final CustosModule custosModule : this.modules) {
             final CustosModuleConfiguration currentModuleConfiguration = custosModule.getConfiguration();
             for (final CustosModuleConfigurationEntry entry : currentModuleConfiguration.getConfigurationEntries().values()) {
-
                 entry.setValue(custosConfiguration.getValueFor(entry.getKey(), entry.getValue()));
             }
+            custosModule.applyConfiguration();
             if (custosModule instanceof VisibleCustosModule) {
                 this.gui.addModule((VisibleCustosModule) custosModule);
             }
