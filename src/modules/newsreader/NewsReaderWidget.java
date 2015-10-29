@@ -98,17 +98,20 @@ public class NewsReaderWidget implements CustosModuleWidget {
         this.headlineArea.setEditable(false);
         this.headlineArea.setHighlighter(null);
         this.headlineArea.addMouseListener(forwarder);
+        this.headlineArea.setForeground(this.colorProvider.foregroundColor());
 
         this.descriptionArea = new JTextPane();;
         this.descriptionArea.setOpaque(false);
         this.descriptionArea.setFont(this.descriptionArea.getFont().deriveFont(18f));
         this.descriptionArea.addMouseListener(forwarder);
         this.descriptionArea.setHighlighter(null);
+        this.descriptionArea.setForeground(this.colorProvider.foregroundColor());
 
         this.panel.add(previousButton, "top");
         this.panel.add(this.headlineArea, "pushx");
         this.panel.add(nextButton, "top");
         this.panel.add(this.descriptionArea, "span 3, pushy");
+        this.panel.setBorder(BorderFactory.createLineBorder(this.colorProvider.foregroundColor()));
         this.panel.doLayout();
         startUpdateNewsTimer();
     }
