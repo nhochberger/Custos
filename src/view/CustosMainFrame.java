@@ -53,7 +53,7 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
         });
         center();
         frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
-        useLayoutManager(new MigLayout("wrap 3", ":push[400!, left]40![400!, center]40![400!, right]:push", "40[200!, top]20[200!, center]20[200!, bottom]push"));
+        useLayoutManager(new MigLayout("debug, wrap 3", ":push[400!, left]30![400!, center]30![400!, right]:push", "20![200!, top]30[200!, center]30[200!, bottom]push"));
         frame().setAlwaysOnTop(true);
         this.systemMessageLabel.build();
         this.systemMessageDialog.build();
@@ -72,7 +72,7 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
                 CustosMainFrame.this.session.getEventBus().publishFromEDT(new ApplicationShutdownEvent());
             }
         });
-        add(closeApplicationButton, "east");
+        add(closeApplicationButton, "north");
         for (final CustosModule module : this.modules) {
             add(module.getWidget().getComponent(), module.getWidget().getLayoutConstraints());
         }
