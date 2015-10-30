@@ -45,6 +45,7 @@ public class CustosApplication extends BasicLoggedApplication {
             application.start();
         } catch (final Exception e) {
             getLogger().fatal("Error while starting application. Shutting down.", e);
+            System.exit(0);
         }
     }
 
