@@ -24,6 +24,7 @@ import javax.swing.JPanel;
 import modules.CustosModule;
 import modules.VisibleCustosModule;
 import net.miginfocom.swing.MigLayout;
+import controller.CustosConfiguration;
 import controller.SystemMessage;
 import controller.SystemMessageMemory;
 
@@ -34,11 +35,13 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 	private final SystemMessageLabel systemMessageLabel;
 	private final SystemMessageDialog systemMessageDialog;
 	private final BasicSession session;
+	private final CustosConfiguration custosConfiguration;
 
-	public CustosMainFrame(final BasicSession session, final ColorProvider colorProvider, final SystemMessageMemory messageMemory) {
+	public CustosMainFrame(final BasicSession session, final ColorProvider colorProvider, final SystemMessageMemory messageMemory, final CustosConfiguration custosConfiguration) {
 		super(session.getProperties().title());
 		this.session = session;
 		this.colorProvider = colorProvider;
+		this.custosConfiguration = custosConfiguration;
 		this.modules = new CopyOnWriteArrayList<>();
 		this.systemMessageLabel = new SystemMessageLabel(colorProvider);
 		session.getEventBus().register(this.systemMessageLabel, SystemMessage.class);
@@ -79,6 +82,15 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 		});
 		ImageButton settingsButton = new ImageButton(ImageLoader.loadImage("settings.png"));
 		settingsButton.setToolTipText(new DirectI18N("Settings").toString());
+		settingsButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+				ConfigurationDialog dialog = new ConfigurationDialog(CustosMainFrame.this.custosConfiguration, CustosMainFrame.this.colorProvider, CustosMainFrame.this.session);
+				dialog.build();
+				dialog.show();
+			}
+		});
 		JPanel buttonPanel = PanelWrapper.wrap(settingsButton, closeApplicationButton);
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		buttonPanel.setOpaque(false);
