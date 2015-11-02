@@ -3,9 +3,11 @@ package view;
 import hochberger.utilities.application.ApplicationShutdownEvent;
 import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.gui.ImageButton;
+import hochberger.utilities.gui.PanelWrapper;
 import hochberger.utilities.gui.UndecoratedEDTSafeFrame;
 import hochberger.utilities.images.loader.ImageLoader;
 
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import modules.CustosModule;
 import modules.VisibleCustosModule;
@@ -25,72 +28,76 @@ import controller.SystemMessageMemory;
 
 public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 
-    private final List<VisibleCustosModule> modules;
-    private final ColorProvider colorProvider;
-    private final SystemMessageLabel systemMessageLabel;
-    private final SystemMessageDialog systemMessageDialog;
-    private final BasicSession session;
+	private final List<VisibleCustosModule> modules;
+	private final ColorProvider colorProvider;
+	private final SystemMessageLabel systemMessageLabel;
+	private final SystemMessageDialog systemMessageDialog;
+	private final BasicSession session;
 
-    public CustosMainFrame(final BasicSession session, final ColorProvider colorProvider, final SystemMessageMemory messageMemory) {
-        super(session.getProperties().title());
-        this.session = session;
-        this.colorProvider = colorProvider;
-        this.modules = new CopyOnWriteArrayList<>();
-        this.systemMessageLabel = new SystemMessageLabel(colorProvider);
-        session.getEventBus().register(this.systemMessageLabel, SystemMessage.class);
-        this.systemMessageDialog = new SystemMessageDialog(colorProvider, messageMemory);
-        session.getEventBus().register(this.systemMessageDialog, SystemMessage.class);
-    }
+	public CustosMainFrame(final BasicSession session, final ColorProvider colorProvider, final SystemMessageMemory messageMemory) {
+		super(session.getProperties().title());
+		this.session = session;
+		this.colorProvider = colorProvider;
+		this.modules = new CopyOnWriteArrayList<>();
+		this.systemMessageLabel = new SystemMessageLabel(colorProvider);
+		session.getEventBus().register(this.systemMessageLabel, SystemMessage.class);
+		this.systemMessageDialog = new SystemMessageDialog(colorProvider, messageMemory);
+		session.getEventBus().register(this.systemMessageDialog, SystemMessage.class);
+	}
 
-    @Override
-    protected void buildUI() {
-        frame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame().addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosed(final WindowEvent e) {
-                CustosMainFrame.this.session.getEventBus().publishFromEDT(new ApplicationShutdownEvent());
-            }
-        });
-        center();
-        frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
-        useLayoutManager(new MigLayout("wrap 3", ":push[400!, left]30![400!, center]30![400!, right]:push", "20![200!, top]30[200!, center]30[200!, bottom]push"));
-        frame().setAlwaysOnTop(true);
-        this.systemMessageLabel.build();
-        this.systemMessageDialog.build();
+	@Override
+	protected void buildUI() {
+		frame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame().addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosed(final WindowEvent e) {
+				CustosMainFrame.this.session.getEventBus().publishFromEDT(new ApplicationShutdownEvent());
+			}
+		});
+		center();
+		frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
+		useLayoutManager(new MigLayout("wrap 3", ":push[400!, left]30![400!, center]30![400!, right]:push", "20![200!, top]30[200!, center]30[200!, bottom]push"));
+		frame().setAlwaysOnTop(true);
+		this.systemMessageLabel.build();
+		this.systemMessageDialog.build();
 
-        this.systemMessageLabel.getLabel().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(final MouseEvent arg0) {
-                CustosMainFrame.this.systemMessageDialog.show();
-            }
-        });
-        final ImageButton closeApplicationButton = new ImageButton(ImageLoader.loadImage("close.png"));
-        closeApplicationButton.addActionListener(new ActionListener() {
+		this.systemMessageLabel.getLabel().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(final MouseEvent arg0) {
+				CustosMainFrame.this.systemMessageDialog.show();
+			}
+		});
+		final ImageButton closeApplicationButton = new ImageButton(ImageLoader.loadImage("close.png"));
+		closeApplicationButton.addActionListener(new ActionListener() {
 
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-                CustosMainFrame.this.session.getEventBus().publishFromEDT(new ApplicationShutdownEvent());
-            }
-        });
-        add(closeApplicationButton, "north");
-        for (final CustosModule module : this.modules) {
-            add(module.getWidget().getComponent(), module.getWidget().getLayoutConstraints());
-        }
-        add(this.systemMessageLabel.getLabel(), "dock south, gapleft 5, gapright 5, gapbottom 5");
-        maximize();
-    }
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+				CustosMainFrame.this.session.getEventBus().publishFromEDT(new ApplicationShutdownEvent());
+			}
+		});
+		ImageButton settingsButton = new ImageButton(ImageLoader.loadImage("settings.png"));
+		JPanel buttonPanel = PanelWrapper.wrap(settingsButton, closeApplicationButton);
+		buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		buttonPanel.setOpaque(false);
+		add(buttonPanel, "north");
+		for (final CustosModule module : this.modules) {
+			add(module.getWidget().getComponent(), module.getWidget().getLayoutConstraints());
+		}
+		add(this.systemMessageLabel.getLabel(), "dock south, gapleft 5, gapright 5, gapbottom 5");
+		maximize();
+	}
 
-    public void addModuleToView(final VisibleCustosModule module) {
-        this.modules.add(module);
-    }
+	public void addModuleToView(final VisibleCustosModule module) {
+		this.modules.add(module);
+	}
 
-    public void update() {
-        if (!isBuilt()) {
-            return;
-        }
-        frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
-        for (final VisibleCustosModule custosModule : this.modules) {
-            custosModule.updateWidget();
-        }
-    }
+	public void update() {
+		if (!isBuilt()) {
+			return;
+		}
+		frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
+		for (final VisibleCustosModule custosModule : this.modules) {
+			custosModule.updateWidget();
+		}
+	}
 }
