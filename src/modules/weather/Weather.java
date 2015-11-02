@@ -40,6 +40,7 @@ public class Weather extends VisibleCustosModule {
 	private CurrentWeatherData currentWeatherData;
 	private final WeatherIconProvider iconProvider;
 	private final CustosModuleConfiguration configuration;
+	private JsonWeatherRequestTimerTask jsonWeatherRequestTimerTask;
 
 	public Weather(final BasicSession session, final ColorProvider colorProvider) {
 		super(session, colorProvider);
@@ -73,7 +74,8 @@ public class Weather extends VisibleCustosModule {
 
 	@Override
 	public void start() {
-		this.timer.schedule(new JsonWeatherRequestTimerTask(), ToMilis.seconds(1.5), ToMilis.seconds(5));
+		this.jsonWeatherRequestTimerTask = new JsonWeatherRequestTimerTask();
+		scheduleTask();
 		EDT.perform(new Runnable() {
 
 			@Override
@@ -81,6 +83,10 @@ public class Weather extends VisibleCustosModule {
 				Weather.this.widget.build();
 			}
 		});
+	}
+
+	private void scheduleTask() {
+		this.timer.schedule(this.jsonWeatherRequestTimerTask, ToMilis.seconds(1.5), ToMilis.minutes(5));
 	}
 
 	@Override
@@ -132,5 +138,10 @@ public class Weather extends VisibleCustosModule {
 	public void applyConfiguration() {
 		this.city = this.configuration.getEntryFor(WEATHER_CITY).getValue();
 		this.country = this.configuration.getEntryFor(WEATHER_COUNTRY).getValue();
+		if (null != this.jsonWeatherRequestTimerTask) {
+			this.jsonWeatherRequestTimerTask.cancel();
+		}
+		this.jsonWeatherRequestTimerTask = new JsonWeatherRequestTimerTask();
+		scheduleTask();
 	}
 }
