@@ -6,6 +6,7 @@ import hochberger.utilities.gui.ImageButton;
 import hochberger.utilities.gui.PanelWrapper;
 import hochberger.utilities.gui.UndecoratedEDTSafeFrame;
 import hochberger.utilities.images.loader.ImageLoader;
+import hochberger.utilities.text.i18n.DirectI18N;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -68,6 +69,7 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 			}
 		});
 		final ImageButton closeApplicationButton = new ImageButton(ImageLoader.loadImage("close.png"));
+		closeApplicationButton.setToolTipText(new DirectI18N("Shutdown Custos").toString());
 		closeApplicationButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -76,6 +78,7 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 			}
 		});
 		ImageButton settingsButton = new ImageButton(ImageLoader.loadImage("settings.png"));
+		settingsButton.setToolTipText(new DirectI18N("Settings").toString());
 		JPanel buttonPanel = PanelWrapper.wrap(settingsButton, closeApplicationButton);
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		buttonPanel.setOpaque(false);
