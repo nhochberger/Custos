@@ -27,76 +27,87 @@ import edt.EDT;
 
 public class NewsReader extends VisibleCustosModule {
 
-    private static final String DEFAULT_RSS = "http://www.tagesschau.de/xml/rss2";
-    private static final String NEWSREADER_URL_KEY = "newsreader.url";
-    private final NewsReaderWidget widget;
-    private final List<FeedItem> feedItems;
-    private final Timer timer;
-    private final CustosModuleConfiguration configuration;
-    private String feedUrl;
+	private final class FetchNewsTask extends TimerTask {
+		@Override
+		public void run() {
+			try {
+				final Feed feedRepresenation = FeedParser.parse(new URL(NewsReader.this.feedUrl));
+				logger().info("Successfully fetched " + feedRepresenation.getItemCount() + " items from " + NewsReader.this.feedUrl);
+				NewsReader.this.feedItems.clear();
+				for (int i = 0; i < feedRepresenation.getItemCount(); i++) {
+					NewsReader.this.feedItems.add(feedRepresenation.getItem(i));
+				}
+				NewsReader.this.widget.setNews(NewsReader.this.feedItems);
+			} catch (FeedIOException | FeedXMLParseException | UnsupportedFeedException | MalformedURLException e) {
+				logger().error("Unable to retrieve RSS", e);
+			}
 
-    public NewsReader(final BasicSession session, final ColorProvider colorProvider) {
-        super(session, colorProvider);
-        this.widget = new NewsReaderWidget(colorProvider());
-        this.feedItems = new LinkedList<>();
-        this.timer = new Timer();
-        this.configuration = new CustosModuleConfiguration(new DirectI18N("News Reader Configuration"));
-        this.configuration.addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("RSS-Feed:"), new DirectI18N("The address of the feed from which news are to be loaded."),
-                NEWSREADER_URL_KEY, DEFAULT_RSS));
-    }
+		}
+	}
 
-    @Override
-    public CustosModuleWidget getWidget() {
-        return this.widget;
-    }
+	private static final String DEFAULT_RSS = "http://www.tagesschau.de/xml/rss2";
+	private static final String NEWSREADER_URL_KEY = "newsreader.url";
+	private final NewsReaderWidget widget;
+	private final List<FeedItem> feedItems;
+	private final Timer timer;
+	private final CustosModuleConfiguration configuration;
+	private String feedUrl;
+	private TimerTask fetchNewsTask;
 
-    @Override
-    public void start() {
-        EDT.perform(new Runnable() {
+	public NewsReader(final BasicSession session, final ColorProvider colorProvider) {
+		super(session, colorProvider);
+		this.widget = new NewsReaderWidget(colorProvider());
+		this.feedItems = new LinkedList<>();
+		this.timer = new Timer();
+		this.configuration = new CustosModuleConfiguration(new DirectI18N("News Reader Configuration"));
+		this.configuration.addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("RSS-Feed:"), new DirectI18N("The address of the feed from which news are to be loaded."),
+				NEWSREADER_URL_KEY, DEFAULT_RSS));
+	}
 
-            @Override
-            public void run() {
-                NewsReader.this.widget.build();
-            }
-        });
-        final TimerTask fetchNewsTask = new TimerTask() {
+	@Override
+	public CustosModuleWidget getWidget() {
+		return this.widget;
+	}
 
-            @Override
-            public void run() {
-                try {
-                    final Feed feedRepresenation = FeedParser.parse(new URL(feedUrl));
-                    logger().info("Successfully fetched " + feedRepresenation.getItemCount() + " items from " + feedUrl);
-                    NewsReader.this.feedItems.clear();
-                    for (int i = 0; i < feedRepresenation.getItemCount(); i++) {
-                        NewsReader.this.feedItems.add(feedRepresenation.getItem(i));
-                    }
-                    NewsReader.this.widget.setNews(NewsReader.this.feedItems);
-                } catch (FeedIOException | FeedXMLParseException | UnsupportedFeedException | MalformedURLException e) {
-                    logger().error("Unable to retrieve RSS", e);
-                }
+	@Override
+	public void start() {
+		EDT.perform(new Runnable() {
 
-            }
-        };
-        this.timer.scheduleAtFixedRate(fetchNewsTask, ToMilis.seconds(1.5), ToMilis.minutes(10));
-    }
+			@Override
+			public void run() {
+				NewsReader.this.widget.build();
+			}
+		});
+		scheduleTask();
+	}
 
-    @Override
-    public void stop() {
-        this.timer.cancel();
-    }
+	private void scheduleTask() {
+		if (null != this.fetchNewsTask) {
+			this.fetchNewsTask.cancel();
+		}
+		this.fetchNewsTask = new FetchNewsTask();
+		this.timer.schedule(this.fetchNewsTask, ToMilis.seconds(1.5), ToMilis.minutes(10));
+	}
 
-    @Override
-    public void applyConfiguration() {
-        feedUrl = this.configuration.getEntryFor(NEWSREADER_URL_KEY).getValue();
-    }
+	@Override
+	public void stop() {
+		this.timer.cancel();
+	}
 
-    @Override
-    public void receive(final HeartbeatEvent event) {
-        // TODO Auto-generated method stub
-    }
+	@Override
+	public void applyConfiguration() {
+		this.feedUrl = this.configuration.getEntryFor(NEWSREADER_URL_KEY).getValue();
 
-    @Override
-    public CustosModuleConfiguration getConfiguration() {
-        return this.configuration;
-    }
+		scheduleTask();
+	}
+
+	@Override
+	public void receive(final HeartbeatEvent event) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public CustosModuleConfiguration getConfiguration() {
+		return this.configuration;
+	}
 }
