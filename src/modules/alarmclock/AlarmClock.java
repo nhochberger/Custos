@@ -50,6 +50,7 @@ public class AlarmClock extends VisibleCustosModule {
 
     @Override
     public void start() {
+        logger().info("Starting AlarmClock");
         this.alarms.addAll(this.persistenceManager.readAlarms());
         this.widget.build();
         session().getEventBus().register(new NewAlarmHandler(), NewAlarmEvent.class);
@@ -59,6 +60,7 @@ public class AlarmClock extends VisibleCustosModule {
 
     @Override
     public void stop() {
+        logger().info("AlarmClock stopped");
     }
 
     @Override
@@ -73,6 +75,7 @@ public class AlarmClock extends VisibleCustosModule {
         boolean alarmDue = false;
         for (final Alarm alarm : this.alarms) {
             if (alarm.checkTriggered()) {
+                logger().info("Alarm " + alarm + " is due");
                 alarmDue = true;
             }
         }
@@ -105,6 +108,7 @@ public class AlarmClock extends VisibleCustosModule {
 
         @Override
         public void receive(final NewAlarmEvent event) {
+            logger().info("New alarm added: " + event.getAlarm());
             AlarmClock.this.alarms.add(event.getAlarm());
             getWidget().updateWidget();
             persistAlarms();
@@ -119,6 +123,7 @@ public class AlarmClock extends VisibleCustosModule {
 
         @Override
         public void receive(final DeleteAlarmEvent event) {
+            logger().info("Alarm was deleted: " + event.getAlarm());
             AlarmClock.this.alarms.remove(event.getAlarm());
             getWidget().updateWidget();
             persistAlarms();
@@ -133,6 +138,7 @@ public class AlarmClock extends VisibleCustosModule {
 
         @Override
         public void receive(final AlarmEditedEvent event) {
+            logger().info("Alarm was edited");
             getWidget().updateWidget();
             persistAlarms();
         }

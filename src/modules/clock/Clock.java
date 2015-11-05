@@ -21,6 +21,7 @@ public class Clock extends VisibleCustosModule {
 
     @Override
     public void start() {
+        logger().info("Starting clock");
         EDT.perform(new Runnable() {
 
             @Override
@@ -32,8 +33,7 @@ public class Clock extends VisibleCustosModule {
 
     @Override
     public void stop() {
-        // TODO Auto-generated method stub
-
+        logger().info("Clock stopped");
     }
 
     @Override

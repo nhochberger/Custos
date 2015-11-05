@@ -71,6 +71,7 @@ public class Weather extends VisibleCustosModule {
 
     @Override
     public void start() {
+        logger().info("Starting Weather");
         this.jsonWeatherRequestTimerTask = new JsonWeatherRequestTimerTask();
         scheduleTask();
         EDT.perform(new Runnable() {
@@ -89,6 +90,7 @@ public class Weather extends VisibleCustosModule {
     @Override
     public void stop() {
         this.timer.cancel();
+        logger().info("Weather stopped");
     }
 
     private class JsonWeatherRequestTimerTask extends TimerTask {
