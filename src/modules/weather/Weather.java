@@ -84,7 +84,7 @@ public class Weather extends VisibleCustosModule {
     }
 
     private void scheduleTask() {
-        this.timer.schedule(this.jsonWeatherRequestTimerTask, ToMilis.seconds(1.5), ToMilis.minutes(5));
+        this.timer.schedule(this.jsonWeatherRequestTimerTask, ToMilis.seconds(1.5), ToMilis.minutes(30));
     }
 
     @Override
@@ -107,6 +107,7 @@ public class Weather extends VisibleCustosModule {
             try {
                 final String forecastResult = forecastRequest.performRequest(geoInformation.getCity(), geoInformation.getCountryCode());
                 Weather.this.forecastData = new Gson().fromJson(forecastResult, ForecastData.class);
+                logger().info("Weather data updated");
                 session().getEventBus().publish(
                         new SystemMessage(MessageSeverity.NORMAL, new DirectI18N("Weather data updated at ${0}.", CommonDateTimeFormatters.hourMinuteSecond().print(DateTime.now())).toString()));
             } catch (final IOException e) {
