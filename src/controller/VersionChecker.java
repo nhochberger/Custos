@@ -29,12 +29,14 @@ public class VersionChecker extends SessionBasedObject implements Lifecycle {
 
     @Override
     public void start() {
+        logger().info("Starting version checker");
         this.timer.schedule(new VersionCheckTimerTask(), ToMilis.seconds(5), ToMilis.hours(1));
     }
 
     @Override
     public void stop() {
         this.timer.cancel();
+        logger().info("Version checker stopped");
     }
 
     public void compareVersions(final String newVersion) {

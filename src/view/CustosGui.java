@@ -14,44 +14,45 @@ import controller.SystemMessageMemory;
 
 public class CustosGui extends SessionBasedObject implements ApplicationGui, EventReceiver<HeartbeatEvent> {
 
-	private final LinkedList<VisibleCustosModule> modules;
-	private final ColorProvider colorProvider;
-	private CustosMainFrame mainFrame;
-	private final SystemMessageMemory messageMemory;
-	private final CustosConfiguration custosConfiguration;
+    private final LinkedList<VisibleCustosModule> modules;
+    private final ColorProvider colorProvider;
+    private CustosMainFrame mainFrame;
+    private final SystemMessageMemory messageMemory;
+    private final CustosConfiguration custosConfiguration;
 
-	public CustosGui(final BasicSession session, final ColorProvider colorProvider, final SystemMessageMemory messageMemory, final CustosConfiguration custosConfiguration) {
-		super(session);
-		this.colorProvider = colorProvider;
-		this.messageMemory = messageMemory;
-		this.custosConfiguration = custosConfiguration;
-		this.modules = new LinkedList<>();
-	}
+    public CustosGui(final BasicSession session, final ColorProvider colorProvider, final SystemMessageMemory messageMemory, final CustosConfiguration custosConfiguration) {
+        super(session);
+        this.colorProvider = colorProvider;
+        this.messageMemory = messageMemory;
+        this.custosConfiguration = custosConfiguration;
+        this.modules = new LinkedList<>();
+    }
 
-	@Override
-	public void activate() {
-		this.mainFrame = new CustosMainFrame(session(), this.colorProvider, this.messageMemory, this.custosConfiguration);
-		for (final VisibleCustosModule module : this.modules) {
-			this.mainFrame.addModuleToView(module);
-		}
-		this.mainFrame.show();
-	}
+    @Override
+    public void activate() {
+        logger().info("GUI activated");
+        this.mainFrame = new CustosMainFrame(session(), this.colorProvider, this.messageMemory, this.custosConfiguration);
+        for (final VisibleCustosModule module : this.modules) {
+            this.mainFrame.addModuleToView(module);
+        }
+        this.mainFrame.show();
+    }
 
-	@Override
-	public void deactivate() {
-		// TODO Auto-generated method stub
+    @Override
+    public void deactivate() {
+        this.mainFrame.hide();
+        logger().info("GUI deactivated");
+    }
 
-	}
+    public void addModule(final VisibleCustosModule module) {
+        this.modules.add(module);
+    }
 
-	public void addModule(final VisibleCustosModule module) {
-		this.modules.add(module);
-	}
-
-	@Override
-	public void receive(final HeartbeatEvent event) {
-		if (null == this.mainFrame) {
-			return;
-		}
-		this.mainFrame.update();
-	}
+    @Override
+    public void receive(final HeartbeatEvent event) {
+        if (null == this.mainFrame) {
+            return;
+        }
+        this.mainFrame.update();
+    }
 }

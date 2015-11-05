@@ -22,12 +22,14 @@ public class ScreenSaverProhibiter extends SessionBasedObject implements Lifecyc
 
     @Override
     public void start() {
+        logger().info("ScreensaverProhibiter started");
         this.timer.schedule(new ScreenSaverProhibiterTimerTask(), 10000, 10000);
     }
 
     @Override
     public void stop() {
         this.timer.cancel();
+        logger().info("ScreensaverProhibiter stopped");
     }
 
     public class ScreenSaverProhibiterTimerTask extends TimerTask {
