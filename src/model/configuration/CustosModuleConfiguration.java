@@ -1,4 +1,4 @@
-package modules;
+package model.configuration;
 
 import hochberger.utilities.text.Text;
 import hochberger.utilities.text.i18n.DirectI18N;
@@ -10,7 +10,7 @@ import java.util.Map;
 public class CustosModuleConfiguration {
 
     private final I18N title;
-    private final Map<String, CustosModuleConfigurationEntry> entries;
+    private final Map<String, CustosModuleStringConfigurationEntry> entries;
 
     public CustosModuleConfiguration(final I18N title) {
         super();
@@ -18,15 +18,15 @@ public class CustosModuleConfiguration {
         this.entries = new HashMap<>();
     }
 
-    public void addConfigurationEntry(final CustosModuleConfigurationEntry entry) {
+    public void addConfigurationEntry(final CustosModuleStringConfigurationEntry entry) {
         this.entries.put(entry.getKey(), entry);
     }
 
-    public Map<String, CustosModuleConfigurationEntry> getConfigurationEntries() {
+    public Map<String, CustosModuleStringConfigurationEntry> getConfigurationEntries() {
         return this.entries;
     }
 
-    public CustosModuleConfigurationEntry getEntryFor(final String key) {
+    public CustosModuleStringConfigurationEntry getEntryFor(final String key) {
         return getConfigurationEntries().get(key);
     }
 

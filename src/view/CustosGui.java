@@ -7,8 +7,8 @@ import hochberger.utilities.gui.ApplicationGui;
 
 import java.util.LinkedList;
 
+import model.configuration.CustosConfiguration;
 import modules.VisibleCustosModule;
-import controller.CustosConfiguration;
 import controller.HeartbeatEvent;
 import controller.SystemMessageMemory;
 

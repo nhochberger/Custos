@@ -21,10 +21,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import model.configuration.CustosConfiguration;
 import modules.CustosModule;
 import modules.VisibleCustosModule;
 import net.miginfocom.swing.MigLayout;
-import controller.CustosConfiguration;
 import controller.SystemMessage;
 import controller.SystemMessageMemory;
 

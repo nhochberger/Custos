@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import modules.CustosModuleConfiguration;
+import model.configuration.CustosModuleConfiguration;
 import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
 

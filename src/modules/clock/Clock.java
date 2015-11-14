@@ -1,7 +1,7 @@
 package modules.clock;
 
 import hochberger.utilities.application.session.BasicSession;
-import modules.CustosModuleConfiguration;
+import model.configuration.CustosModuleConfiguration;
 import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
 import view.ColorProvider;

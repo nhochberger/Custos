@@ -1,4 +1,4 @@
-package controller;
+package model.configuration;
 
 import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.application.session.SessionBasedObject;
@@ -12,8 +12,6 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
-
-import modules.CustosModuleConfiguration;
 
 public class CustosConfiguration extends SessionBasedObject {
 

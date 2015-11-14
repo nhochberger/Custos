@@ -13,9 +13,10 @@ import hochberger.utilities.timing.ToMilis;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.configuration.CustosConfiguration;
+import model.configuration.CustosModuleConfiguration;
+import model.configuration.CustosModuleStringConfigurationEntry;
 import modules.CustosModule;
-import modules.CustosModuleConfiguration;
-import modules.CustosModuleConfigurationEntry;
 import modules.VisibleCustosModule;
 import modules.alarmclock.AlarmClock;
 import modules.clock.Clock;
@@ -72,7 +73,7 @@ public class CustosApplication extends BasicLoggedApplication {
         for (final CustosModule custosModule : this.modules) {
             final CustosModuleConfiguration currentModuleConfiguration = custosModule.getConfiguration();
             this.custosConfiguration.addModuleConfiguration(currentModuleConfiguration);
-            for (final CustosModuleConfigurationEntry entry : currentModuleConfiguration.getConfigurationEntries().values()) {
+            for (final CustosModuleStringConfigurationEntry entry : currentModuleConfiguration.getConfigurationEntries().values()) {
                 entry.setValue(this.custosConfiguration.getValueFor(entry.getKey(), entry.getValue()));
             }
             custosModule.applyConfiguration();

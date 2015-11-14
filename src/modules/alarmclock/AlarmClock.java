@@ -7,7 +7,7 @@ import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 
-import modules.CustosModuleConfiguration;
+import model.configuration.CustosModuleConfiguration;
 import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
 import view.ColorProvider;

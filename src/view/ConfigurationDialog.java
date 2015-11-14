@@ -20,10 +20,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import modules.CustosModuleConfiguration;
-import modules.CustosModuleConfigurationEntry;
+import model.configuration.CustosConfiguration;
+import model.configuration.CustosModuleConfiguration;
+import model.configuration.CustosModuleStringConfigurationEntry;
 import net.miginfocom.swing.MigLayout;
-import controller.CustosConfiguration;
 import controller.UpdateConfigurationEvent;
 
 public class ConfigurationDialog extends WrappedComponent<JDialog> {
@@ -62,7 +62,7 @@ public class ConfigurationDialog extends WrappedComponent<JDialog> {
             final JLabel sectionLabel = new JLabel(moduleConfiguration.getTitle().toString());
             sectionLabel.setFont(baseFont.deriveFont(16f));
             panel.add(sectionLabel, "span 2, wrap");
-            for (final CustosModuleConfigurationEntry entry : moduleConfiguration.getConfigurationEntries().values()) {
+            for (final CustosModuleStringConfigurationEntry entry : moduleConfiguration.getConfigurationEntries().values()) {
                 panel.add(new JLabel(entry.getTitle().toString()));
                 final JTextField textField = new JTextField(entry.getValue());
                 configurationTextFields.put(entry.getKey(), textField);
@@ -75,7 +75,7 @@ public class ConfigurationDialog extends WrappedComponent<JDialog> {
             @Override
             public void actionPerformed(final ActionEvent e) {
                 for (final CustosModuleConfiguration moduleConfiguration : ConfigurationDialog.this.configuration.getModuleConfigurations()) {
-                    for (final CustosModuleConfigurationEntry entry : moduleConfiguration.getConfigurationEntries().values()) {
+                    for (final CustosModuleStringConfigurationEntry entry : moduleConfiguration.getConfigurationEntries().values()) {
                         entry.setValue(configurationTextFields.get(entry.getKey()).getText());
                         ConfigurationDialog.this.configuration.setValueFor(entry.getKey(), configurationTextFields.get(entry.getKey()).getText());
                     }

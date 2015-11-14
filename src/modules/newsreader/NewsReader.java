@@ -17,8 +17,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import modules.CustosModuleConfiguration;
-import modules.CustosModuleConfigurationEntry;
+import model.configuration.CustosModuleConfiguration;
+import model.configuration.CustosModuleStringConfigurationEntry;
 import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
 import view.ColorProvider;
@@ -66,7 +66,7 @@ public class NewsReader extends VisibleCustosModule {
         this.feedItems = new LinkedList<>();
         this.timer = new Timer();
         this.configuration = new CustosModuleConfiguration(new DirectI18N("News Reader Configuration"));
-        this.configuration.addConfigurationEntry(new CustosModuleConfigurationEntry(new DirectI18N("RSS-Feed:"), new DirectI18N("The address of the feed from which news are to be loaded."),
+        this.configuration.addConfigurationEntry(new CustosModuleStringConfigurationEntry(new DirectI18N("RSS-Feed:"), new DirectI18N("The address of the feed from which news are to be loaded."),
                 NEWSREADER_URL_KEY, DEFAULT_RSS));
     }
 
