@@ -6,7 +6,7 @@ import javax.swing.JComponent;
 
 public abstract class ConfigurationInput<TYPE> {
 
-	private final TYPE value;
+	private TYPE value;
 	private final I18N description;
 
 	public ConfigurationInput(final TYPE value, final I18N description) {
@@ -21,6 +21,10 @@ public abstract class ConfigurationInput<TYPE> {
 
 	public I18N description() {
 		return this.description;
+	}
+
+	public void setValue(final TYPE value) {
+		this.value = value;
 	}
 
 	public abstract JComponent getPreferredInputComponent();
