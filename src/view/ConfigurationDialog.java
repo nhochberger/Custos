@@ -59,6 +59,7 @@ public class ConfigurationDialog extends WrappedComponent<JDialog> {
 		final JLabel headlineLabel = new JLabel(title.toString());
 		headlineLabel.setFont(baseFont.deriveFont(24f));
 		panel.add(headlineLabel, "span 2, wrap");
+		@SuppressWarnings("rawtypes")
 		final Map<String, ConfigurationInput> configurationTextFields = new HashMap<>();
 		for (final CustosModuleConfiguration moduleConfiguration : this.configuration.getModuleConfigurations()) {
 			final JLabel sectionLabel = new JLabel(moduleConfiguration.getTitle().toString());
@@ -66,9 +67,7 @@ public class ConfigurationDialog extends WrappedComponent<JDialog> {
 			panel.add(sectionLabel, "span 2, wrap");
 			for (final CustosModuleStringConfigurationEntry entry : moduleConfiguration.getConfigurationEntries().values()) {
 				panel.add(new JLabel(entry.getTitle().toString()));
-				// final JTextField textField = new
-				// JTextField(entry.getValue());
-				// panel.add(textField, "grow, wrap");
+				@SuppressWarnings("rawtypes")
 				ConfigurationInput configurationInput = entry.getInput();
 				JComponent inputComponent = configurationInput.getPreferredInputComponent();
 				configurationTextFields.put(entry.getKey(), configurationInput);
@@ -78,6 +77,7 @@ public class ConfigurationDialog extends WrappedComponent<JDialog> {
 		final ImageButton acceptButton = new ImageButton(ImageLoader.loadImage("check.png"));
 		acceptButton.addActionListener(new ActionListener() {
 
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			@Override
 			public void actionPerformed(final ActionEvent e) {
 				for (final CustosModuleConfiguration moduleConfiguration : ConfigurationDialog.this.configuration.getModuleConfigurations()) {
