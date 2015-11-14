@@ -23,7 +23,6 @@ import javax.swing.JPanel;
 import model.configuration.CustosConfiguration;
 import model.configuration.CustosModuleConfiguration;
 import model.configuration.CustosModuleConfigurationEntry;
-import model.configuration.CustosModuleStringConfigurationEntry;
 import model.configuration.input.ConfigurationInput;
 import net.miginfocom.swing.MigLayout;
 import controller.UpdateConfigurationEvent;
@@ -65,9 +64,8 @@ public class ConfigurationDialog extends WrappedComponent<JDialog> {
 			final JLabel sectionLabel = new JLabel(moduleConfiguration.getTitle().toString());
 			sectionLabel.setFont(baseFont.deriveFont(16f));
 			panel.add(sectionLabel, "span 2, wrap");
-			for (final CustosModuleStringConfigurationEntry entry : moduleConfiguration.getConfigurationEntries().values()) {
+			for (final CustosModuleConfigurationEntry entry : moduleConfiguration.getConfigurationEntries().values()) {
 				panel.add(new JLabel(entry.getTitle().toString()));
-				@SuppressWarnings("rawtypes")
 				ConfigurationInput configurationInput = entry.getInput();
 				JComponent inputComponent = configurationInput.getPreferredInputComponent();
 				configurationTextFields.put(entry.getKey(), configurationInput);

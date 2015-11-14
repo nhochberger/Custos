@@ -41,7 +41,7 @@ public class Weather extends VisibleCustosModule {
 		this.timer = new Timer();
 		this.iconProvider = new WeatherIconProvider(session);
 		this.widget = new WeatherWidget(colorProvider, this.iconProvider);
-		this.configuration = new CustosModuleConfiguration.NoCustosModuleConfiguration();
+		this.configuration = new WeatherConfiguration();
 	}
 
 	@Override

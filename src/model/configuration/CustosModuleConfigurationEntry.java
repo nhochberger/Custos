@@ -8,7 +8,8 @@ public abstract class CustosModuleConfigurationEntry<TYPE> {
 	private final I18N title;
 	private final I18N description;
 	private final String key;
-	private TYPE value;
+	// HACK
+	protected TYPE value;
 
 	public CustosModuleConfigurationEntry(final I18N title, final I18N description, final String key, final TYPE value) {
 		super();
