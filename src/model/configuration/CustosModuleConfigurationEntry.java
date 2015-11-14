@@ -1,7 +1,7 @@
 package model.configuration;
 
-import model.configuration.input.ConfigurationInput;
 import hochberger.utilities.text.i18n.I18N;
+import model.configuration.input.ConfigurationInput;
 
 public abstract class CustosModuleConfigurationEntry<TYPE> {
 
@@ -38,5 +38,5 @@ public abstract class CustosModuleConfigurationEntry<TYPE> {
 		this.value = value;
 	}
 
-	public abstract ConfigurationInput getInput();
+	public abstract ConfigurationInput<TYPE> getInput();
 }
