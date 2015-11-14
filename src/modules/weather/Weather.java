@@ -33,8 +33,9 @@ public class Weather extends VisibleCustosModule {
 	private ForecastData forecastData;
 	private CurrentWeatherData currentWeatherData;
 	private final WeatherIconProvider iconProvider;
-	private final CustosModuleConfiguration configuration;
+	private final WeatherConfiguration configuration;
 	private JsonWeatherRequestTimerTask jsonWeatherRequestTimerTask;
+	private final CountryCity countryCity;
 
 	public Weather(final BasicSession session, final ColorProvider colorProvider) {
 		super(session, colorProvider);
@@ -42,6 +43,7 @@ public class Weather extends VisibleCustosModule {
 		this.iconProvider = new WeatherIconProvider(session);
 		this.widget = new WeatherWidget(colorProvider, this.iconProvider);
 		this.configuration = new WeatherConfiguration();
+		this.countryCity = new CountryCity();
 	}
 
 	@Override
@@ -65,7 +67,6 @@ public class Weather extends VisibleCustosModule {
 	@Override
 	public void start() {
 		logger().info("Starting Weather");
-		this.jsonWeatherRequestTimerTask = new JsonWeatherRequestTimerTask();
 		scheduleTask();
 		EDT.perform(new Runnable() {
 
@@ -77,6 +78,11 @@ public class Weather extends VisibleCustosModule {
 	}
 
 	private void scheduleTask() {
+		if (null != this.jsonWeatherRequestTimerTask) {
+			this.jsonWeatherRequestTimerTask.cancel();
+			this.timer.purge();
+		}
+		this.jsonWeatherRequestTimerTask = new JsonWeatherRequestTimerTask();
 		this.timer.schedule(this.jsonWeatherRequestTimerTask, ToMilis.seconds(1.5), ToMilis.minutes(30));
 	}
 
@@ -96,21 +102,24 @@ public class Weather extends VisibleCustosModule {
 		public void run() {
 			final ForecastJsonRequest forecastRequest = new ForecastJsonRequest();
 			final CurrentWeatherJsonRequest currentWeatherRequest = new CurrentWeatherJsonRequest();
-			final GeoInformation geoInformation = new GeoInformationProvider(logger()).retrieveGeoInformation();
-			session().getEventBus().publish(
-					new SystemMessage(MessageSeverity.NORMAL, new DirectI18N("Location set to: ${0} (${1})", geoInformation.getCity(), geoInformation.getCountryName()).toString()));
+			if (Weather.this.configuration.automatic()) {
+				final GeoInformation geoInformation = new GeoInformationProvider(logger()).retrieveGeoInformation();
+				Weather.this.countryCity.setCountry(geoInformation.getCountryCode());
+				Weather.this.countryCity.setCity(geoInformation.getCity());
+			}
 			try {
-				final String forecastResult = forecastRequest.performRequest(geoInformation.getCity(), geoInformation.getCountryCode());
+				final String forecastResult = forecastRequest.performRequest(Weather.this.countryCity.city(), Weather.this.countryCity.country());
 				Weather.this.forecastData = new Gson().fromJson(forecastResult, ForecastData.class);
 				logger().info("Weather data updated");
 				session().getEventBus().publish(
-						new SystemMessage(MessageSeverity.NORMAL, new DirectI18N("Weather data updated at ${0}.", CommonDateTimeFormatters.hourMinuteSecond().print(DateTime.now())).toString()));
+						new SystemMessage(MessageSeverity.NORMAL, new DirectI18N("Weather data for ${0} (${1}) updated at ${2}.", Weather.this.countryCity.city(), Weather.this.countryCity.country(),
+								CommonDateTimeFormatters.hourMinuteSecond().print(DateTime.now())).toString()));
 			} catch (final IOException e) {
 				session().getLogger().error("Json request was unsuccessful.", e);
 				session().getEventBus().publish(new SystemMessage(MessageSeverity.WARNING, "Error while retrieving weather forecast data."));
 			}
 			try {
-				final String currentWeatherResult = currentWeatherRequest.performRequest(geoInformation.getCity(), geoInformation.getCountryCode());
+				final String currentWeatherResult = currentWeatherRequest.performRequest(Weather.this.countryCity.city(), Weather.this.countryCity.country());
 				Weather.this.currentWeatherData = new Gson().fromJson(currentWeatherResult, CurrentWeatherData.class);
 			} catch (final IOException e) {
 				session().getLogger().error("Json request was unsuccessful.", e);
@@ -131,6 +140,10 @@ public class Weather extends VisibleCustosModule {
 
 	@Override
 	public void applyConfiguration() {
-		// TODO Auto-generated method stub
+		if (!this.configuration.automatic()) {
+			this.countryCity.setCountry(this.configuration.country());
+			this.countryCity.setCity(this.configuration.city());
+		}
+		scheduleTask();
 	}
 }
