@@ -16,7 +16,7 @@ public class DayTimeAwareColorProvider extends SessionBasedObject implements Col
     @Override
     public Color backgroundColor() {
         if (isDayTime()) {
-            return new Color(255, 254, 228, 255);
+            return new Color(255, 254, 228);
         }
         return Color.BLACK;
     }
@@ -24,7 +24,7 @@ public class DayTimeAwareColorProvider extends SessionBasedObject implements Col
     @Override
     public Color foregroundColor() {
         if (isDayTime()) {
-            return new Color(73, 66, 61, 255);
+            return new Color(73, 66, 61);
         }
         return Color.RED.darker().darker();
     }

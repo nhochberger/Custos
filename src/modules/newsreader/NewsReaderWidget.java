@@ -74,7 +74,7 @@ public class NewsReaderWidget implements CustosModuleWidget {
         final Image previousImage = ImageLoader.loadImage("modules/newsreader/previous.png");
         final Image nextImage = ImageLoader.loadImage("modules/newsreader/next.png");
 
-        this.panel = new JPanel(new MigLayout("fill, height 200px, wrap 3", "2px[" + previousImage.getWidth(null) + "px!]5px[grow, center]5px[" + nextImage.getWidth(null) + "px!]2px",
+        this.panel = new JPanel(new MigLayout("fill, height 200px!, wrap 3", "2px[" + previousImage.getWidth(null) + "px!]5px[grow, center]5px[" + nextImage.getWidth(null) + "px!]2px",
                 "2px[]5px[top]2px"));
         this.panel.addMouseListener(new StopReloadMouseAdapter());
         this.panel.setOpaque(false);
