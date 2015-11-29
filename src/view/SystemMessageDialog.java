@@ -35,6 +35,7 @@ public class SystemMessageDialog implements EventReceiver<SystemMessage> {
         }
         this.isBuilt = true;
         this.dialog = new JDialog();
+        this.dialog.setUndecorated(true);
         this.dialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
         this.dialog.setTitle("System Message History");
         this.dialog.setModal(true);
@@ -45,7 +46,7 @@ public class SystemMessageDialog implements EventReceiver<SystemMessage> {
         this.dialog.setResizable(false);
         this.messagesPanel = new JPanel(new MigLayout());
         this.messagesPanel.setBackground(this.colorProvider.backgroundColor());
-        JScrollPane scrollPane = new JScrollPane(this.messagesPanel);
+        final JScrollPane scrollPane = new JScrollPane(this.messagesPanel);
         scrollPane.setAutoscrolls(true);
         this.dialog.setContentPane(scrollPane);
     }
@@ -66,8 +67,8 @@ public class SystemMessageDialog implements EventReceiver<SystemMessage> {
             @Override
             public void run() {
                 SystemMessageDialog.this.messagesPanel.removeAll();
-                for (SystemMessage message : SystemMessageDialog.this.messageMemory.getMessages()) {
-                    JLabel label = new JLabel();
+                for (final SystemMessage message : SystemMessageDialog.this.messageMemory.getMessages()) {
+                    final JLabel label = new JLabel();
                     label.setForeground(message.getSeverity().getColorFrom(SystemMessageDialog.this.colorProvider));
                     label.setText(message.toString());
                     SystemMessageDialog.this.messagesPanel.add(label, "wrap");
