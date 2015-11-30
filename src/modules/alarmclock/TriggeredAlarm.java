@@ -7,6 +7,7 @@ import hochberger.utilities.application.session.SessionBasedObject;
 import hochberger.utilities.gui.dialog.BasicModalDialog;
 import hochberger.utilities.gui.dialog.BasicModalDialog.DialogCloseListener;
 import hochberger.utilities.gui.dialog.SelfClosingModalDialog;
+import hochberger.utilities.text.CommonDateTimeFormatters;
 import hochberger.utilities.text.Text;
 import hochberger.utilities.text.i18n.DirectI18N;
 import hochberger.utilities.threading.ThreadRunner;
@@ -16,6 +17,8 @@ import javazoom.jl.player.Player;
 
 import org.joda.time.DateTime;
 
+import controller.SystemMessage;
+import controller.SystemMessage.MessageSeverity;
 import edt.EDT;
 
 public class TriggeredAlarm extends SessionBasedObject implements Lifecycle {
@@ -27,6 +30,8 @@ public class TriggeredAlarm extends SessionBasedObject implements Lifecycle {
     @Override
     public void start() {
         final DateTime now = DateTime.now();
+        logger().info("Alarm triggered at " + CommonDateTimeFormatters.hourMinuteSecond().print(now));
+        session().getEventBus().publish(new SystemMessage(MessageSeverity.NORMAL, new DirectI18N("Alarm triggered at ${0}", CommonDateTimeFormatters.hourMinute().print(now))));
         final BasicModalDialog dialog = new SelfClosingModalDialog(new DirectI18N("${0}:${1}", String.format("%02d", now.getHourOfDay()), String.format("%02d", now.getMinuteOfHour())),
                 new DirectI18N(Text.empty()), new DirectI18N("Snooze"), new DirectI18N("Cancel"), ToMilis.minutes(15));
         try {

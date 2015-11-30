@@ -3,6 +3,7 @@ package controller;
 import hochberger.utilities.eventbus.Event;
 import hochberger.utilities.text.CommonDateTimeFormatters;
 import hochberger.utilities.text.Text;
+import hochberger.utilities.text.i18n.I18N;
 
 import java.awt.Color;
 
@@ -46,6 +47,10 @@ public class SystemMessage implements Event {
     private final String text;
     private final DateTime time;
 
+    public SystemMessage(final MessageSeverity severity, final I18N text) {
+        this(severity, text.toString());
+    }
+
     public SystemMessage(final MessageSeverity severity, final String text) {
         super();
         this.severity = severity;
@@ -72,7 +77,7 @@ public class SystemMessage implements Event {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
+        final StringBuilder result = new StringBuilder();
         result.append(CommonDateTimeFormatters.dayMonthYearOnlyDigits().print(this.time));
         result.append(Text.space());
         result.append(CommonDateTimeFormatters.hourMinuteSecond().print(this.time));
