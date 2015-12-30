@@ -4,210 +4,188 @@ import java.util.List;
 import java.util.Map;
 
 public class ForecastData {
-    private City city;
-    private List<Forecast> list;
+	private City city;
+	private List<Forecast> list;
 
-    public City getCity() {
-        return this.city;
-    }
+	public Forecast getToday() {
+		return this.list.get(0);
+	}
 
-    public void setCity(final City city) {
-        this.city = city;
-    }
+	public Forecast getTodayPlus(final int offset) {
+		return this.list.get(offset);
+	}
 
-    public List<Forecast> getList() {
-        return this.list;
-    }
+	public City getCity() {
+		return this.city;
+	}
 
-    public void setList(final List<Forecast> list) {
-        this.list = list;
-    }
+	public void setCity(final City city) {
+		this.city = city;
+	}
 
-    public static class City {
-        private String name;
+	public List<Forecast> getList() {
+		return this.list;
+	}
 
-        public String getName() {
-            return this.name;
-        }
+	public void setList(final List<Forecast> list) {
+		this.list = list;
+	}
 
-        public void setName(final String name) {
-            this.name = name;
-        }
-    }
+	public static class City {
+		private String name;
 
-    public static class Forecast {
-        private long dt;
-        private Map<String, Float> temp;
-        private float pressure;
-        private float humidity;
-        private List<Weather> weather;
-        private float speed;
-        private int deg;
-        private float rain;
+		public String getName() {
+			return this.name;
+		}
 
-        public List<Weather> getWeather() {
-            return this.weather;
-        }
+		public void setName(final String name) {
+			this.name = name;
+		}
+	}
 
-        public void setWeather(final List<Weather> weather) {
-            this.weather = weather;
-        }
+	public static class Forecast {
+		private long dt;
+		private Map<String, Float> temp;
+		private List<Weather> weather;
+		private Main main;
 
-        public float getSpeed() {
-            return this.speed;
-        }
+		public Main getMain() {
+			return this.main;
+		}
 
-        public void setSpeed(final float speed) {
-            this.speed = speed;
-        }
+		public void setMain(final Main main) {
+			this.main = main;
+		}
 
-        public int getDeg() {
-            return this.deg;
-        }
+		public int getId() {
+			return getWeather().get(0).getId();
+		}
 
-        public void setDeg(final int deg) {
-            this.deg = deg;
-        }
+		public String getDescription() {
+			return getWeather().get(0).getDescription();
+		}
 
-        public float getRain() {
-            return this.rain;
-        }
+		public List<Weather> getWeather() {
+			return this.weather;
+		}
 
-        public void setRain(final float rain) {
-            this.rain = rain;
-        }
+		public void setWeather(final List<Weather> weather) {
+			this.weather = weather;
+		}
 
-        public Map<String, Float> getTemp() {
-            return this.temp;
-        }
+		public Map<String, Float> getTemp() {
+			return this.temp;
+		}
 
-        public void setTemp(final Map<String, Float> temp) {
-            this.temp = temp;
-        }
+		public void setTemp(final Map<String, Float> temp) {
+			this.temp = temp;
+		}
 
-        public float getPressure() {
-            return this.pressure;
-        }
+		/**
+		 * Note that you have to multiply this value with 1000 in order to
+		 * receive proper DateTimes as Java expects timestamps to be presented
+		 * in miliseconds
+		 *
+		 * @return dt from json result
+		 */
+		public long getDt() {
+			return this.dt;
+		}
 
-        public void setPressure(final float pressure) {
-            this.pressure = pressure;
-        }
+		public void setDt(final long dt) {
+			this.dt = dt;
+		}
+	}
 
-        public float getHumidity() {
-            return this.humidity;
-        }
+	public static class Weather {
+		private int id;
+		private String main;
+		private String description;
+		private String icon;
 
-        public void setHumidity(final float humidity) {
-            this.humidity = humidity;
-        }
+		public int getId() {
+			return this.id;
+		}
 
-        /**
-         * Note that you have to multiply this value with 1000 in order to receive proper DateTimes as Java expects timestamps to be presented in miliseconds
-         *
-         * @return dt from json result
-         */
-        public long getDt() {
-            return this.dt;
-        }
+		public void setId(final int id) {
+			this.id = id;
+		}
 
-        public void setDt(final long dt) {
-            this.dt = dt;
-        }
-    }
+		public String getMain() {
+			return this.main;
+		}
 
-    public static class Weather {
-        private int id;
-        private String main;
-        private String description;
-        private String icon;
+		public void setMain(final String main) {
+			this.main = main;
+		}
 
-        public int getId() {
-            return this.id;
-        }
+		public String getDescription() {
+			return this.description;
+		}
 
-        public void setId(final int id) {
-            this.id = id;
-        }
+		public void setDescription(final String description) {
+			this.description = description;
+		}
 
-        public String getMain() {
-            return this.main;
-        }
+		public String getIcon() {
+			return this.icon;
+		}
 
-        public void setMain(final String main) {
-            this.main = main;
-        }
+		public void setIcon(final String icon) {
+			this.icon = icon;
+		}
+	}
 
-        public String getDescription() {
-            return this.description;
-        }
+	public class Main {
 
-        public void setDescription(final String description) {
-            this.description = description;
-        }
+		private float temp;
+		private float pressure;
+		private int humidity;
+		private float temp_min;
+		private float temp_max;
 
-        public String getIcon() {
-            return this.icon;
-        }
+		public Main() {
+			super();
+		}
 
-        public void setIcon(final String icon) {
-            this.icon = icon;
-        }
-    }
+		public float getTemp() {
+			return this.temp;
+		}
 
-    public static class Temperatures {
-        private float day;
-        private float min;
-        private float max;
-        private float night;
-        private float eve;
-        private float morn;
+		public void setTemp(final float temp) {
+			this.temp = temp;
+		}
 
-        public float getDay() {
-            return this.day;
-        }
+		public float getPressure() {
+			return this.pressure;
+		}
 
-        public void setDay(final float day) {
-            this.day = day;
-        }
+		public void setPressure(final float pressure) {
+			this.pressure = pressure;
+		}
 
-        public float getMin() {
-            return this.min;
-        }
+		public int getHumidity() {
+			return this.humidity;
+		}
 
-        public void setMin(final float min) {
-            this.min = min;
-        }
+		public void setHumidity(final int humidity) {
+			this.humidity = humidity;
+		}
 
-        public float getMax() {
-            return this.max;
-        }
+		public float getTemp_min() {
+			return this.temp_min;
+		}
 
-        public void setMax(final float max) {
-            this.max = max;
-        }
+		public void setTemp_min(final float temp_min) {
+			this.temp_min = temp_min;
+		}
 
-        public float getNight() {
-            return this.night;
-        }
+		public float getTemp_max() {
+			return this.temp_max;
+		}
 
-        public void setNight(final float night) {
-            this.night = night;
-        }
-
-        public float getEve() {
-            return this.eve;
-        }
-
-        public void setEve(final float eve) {
-            this.eve = eve;
-        }
-
-        public float getMorn() {
-            return this.morn;
-        }
-
-        public void setMorn(final float morn) {
-            this.morn = morn;
-        }
-    }
+		public void setTemp_max(final float temp_max) {
+			this.temp_max = temp_max;
+		}
+	}
 }

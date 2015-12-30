@@ -113,9 +113,6 @@ public class WeatherWidget implements CustosModuleWidget {
 
 	@Override
 	public void updateWidget() {
-		if (null == this.forecastData) {
-			return;
-		}
 		if (null == this.weatherData || null == this.forecastData) {
 			return;
 		}
@@ -126,11 +123,11 @@ public class WeatherWidget implements CustosModuleWidget {
 		this.currentTemperatureLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
 		this.minMaxTemperatureLabel.setForeground(this.colorProvider.foregroundColor());
 		this.minMaxTemperatureLabel.setRightShadow(1, 1, this.colorProvider.shadowColor());
-		this.weatherStatusLabel.setIcon(this.iconProvider.getIconForCode(this.forecastData.getList().get(0).getWeather().get(0).getId()));
-		this.weatherStatusLabel.setToolTipText(new DirectI18N("Today: ${0}", this.forecastData.getList().get(0).getWeather().get(0).getDescription()).toString());
-		this.currentTemperatureLabel.setText(Float.valueOf(this.weatherData.getMain().getTemp()).intValue() + "°C");
-		final int minTemperature = Float.valueOf(this.weatherData.getMain().getTemp_min()).intValue();
-		final int maxTemperature = Float.valueOf(this.weatherData.getMain().getTemp_max()).intValue();
+		this.weatherStatusLabel.setIcon(this.iconProvider.getIconForCode(this.weatherData.getId()));
+		this.weatherStatusLabel.setToolTipText(new DirectI18N("Today: ${0}", this.weatherData.getDescription()).toString());
+		this.currentTemperatureLabel.setText(Float.valueOf(this.weatherData.getTemperature()).intValue() + "°C");
+		final int minTemperature = this.forecastData.getToday().getTemp().get("min").intValue();
+		final int maxTemperature = this.forecastData.getToday().getTemp().get("max").intValue();
 		this.minMaxTemperatureLabel.setText(minTemperature + "°C - " + maxTemperature + "°C");
 
 		this.forecastIconLabel1.setIcon(this.iconProvider.getForecastIconFor(this.forecastData.getList().get(1).getWeather().get(0).getId()));

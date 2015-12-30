@@ -1,106 +1,142 @@
 package modules.weather;
 
+import java.util.List;
+
 public class CurrentWeatherData {
 
-    private String name;
-    private Main main;
+	private String name;
+	private Main main;
+	private List<Weather> weather;
 
-    public String getName() {
-        return this.name;
-    }
+	public float getTemperature() {
+		return getMain().getTemp();
+	}
 
-    public void setName(final String name) {
-        this.name = name;
-    }
+	public float getMinTemperature() {
+		return getMain().getTemp_min();
+	}
 
-    public Main getMain() {
-        return this.main;
-    }
+	public float getMaxTemperature() {
+		return getMain().getTemp_max();
+	}
 
-    public void setMain(final Main main) {
-        this.main = main;
-    }
+	public int getId() {
+		return getWeather().get(0).getId();
+	}
 
-    public CurrentWeatherData() {
-        super();
-    }
+	public String getDescription() {
+		return getWeather().get(0).getDescription();
+	}
 
-    public class Weather {
+	public List<Weather> getWeather() {
+		return this.weather;
+	}
 
-        private int id;
-        private String icon;
+	public String getName() {
+		return this.name;
+	}
 
-        public int getId() {
-            return this.id;
-        }
+	public void setName(final String name) {
+		this.name = name;
+	}
 
-        public void setId(final int id) {
-            this.id = id;
-        }
+	public Main getMain() {
+		return this.main;
+	}
 
-        public String getIcon() {
-            return this.icon;
-        }
+	public void setMain(final Main main) {
+		this.main = main;
+	}
 
-        public void setIcon(final String icon) {
-            this.icon = icon;
-        }
+	public CurrentWeatherData() {
+		super();
+	}
 
-        public Weather() {
-            super();
-        }
-    }
+	public class Weather {
 
-    public class Main {
+		private int id;
+		private String icon;
+		private String description;
 
-        private float temp;
-        private float pressure;
-        private int humidity;
-        private float temp_min;
-        private float temp_max;
+		public int getId() {
+			return this.id;
+		}
 
-        public Main() {
-            super();
-        }
+		public void setDescription(final String description) {
+			this.description = description;
+		}
 
-        public float getTemp() {
-            return this.temp;
-        }
+		public String getDescription() {
+			return this.description;
+		}
 
-        public void setTemp(final float temp) {
-            this.temp = temp;
-        }
+		public void setId(final int id) {
+			this.id = id;
+		}
 
-        public float getPressure() {
-            return this.pressure;
-        }
+		public String getIcon() {
+			return this.icon;
+		}
 
-        public void setPressure(final float pressure) {
-            this.pressure = pressure;
-        }
+		public void setIcon(final String icon) {
+			this.icon = icon;
+		}
 
-        public int getHumidity() {
-            return this.humidity;
-        }
+		public Weather() {
+			super();
+		}
+	}
 
-        public void setHumidity(final int humidity) {
-            this.humidity = humidity;
-        }
+	public class Main {
 
-        public float getTemp_min() {
-            return this.temp_min;
-        }
+		private float temp;
+		private float pressure;
+		private int humidity;
+		private float temp_min;
+		private float temp_max;
 
-        public void setTemp_min(final float temp_min) {
-            this.temp_min = temp_min;
-        }
+		public Main() {
+			super();
+		}
 
-        public float getTemp_max() {
-            return this.temp_max;
-        }
+		public float getTemp() {
+			return this.temp;
+		}
 
-        public void setTemp_max(final float temp_max) {
-            this.temp_max = temp_max;
-        }
-    }
+		public void setTemp(final float temp) {
+			this.temp = temp;
+		}
+
+		public float getPressure() {
+			return this.pressure;
+		}
+
+		public void setPressure(final float pressure) {
+			this.pressure = pressure;
+		}
+
+		public int getHumidity() {
+			return this.humidity;
+		}
+
+		public void setHumidity(final int humidity) {
+			this.humidity = humidity;
+		}
+
+		public float getTemp_min() {
+			return this.temp_min;
+		}
+
+		public void setTemp_min(final float temp_min) {
+			this.temp_min = temp_min;
+		}
+
+		public float getTemp_max() {
+			return this.temp_max;
+		}
+
+		public void setTemp_max(final float temp_max) {
+			this.temp_max = temp_max;
+		}
+	}
 }
