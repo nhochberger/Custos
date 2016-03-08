@@ -5,39 +5,37 @@ import model.configuration.input.ConfigurationInput;
 
 public abstract class CustosModuleConfigurationEntry<TYPE> {
 
-	private final I18N title;
-	private final I18N description;
-	private final String key;
-	// HACK
-	protected TYPE value;
+    private final I18N title;
+    private final I18N description;
+    private final String key;
+    // HACK
+    protected TYPE value;
 
-	public CustosModuleConfigurationEntry(final I18N title, final I18N description, final String key, final TYPE value) {
-		super();
-		this.title = title;
-		this.description = description;
-		this.key = key;
-		this.value = value;
-	}
+    public CustosModuleConfigurationEntry(final I18N title, final I18N description, final String key, final TYPE value) {
+        super();
+        this.title = title;
+        this.description = description;
+        this.key = key;
+        this.value = value;
+    }
 
-	public I18N getTitle() {
-		return this.title;
-	}
+    public I18N getTitle() {
+        return this.title;
+    }
 
-	public I18N getDescription() {
-		return this.description;
-	}
+    public I18N getDescription() {
+        return this.description;
+    }
 
-	public String getKey() {
-		return this.key;
-	}
+    public String getKey() {
+        return this.key;
+    }
 
-	public TYPE getValue() {
-		return this.value;
-	}
+    public TYPE getValue() {
+        return this.value;
+    }
 
-	public void setValue(final TYPE value) {
-		this.value = value;
-	}
+    public abstract void setValue(final String value);
 
-	public abstract ConfigurationInput<TYPE> getInput();
+    public abstract ConfigurationInput<TYPE> getInput();
 }

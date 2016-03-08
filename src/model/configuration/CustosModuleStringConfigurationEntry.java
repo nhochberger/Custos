@@ -6,12 +6,17 @@ import model.configuration.input.StringConfigurationInput;
 
 public class CustosModuleStringConfigurationEntry extends CustosModuleConfigurationEntry<String> {
 
-	public CustosModuleStringConfigurationEntry(final I18N title, final I18N description, final String key, final String value) {
-		super(title, description, key, value);
-	}
+    public CustosModuleStringConfigurationEntry(final I18N title, final I18N description, final String key, final String value) {
+        super(title, description, key, value);
+    }
 
-	@Override
-	public ConfigurationInput<String> getInput() {
-		return new StringConfigurationInput(getValue(), getDescription());
-	}
+    @Override
+    public ConfigurationInput<String> getInput() {
+        return new StringConfigurationInput(getValue(), getDescription());
+    }
+
+    @Override
+    public void setValue(final String value) {
+        this.value = value;
+    }
 }

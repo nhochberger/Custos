@@ -10,23 +10,23 @@ import javax.swing.JComponent;
 
 public class BooleanConfigurationInput extends ConfigurationInput<Boolean> {
 
-	public BooleanConfigurationInput(final Boolean value, final I18N description) {
-		super(value, description);
-	}
+    public BooleanConfigurationInput(final Boolean value, final I18N description) {
+        super(value, description);
+    }
 
-	@Override
-	public JComponent getPreferredInputComponent() {
-		final JCheckBox result = new JCheckBox();
-		result.setSelected(value().booleanValue());
-		result.setToolTipText(description().toString());
-		result.addActionListener(new ActionListener() {
+    @Override
+    public JComponent getPreferredInputComponent() {
+        final JCheckBox result = new JCheckBox();
+        result.setSelected(value().booleanValue());
+        result.setToolTipText(description().toString());
+        result.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(final ActionEvent arg0) {
-				setValue(result.isSelected());
-			}
-		});
-		result.setOpaque(false);
-		return result;
-	}
+            @Override
+            public void actionPerformed(final ActionEvent arg0) {
+                setValue(result.isSelected());
+            }
+        });
+        result.setOpaque(false);
+        return result;
+    }
 }
