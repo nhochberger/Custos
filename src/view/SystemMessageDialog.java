@@ -1,13 +1,21 @@
 package view;
 
 import hochberger.utilities.eventbus.EventReceiver;
+import hochberger.utilities.gui.ImageButton;
+import hochberger.utilities.gui.PanelWrapper;
+import hochberger.utilities.images.loader.ImageLoader;
+import hochberger.utilities.text.i18n.DirectI18N;
 
 import java.awt.Dialog.ModalExclusionType;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 import net.miginfocom.swing.MigLayout;
 import controller.SystemMessage;
@@ -21,6 +29,7 @@ public class SystemMessageDialog implements EventReceiver<SystemMessage> {
     private final ColorProvider colorProvider;
     private final SystemMessageMemory messageMemory;
     private JPanel messagesPanel;
+    private JPanel contentPane;
 
     public SystemMessageDialog(final ColorProvider colorProvider, final SystemMessageMemory messageMemory) {
         super();
@@ -44,15 +53,36 @@ public class SystemMessageDialog implements EventReceiver<SystemMessage> {
         this.dialog.setSize(600, 300);
         this.dialog.setLocationRelativeTo(null);
         this.dialog.setResizable(false);
+        this.contentPane = new JPanel(new MigLayout("", "2[596px!]2", "2[32px!]2[262px!]2"));
+        this.contentPane.setBackground(this.colorProvider.backgroundColor());
+        this.dialog.setContentPane(this.contentPane);
         this.messagesPanel = new JPanel(new MigLayout());
-        this.messagesPanel.setBackground(this.colorProvider.backgroundColor());
+        this.messagesPanel.setOpaque(true);
         final JScrollPane scrollPane = new JScrollPane(this.messagesPanel);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
+        scrollPane.setOpaque(false);
         scrollPane.setAutoscrolls(true);
-        this.dialog.setContentPane(scrollPane);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        final ImageButton closeApplicationButton = new ImageButton(ImageLoader.loadImage("close.png"));
+        closeApplicationButton.setToolTipText(new DirectI18N("Close").toString());
+        closeApplicationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                hide();
+            }
+        });
+        final JPanel buttonPanel = PanelWrapper.wrap(closeApplicationButton);
+        buttonPanel.setOpaque(false);
+        this.contentPane.add(buttonPanel, "right, wrap");
+        this.contentPane.add(scrollPane, "width 596px, height 262px");
+
     }
 
     public void show() {
+        this.contentPane.setBackground(this.colorProvider.backgroundColor());
         this.messagesPanel.setBackground(this.colorProvider.backgroundColor());
+        this.contentPane.setBorder(BorderFactory.createLineBorder(this.colorProvider.shadowColor(), 1));
         this.dialog.setVisible(true);
     }
 
