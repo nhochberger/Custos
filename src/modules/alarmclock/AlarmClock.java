@@ -19,7 +19,7 @@ public class AlarmClock extends VisibleCustosModule {
     private final AlarmClockWidget widget;
     private final AlarmPersistenceManager persistenceManager;
     private final boolean alarmActive;
-    private final CustosModuleConfiguration configuration;
+    private final AlarmClockConfiguration configuration;
     // HACK
     private Color lastForegroundColor;
 
@@ -29,7 +29,7 @@ public class AlarmClock extends VisibleCustosModule {
         this.widget = new AlarmClockWidget(session.getEventBus(), colorProvider, this.alarms);
         this.persistenceManager = new AlarmPersistenceManager(session);
         this.alarmActive = false;
-        this.configuration = new CustosModuleConfiguration.NoCustosModuleConfiguration();
+        this.configuration = new AlarmClockConfiguration(session);
         this.lastForegroundColor = colorProvider.foregroundColor();
     }
 
@@ -87,7 +87,7 @@ public class AlarmClock extends VisibleCustosModule {
             logger().info("Alarm is active. New Alarm is skipped.");
             return;
         }
-        final TriggeredAlarm triggeredAlarm = new TriggeredAlarm(session());
+        final TriggeredAlarm triggeredAlarm = new TriggeredAlarm(session(), this.configuration.alarmSoundFileStream());
         triggeredAlarm.start();
     }
 

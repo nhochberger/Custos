@@ -1,7 +1,6 @@
 package modules.alarmclock;
 
 import hochberger.utilities.application.Lifecycle;
-import hochberger.utilities.application.ResourceLoader;
 import hochberger.utilities.application.session.BasicSession;
 import hochberger.utilities.application.session.SessionBasedObject;
 import hochberger.utilities.gui.dialog.BasicModalDialog;
@@ -12,6 +11,9 @@ import hochberger.utilities.text.Text;
 import hochberger.utilities.text.i18n.DirectI18N;
 import hochberger.utilities.threading.ThreadRunner;
 import hochberger.utilities.timing.ToMilis;
+
+import java.io.InputStream;
+
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
@@ -23,8 +25,11 @@ import edt.EDT;
 
 public class TriggeredAlarm extends SessionBasedObject implements Lifecycle {
 
-    protected TriggeredAlarm(final BasicSession session) {
+    private final InputStream alarmSoundStream;
+
+    protected TriggeredAlarm(final BasicSession session, final InputStream alarmSoundStream) {
         super(session);
+        this.alarmSoundStream = alarmSoundStream;
     }
 
     @Override
@@ -35,7 +40,7 @@ public class TriggeredAlarm extends SessionBasedObject implements Lifecycle {
         final BasicModalDialog dialog = new SelfClosingModalDialog(new DirectI18N("${0}:${1}", String.format("%02d", now.getHourOfDay()), String.format("%02d", now.getMinuteOfHour())),
                 new DirectI18N(Text.empty()), new DirectI18N("Snooze"), new DirectI18N("Cancel"), ToMilis.minutes(15));
         try {
-            final Player player = new Player(ResourceLoader.loadAsStream("modules/alarmclock/alarm.mp3"));
+            final Player player = new Player(this.alarmSoundStream);
             dialog.addCloseListener(new DialogCloseListener() {
 
                 @Override

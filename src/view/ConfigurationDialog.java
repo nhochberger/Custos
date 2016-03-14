@@ -64,9 +64,9 @@ public class ConfigurationDialog extends WrappedComponent<JDialog> {
             final JLabel sectionLabel = new JLabel(moduleConfiguration.getTitle().toString());
             sectionLabel.setFont(baseFont.deriveFont(16f));
             panel.add(sectionLabel, "span 2, wrap");
-            for (final CustosModuleConfigurationEntry entry : moduleConfiguration.getConfigurationEntries().values()) {
+            for (final CustosModuleConfigurationEntry<?> entry : moduleConfiguration.getConfigurationEntries().values()) {
                 panel.add(new JLabel(entry.getTitle().toString()));
-                final ConfigurationInput configurationInput = entry.getInput();
+                final ConfigurationInput<?> configurationInput = entry.getInput();
                 final JComponent inputComponent = configurationInput.getPreferredInputComponent();
                 configurationTextFields.put(entry.getKey(), configurationInput);
                 panel.add(inputComponent, "grow, wrap");
