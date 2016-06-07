@@ -1,32 +1,30 @@
 package view;
 
-import hochberger.utilities.application.ApplicationShutdownEvent;
-import hochberger.utilities.application.session.BasicSession;
-import hochberger.utilities.gui.ImageButton;
-import hochberger.utilities.gui.PanelWrapper;
-import hochberger.utilities.gui.UndecoratedEDTSafeFrame;
-import hochberger.utilities.images.loader.ImageLoader;
-import hochberger.utilities.text.i18n.DirectI18N;
-
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import controller.SystemMessage;
+import controller.SystemMessageMemory;
+import hochberger.utilities.application.ApplicationShutdownEvent;
+import hochberger.utilities.application.session.BasicSession;
+import hochberger.utilities.gui.ImageButton;
+import hochberger.utilities.gui.PanelWrapper;
+import hochberger.utilities.gui.UndecoratedEDTSafeFrame;
+import hochberger.utilities.gui.WindowClosedApplicationShutdownEventPublisher;
+import hochberger.utilities.images.loader.ImageLoader;
+import hochberger.utilities.text.i18n.DirectI18N;
 import model.configuration.CustosConfiguration;
 import modules.CustosModule;
 import modules.VisibleCustosModule;
 import net.miginfocom.swing.MigLayout;
-import controller.SystemMessage;
-import controller.SystemMessageMemory;
 
 public class CustosMainFrame extends UndecoratedEDTSafeFrame {
 
@@ -52,12 +50,7 @@ public class CustosMainFrame extends UndecoratedEDTSafeFrame {
     @Override
     protected void buildUI() {
         frame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame().addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosed(final WindowEvent e) {
-                CustosMainFrame.this.session.getEventBus().publishFromEDT(new ApplicationShutdownEvent());
-            }
-        });
+        frame().addWindowListener(new WindowClosedApplicationShutdownEventPublisher(this.session));
         center();
         frame().getContentPane().setBackground(this.colorProvider.backgroundColor());
         useLayoutManager(new MigLayout("wrap 3", ":push[400!, left]30![400!, center]30![400!, right]:push", "20![200!, top]30[200!, center]30[200!, bottom]push"));
