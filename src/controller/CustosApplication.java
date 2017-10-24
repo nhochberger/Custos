@@ -21,7 +21,6 @@ import modules.alarmclock.AlarmClock;
 import modules.clock.Clock;
 import modules.newsreader.NewsReader;
 import modules.weather.Weather;
-import view.ColorProvider;
 import view.CustosGui;
 import view.DayTimeAwareColorProvider;
 
@@ -29,7 +28,7 @@ public class CustosApplication extends BasicLoggedApplication {
 
 	private final Heartbeat heartbeat;
 	private final ScreenSaverProhibiter screenSaverProhibiter;
-	private final ColorProvider colorProvider;
+	// private final ColorProvider colorProvider;
 	private final CustosSession session;
 	private final CustosGui gui;
 	private final List<CustosModule> modules;
@@ -51,16 +50,15 @@ public class CustosApplication extends BasicLoggedApplication {
 
 	public CustosApplication(final ApplicationProperties applicationProperties) {
 		super();
-		this.session = new CustosSession(applicationProperties, new SimpleEventBus(), getLogger(), new DataStorageProvider());
+		this.session = new CustosSession(applicationProperties, new SimpleEventBus(), getLogger(), new DataStorageProvider(), new DayTimeAwareColorProvider());
 		this.custosConfiguration = new CustosConfiguration(this.session);
 		this.custosConfiguration.load();
-		this.colorProvider = new DayTimeAwareColorProvider(this.session);
 		this.heartbeat = new Heartbeat(this.session);
 		this.screenSaverProhibiter = new ScreenSaverProhibiter(this.session);
 		this.versionChecker = new VersionChecker(this.session);
 		this.systemMessageMemory = new SystemMessageMemory();
 		this.session.getEventBus().register(this.systemMessageMemory, SystemMessage.class);
-		this.gui = new CustosGui(this.session, this.colorProvider, this.systemMessageMemory, this.custosConfiguration);
+		this.gui = new CustosGui(this.session, this.systemMessageMemory, this.custosConfiguration);
 		this.session.getEventBus().register(this.gui, HeartbeatEvent.class);
 		this.modules = new LinkedList<>();
 
@@ -83,10 +81,10 @@ public class CustosApplication extends BasicLoggedApplication {
 
 	private void setUpModules() {
 		logger().info("Setting up modules");
-		this.modules.add(new Clock(this.session, this.colorProvider));
-		this.modules.add(new Weather(this.session, this.colorProvider));
-		this.modules.add(new AlarmClock(this.session, this.colorProvider));
-		this.modules.add(new NewsReader(this.session, this.colorProvider));
+		this.modules.add(new Clock(this.session));
+		this.modules.add(new Weather(this.session));
+		this.modules.add(new AlarmClock(this.session));
+		this.modules.add(new NewsReader(this.session));
 	}
 
 	@Override

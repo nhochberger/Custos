@@ -1,6 +1,17 @@
 package modules.newsreader;
 
-import hochberger.utilities.application.session.BasicSession;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import controller.CustosSession;
+import controller.HeartbeatEvent;
+import controller.SystemMessage;
+import controller.SystemMessage.MessageSeverity;
+import edt.EDT;
 import hochberger.utilities.text.i18n.DirectI18N;
 import hochberger.utilities.timing.ToMilis;
 import it.sauronsoftware.feed4j.FeedIOException;
@@ -9,23 +20,10 @@ import it.sauronsoftware.feed4j.FeedXMLParseException;
 import it.sauronsoftware.feed4j.UnsupportedFeedException;
 import it.sauronsoftware.feed4j.bean.Feed;
 import it.sauronsoftware.feed4j.bean.FeedItem;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import model.configuration.CustosModuleConfiguration;
 import model.configuration.CustosModuleStringConfigurationEntry;
 import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
-import view.ColorProvider;
-import controller.HeartbeatEvent;
-import controller.SystemMessage;
-import controller.SystemMessage.MessageSeverity;
-import edt.EDT;
 
 public class NewsReader extends VisibleCustosModule {
 
@@ -35,9 +33,8 @@ public class NewsReader extends VisibleCustosModule {
 			try {
 				final Feed feedRepresenation = FeedParser.parse(new URL(NewsReader.this.feedUrl));
 				logger().info("Successfully fetched " + feedRepresenation.getItemCount() + " items from " + NewsReader.this.feedUrl);
-				session().getEventBus().publish(
-						new SystemMessage(MessageSeverity.NORMAL, new DirectI18N("Retrieved ${0} items from ${1}", String.valueOf(feedRepresenation.getItemCount()), NewsReader.this.feedUrl)
-								.toString()));
+				session().getEventBus().publish(new SystemMessage(MessageSeverity.NORMAL,
+						new DirectI18N("Retrieved ${0} items from ${1}", String.valueOf(feedRepresenation.getItemCount()), NewsReader.this.feedUrl).toString()));
 				NewsReader.this.feedItems.clear();
 				for (int i = 0; i < feedRepresenation.getItemCount(); i++) {
 					NewsReader.this.feedItems.add(feedRepresenation.getItem(i));
@@ -60,14 +57,14 @@ public class NewsReader extends VisibleCustosModule {
 	private String feedUrl;
 	private TimerTask fetchNewsTask;
 
-	public NewsReader(final BasicSession session, final ColorProvider colorProvider) {
-		super(session, colorProvider);
+	public NewsReader(final CustosSession session) {
+		super(session);
 		this.widget = new NewsReaderWidget(colorProvider());
 		this.feedItems = new LinkedList<>();
 		this.timer = new Timer();
 		this.configuration = new CustosModuleConfiguration(new DirectI18N("News Reader Configuration"));
-		this.configuration.addConfigurationEntry(new CustosModuleStringConfigurationEntry(new DirectI18N("RSS-Feed:"), new DirectI18N("The address of the feed from which news are to be loaded."),
-				NEWSREADER_URL_KEY, DEFAULT_RSS));
+		this.configuration.addConfigurationEntry(
+				new CustosModuleStringConfigurationEntry(new DirectI18N("RSS-Feed:"), new DirectI18N("The address of the feed from which news are to be loaded."), NEWSREADER_URL_KEY, DEFAULT_RSS));
 	}
 
 	@Override

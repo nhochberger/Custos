@@ -10,7 +10,6 @@ import hochberger.utilities.eventbus.EventReceiver;
 import model.configuration.CustosModuleConfiguration;
 import modules.CustosModuleWidget;
 import modules.VisibleCustosModule;
-import view.ColorProvider;
 
 public class AlarmClock extends VisibleCustosModule {
 
@@ -22,14 +21,14 @@ public class AlarmClock extends VisibleCustosModule {
 	// HACK
 	private Color lastForegroundColor;
 
-	public AlarmClock(final CustosSession session, final ColorProvider colorProvider) {
-		super(session, colorProvider);
+	public AlarmClock(final CustosSession session) {
+		super(session);
 		this.alarms = new LinkedList<>();
-		this.widget = new AlarmClockWidget(session.getEventBus(), colorProvider, this.alarms);
+		this.widget = new AlarmClockWidget(session.getEventBus(), colorProvider(), this.alarms);
 		this.persistenceManager = new AlarmPersistenceManager(session);
 		this.alarmActive = false;
 		this.configuration = new AlarmClockConfiguration(session);
-		this.lastForegroundColor = colorProvider.foregroundColor();
+		this.lastForegroundColor = colorProvider().foregroundColor();
 	}
 
 	@Override
